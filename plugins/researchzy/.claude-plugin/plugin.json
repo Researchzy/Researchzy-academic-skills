@@ -1,0 +1,29 @@
+{
+  "name": "researchzy",
+  "version": "1.6.1",
+  "description": "Researchzy literature search, library and PDFs, lawful full-text downloads, close reading, research cards and manuscript revision support.",
+  "author": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic",
+    "papers",
+    "literature-review",
+    "pdf",
+    "peer-review",
+    "rebuttal",
+    "statistics",
+    "mcp"
+  ],
+  "mcpServers": {
+    "researchzy": {
+      "type": "http",
+      "url": "https://app.researchzy.com/mcp"
+    }
+  }
+}

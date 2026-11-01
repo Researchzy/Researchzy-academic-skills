@@ -1,0 +1,18 @@
+{
+  "name": "researchzy",
+  "owner": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "metadata": {
+    "description": "Academic research skills for AI agents: find papers in 250 million records, get their full text, read them closely and prepare manuscript revisions."
+  },
+  "plugins": [
+    {
+      "name": "researchzy",
+      "source": "./plugins/researchzy",
+      "description": "Researchzy literature search, library and PDFs, lawful full-text downloads, close reading, research cards and manuscript revision support.",
+      "category": "research"
+    }
+  ]
+}

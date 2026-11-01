@@ -1,0 +1,28 @@
+name: researchzy-download
+version: 1.0.0
+description: >
+  Download academic full text through lawful open-access sources and the
+  publisher APIs the user holds keys for, with secure credential storage and an
+  auditable per-paper manifest.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: batch DOI, exact-title or known-URL downloads
+      path: scripts/batch_download.mjs
+    - condition: configuring or validating Elsevier, Springer Nature, or IEEE API credentials, or the Unpaywall contact email
+      path: scripts/configure_credentials.py
+    - condition: publisher API routing and provider-specific full-text status
+      path: scripts/lib/publisher-providers.mjs
+    - condition: open-access resolution through PMC, Unpaywall and openly licensed publisher PDFs
+      path: scripts/lib/open-access-provider.mjs
+    - condition: canonical download statuses and manifest status semantics
+      path: scripts/lib/status-codes.mjs
+    - condition: verifying a downloaded PDF
+      path: scripts/extract_pdf_text.py
+interface:
+  display_name: "Researchzy Download"
+  short_description: "Download papers' full text through open access or publisher APIs"
+  default_prompt: "Use $researchzy-download to get the full text of these papers through open access or my publisher API keys."

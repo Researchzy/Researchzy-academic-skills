@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python -m pip install pytest pyyaml
+      - name: Repository
+        run: python -m unittest discover -s tests
+      - name: researchzy-paper-card
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-paper-card/tests
+      - name: researchzy-stats-review
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-stats-review/shared/tests
+      - name: researchzy-rebuttal
+        run: |
+          python -m unittest discover -s plugins/researchzy/skills/researchzy-rebuttal/shared/tests
+          python -m pytest plugins/researchzy/skills/researchzy-rebuttal/tests
+      - name: researchzy-download
+        run: |
+          python -m unittest discover -s plugins/researchzy/skills/researchzy-download/tests/python
+          node --test plugins/researchzy/skills/researchzy-download/tests/unit/*.test.mjs
