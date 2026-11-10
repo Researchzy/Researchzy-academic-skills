@@ -9,14 +9,14 @@
 
 <p align="center">
   <b>Give your AI agent the skills of a careful researcher — working from real papers.</b><br>
-  Find papers among 250 million records, get their full text lawfully, read them closely,<br>
-  and prepare your manuscript and your responses to reviewers.
+  Find papers among 250 million records, review the literature, get full text lawfully,<br>
+  read closely, check your references, and prepare your manuscript and your responses to reviewers.
 </p>
 
 <p align="center">
   <a href="LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg"></a>
-  <a href="CHANGELOG.md"><img alt="Version" src="https://img.shields.io/badge/Version-1.6.1-4C6BD6.svg"></a>
-  <a href="#-whats-included"><img alt="Skills" src="https://img.shields.io/badge/Skills-7-brightgreen.svg"></a>
+  <a href="CHANGELOG.md"><img alt="Version" src="https://img.shields.io/badge/Version-1.7.0-4C6BD6.svg"></a>
+  <a href="#-whats-included"><img alt="Skills" src="https://img.shields.io/badge/Skills-9-brightgreen.svg"></a>
   <a href="plugins/researchzy/docs/tools.md"><img alt="MCP tools" src="https://img.shields.io/badge/MCP_tools-9-orange.svg"></a>
   <a href="#-whats-included"><img alt="Papers" src="https://img.shields.io/badge/Papers-250M-8FA8E8.svg"></a>
   <a href="https://agentskills.io/"><img alt="Agent Skills" src="https://img.shields.io/badge/Standard-Agent_Skills-blueviolet.svg"></a>
@@ -26,13 +26,15 @@
 
 ---
 
-Researchzy Academic Skills is a plugin of **seven agent skills for the whole life of a paper**: from finding the literature to answering the reviewers. Start with the `researchzy` skill: it searches the literature itself and hands every other task to the skill that fits. It follows the open [Agent Skills](https://agentskills.io/) standard, installs as a single plugin in **Claude Code** and **Codex**, and works in any host that supports Agent Skills. These are the same skills that run inside the [Researchzy Agent](https://researchzy.com).
+Researchzy Academic Skills is a plugin of **nine agent skills for the whole life of a paper**: from reviewing the literature to answering the reviewers. Start with the `researchzy` skill: it searches the literature itself and hands every other task to the skill that fits. It follows the open [Agent Skills](https://agentskills.io/) standard, installs as a single plugin in **Claude Code** and **Codex**, and works in any host that supports Agent Skills. These are the same skills that run inside the [Researchzy Agent](https://researchzy.com).
 
 > ⭐ **If these skills save you an afternoon, please [star the repository](https://github.com/Researchzy/Researchzy-academic-skills).** Stars help other researchers find it and tell us which skills to build next.
 
 ## ✨ Why Researchzy
 
 - 📚 **Real papers, not invented citations.** Search returns real bibliographic records from about 250 million scholarly papers across arXiv, PubMed and open-access literature. The reading skills never turn metadata into full-text claims or page numbers.
+- 🧭 **Reviews you can audit.** A literature review logs every search with its counts, records why each paper was kept or left out, reads the core papers in full, and cites only papers the index returned.
+- ✅ **References you can trust.** The reference check tells you which references in a draft are real, which carry another paper's DOI or a wrong author, and which were retracted. It can also check that a cited paper says what your sentence says, with a quote and a page.
 - 🔓 **Full text, the lawful way.** The PDFs Researchzy holds come first, then open-access copies (PMC, Unpaywall, openly licensed publisher PDFs, arXiv), then full text through *your own* Elsevier, Springer Nature or IEEE API keys. Every attempt is recorded in `manifest.json`.
 - 🔍 **Reads like a careful colleague.** A close reading works through the key formulas with concrete numbers and marks where the evidence stops. A Paper Card ties every claim to its experiment and ends with testable research ideas.
 - ✍️ **From draft to acceptance.** Audit your statistics, draft the Data and Code Availability statement journals ask for, and turn reviewer comments into a point-by-point response, a cover letter and a LaTeX revision package.
@@ -44,14 +46,16 @@ Researchzy Academic Skills is a plugin of **seven agent skills for the whole lif
 | Skill | What it does |
 |---|---|
 | 🔎 [`researchzy`](plugins/researchzy/skills/researchzy/SKILL.md) | **Start here.** Search 250M papers by keywords, title, DOI or arXiv ID; filter by year, field and venue; sort by citations; browse and organize your library; fetch PDFs; hand every other task to the skill that fits<br>**You get:** Real metadata and verified local PDFs |
+| 🧭 [`researchzy-literature-review`](plugins/researchzy/skills/researchzy-literature-review/SKILL.md) | A literature review on a topic: confirmed questions, logged searches in five passes, screening with reasons, full-text reading of the core papers, synthesis by theme<br>**You get:** `review.md` with a comparison table and gaps, `papers.csv`, `references.bib` and a search log |
 | 📥 [`researchzy-download`](plugins/researchzy/skills/researchzy-download/SKILL.md) | Get full text for a list of DOIs or titles from open access or your own publisher API keys<br>**You get:** Verified PDFs or full text, and a `manifest.json` of every attempt |
 | 📖 [`researchzy-deep-read`](plugins/researchzy/skills/researchzy-deep-read/SKILL.md) | Close reading of one paper: how the authors got there, which design choices carry the result, the key formulas with real numbers, how far the evidence reaches<br>**You get:** A Markdown long-read |
 | 🗂️ [`researchzy-paper-card`](plugins/researchzy/skills/researchzy-paper-card/SKILL.md) | A structured 16-section analysis of one paper: question, method logic, experiment-to-claim evidence, limitations, critique, research ideas<br>**You get:** A source-anchored `paper-card.md` and an audit report |
 | 📊 [`researchzy-stats-review`](plugins/researchzy/skills/researchzy-stats-review/SKILL.md) | Audit a manuscript's statistical reporting: experimental units, replication, uncertainty, tests, figure statistics<br>**You get:** Issues by severity, a ready-to-paste Statistical analysis section, and questions for the authors |
 | 🗄️ [`researchzy-data-availability`](plugins/researchzy/skills/researchzy-data-availability/SKILL.md) | Draft or audit Data and Code Availability statements, repository plans and dataset citations<br>**You get:** A ready-to-paste statement, repository and citation actions, and missing-information flags |
+| ✅ [`researchzy-reference-check`](plugins/researchzy/skills/researchzy-reference-check/SKILL.md) | Check every reference of a manuscript or `.bib` against Crossref, DataCite, arXiv, PubMed and Researchzy: it exists, its DOI is its own, authors and year match, it is not retracted. Optionally check that each cited paper supports the sentence citing it<br>**You get:** A report with a verdict and evidence per reference, a corrected `.bib`, and quotes with pages for checked claims |
 | 💬 [`researchzy-rebuttal`](plugins/researchzy/skills/researchzy-rebuttal/SKILL.md) | Turn an editor's letter and reviewer comments into a revision package<br>**You get:** A master tracker, one response per reviewer, a cover letter, and optional LaTeX files |
 
-Only `researchzy` needs a Researchzy account; `researchzy-download` uses it when it is connected. The other five skills work on the PDFs, text and files you give them.
+`researchzy` and `researchzy-literature-review` need a Researchzy account. `researchzy-download` and `researchzy-reference-check` use it when it is connected: the reference check runs against public registries without it, and uses Researchzy for title lookups and full text. The other five skills work on the PDFs, text and files you give them.
 
 The plugin also connects nine [MCP tools](plugins/researchzy/docs/tools.md): `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`.
 
@@ -60,9 +64,9 @@ The plugin also connects nine [MCP tools](plugins/researchzy/docs/tools.md): `se
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 260}}}%%
 flowchart LR
-    A["🔎 Find<br/>researchzy"] --> B["📥 Get the full text<br/>researchzy-download"]
+    A["🔎 Find and review<br/>researchzy<br/>researchzy-literature-review"] --> B["📥 Get the full text<br/>researchzy-download"]
     B --> C["📖 Read<br/>researchzy-deep-read<br/>researchzy-paper-card"]
-    C --> D["✍️ Write<br/>researchzy-stats-review<br/>researchzy-data-availability"]
+    C --> D["✍️ Write<br/>researchzy-stats-review<br/>researchzy-data-availability<br/>researchzy-reference-check"]
     D --> E["💬 Revise<br/>researchzy-rebuttal"]
     classDef step fill:#E7ECF7,stroke:#4C6BD6,color:#111113
     class A,B,C,D,E step
@@ -118,6 +122,8 @@ To use the `researchzy` skill's search and library, also add the MCP server `htt
 
 > Look up DOI 10.1051/0004-6361/202556799 and arXiv 2508.10985, and tell me which have a PDF.
 
+> Review the literature on sleep deprivation and memory encoding since 2010: what is established, what is disputed, and where are the gaps?
+
 **Get the full text**
 > Download the full text of 10.1371/journal.pone.0000308 and 10.1016/j.cell.2020.02.052.
 
@@ -131,6 +137,8 @@ To use the `researchzy` skill's search and library, also add the MCP server `htt
 
 > Draft a Data and Code Availability statement for our RNA-seq data and analysis code.
 
+> Check the references in `main.tex`: are they all real, do the DOIs belong to them, and is anything retracted?
+
 > Here are the editor's letter and the reviewers' comments; draft the point-by-point responses and the cover letter.
 
 ## 🤖 Prefer No Setup? Try the Researchzy Agent
@@ -142,7 +150,7 @@ The [Researchzy Agent](https://researchzy.com) runs these skills for you on its 
 <details>
 <summary><b>Do I need a Researchzy account?</b></summary>
 
-Only for the `researchzy` skill, and for the PDFs Researchzy holds when `researchzy-download` looks there first. The other skills work on the PDFs, text and files you provide.
+For the `researchzy` and `researchzy-literature-review` skills, and for the PDFs Researchzy holds when `researchzy-download` looks there first. `researchzy-reference-check` checks references against public registries without an account, and uses Researchzy for references that have no DOI and for the claim check. The other skills work on the PDFs, text and files you provide.
 </details>
 
 <details>
@@ -154,7 +162,7 @@ Only through publisher APIs you hold keys for (Elsevier, Springer Nature, IEEE).
 <details>
 <summary><b>Will my agent make up references?</b></summary>
 
-The literature skill reports only the records the search returned, and the reading skills never invent full-text claims or page numbers from metadata. When the full text is missing, they say so.
+The literature skills report and cite only the records the search returned, and the reading skills never invent full-text claims or page numbers from metadata. When the full text is missing, they say so. To check a draft you already have, run `researchzy-reference-check` on it.
 </details>
 
 <details>
@@ -180,9 +188,11 @@ python3 -m unittest discover -s plugins/researchzy/skills/researchzy-stats-revie
 python3 -m unittest discover -s plugins/researchzy/skills/researchzy-rebuttal/shared/tests
 python3 -m pytest plugins/researchzy/skills/researchzy-rebuttal/tests
 python3 -m unittest discover -s plugins/researchzy/skills/researchzy-download/tests/python
+python3 -m unittest discover -s plugins/researchzy/skills/researchzy-literature-review/tests
+python3 -m unittest discover -s plugins/researchzy/skills/researchzy-reference-check/tests
 node --test plugins/researchzy/skills/researchzy-download/tests/unit/*.test.mjs
 ```
 
 ## 📄 License
 
-[Apache License 2.0](LICENSE), except `researchzy-download`, which is under the MIT License ([`LICENSE`](plugins/researchzy/skills/researchzy-download/LICENSE)). Third-party components and their licenses are listed in [THIRD_PARTY_NOTICES.md](plugins/researchzy/THIRD_PARTY_NOTICES.md).
+[Apache License 2.0](LICENSE), except `researchzy-download`, which is under the MIT License ([`LICENSE`](plugins/researchzy/skills/researchzy-download/LICENSE)), and parts of the `researchzy-reference-check` scripts, which derive from MIT-licensed code ([license](plugins/researchzy/skills/researchzy-reference-check/scripts/LICENSE-MIT.txt)). Third-party components and their licenses are listed in [THIRD_PARTY_NOTICES.md](plugins/researchzy/THIRD_PARTY_NOTICES.md).

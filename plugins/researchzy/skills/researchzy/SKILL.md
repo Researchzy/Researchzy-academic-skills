@@ -1,6 +1,6 @@
 ---
 name: researchzy
-description: Researchzy, the entry point for academic research with real papers. Searches about 250 million papers by DOI, arXiv ID, title or keywords; browses and organizes the user's library; gets verified PDFs and adds PDFs to library papers; and hands the rest to the bundled Researchzy skills for full-text downloads, close reading, Paper Cards, statistical reporting, Data Availability statements and responses to reviewers. Use when the user mentions Researchzy, wants to find, look up, save or get papers, or asks for research help without naming a skill.
+description: Researchzy, the entry point for research with real papers. Searches about 250 million papers by DOI, arXiv ID, title or keywords, manages the user's library, gets and adds PDFs, and routes literature reviews, full-text downloads, close reading, Paper Cards, reference checks, statistics, Data Availability statements and reviewer responses to the bundled skills. Use when the user mentions Researchzy, wants to find, save or get papers, or asks for research help without naming a skill.
 ---
 
 # Researchzy
@@ -12,9 +12,11 @@ This is the entry point to Researchzy. It searches and manages papers itself wit
 | The user wants | Use |
 |---|---|
 | Find papers, look up a DOI or arXiv ID, browse or organize the library, get or add a PDF | This skill, below |
+| A literature review, related work, or a survey of what is known about a topic | `researchzy-literature-review` |
 | The full text of papers Researchzy has no PDF for | `researchzy-download` |
 | A close reading of one paper: how the authors got there, the formulas worked through, how far the evidence reaches | `researchzy-deep-read` |
 | A Paper Card, claim-to-evidence analysis, limitations or research ideas for one paper | `researchzy-paper-card` |
+| A check that a manuscript's or `.bib` file's references are real and correct, or that the cited papers support the text | `researchzy-reference-check` |
 | A review or draft of a manuscript's statistical reporting | `researchzy-stats-review` |
 | A Data and Code Availability statement, repository plan or dataset citations | `researchzy-data-availability` |
 | Responses to reviewers, a revision cover letter or a revision package | `researchzy-rebuttal` |
@@ -75,7 +77,8 @@ Use Researchzy's MCP tools for literature search, metadata, library access, PDF 
 
 ## Full-text downloads, close reading and research cards
 
-- Stop after search or metadata when that is all the user requested.
+- Stop after search or metadata when that is all the user requested. A request to find papers on a topic stays here; a request for a review, related work or a survey of a topic goes to `researchzy-literature-review`, which logs its searches and cites only papers this index returned.
+- To check a reference list or the citations of a draft, continue with `researchzy-reference-check`.
 - When Researchzy has no PDF for a paper the user wants the file of, continue with the bundled `researchzy-download` skill: it finds a lawful open-access copy or uses the user's own publisher API keys.
 - For close reading of one paper (how the authors got there, which design carries the result, the formulas worked through, how far the evidence reaches), continue with `researchzy-deep-read`.
 - For a structured Paper Card, claim-to-evidence analysis, limitations, or research ideas, continue with `researchzy-paper-card`.

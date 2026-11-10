@@ -110,3 +110,56 @@ Researchzy modifications (2026-11-01):
   accordingly; Researchzy's own PDFs are tried first.
 - 2026-11-01 (version 1.6.0): `SKILL.md` names `researchzy`, the renamed entry
   skill, where it named `researchzy-literature`.
+
+## researchzy-reference-check scripts
+
+Two scripts of `skills/researchzy-reference-check` are derived from the `verify-refs` skill of
+[Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills), commit
+`4e7b3d08e0d17935644a0e281c944764da4b2601` (2026-11-10), distributed under the
+[MIT License](licenses/medsci-skills-MIT.txt), Copyright (c) 2026 Aperivue. The skill directory
+keeps the license as `scripts/LICENSE-MIT.txt`. medsci-skills is a third-party project; bundling
+parts of it does not imply endorsement by its authors.
+
+| File | Upstream file |
+|---|---|
+| `scripts/check_references.py` | `skills/verify-refs/scripts/verify_refs.py` |
+| `scripts/quote_match.py` | `skills/verify-refs/scripts/_quote_match.py` |
+
+Researchzy modifications (2026-11-10, version 1.7.0):
+
+`check_references.py`:
+
+- Kept from upstream: the BibTeX, TSV and reference-line parsers, the DOI, author-name and title
+  comparison functions, the author cross-check, the doi.org handle lookup and the detection of
+  duplicate identifiers.
+- The verdicts are named `confirmed`, `mismatch`, `unconfirmed` and
+  `identifier_not_registered`.
+- The registry lookups are rewritten around one result type. The Crossref lookup also reads
+  retraction, correction and update-notice links and the preprint relation; a DataCite lookup
+  follows a DOI registered with another agency; an arXiv lookup handles `eprint` fields, arXiv
+  URLs and arXiv DOIs; the PubMed lookup also reads retraction and erratum links. The OpenAlex
+  lookup and the PubMed title search are removed, and a Crossref bibliographic search takes the
+  place of the title search.
+- An identifier that resolves to a work with another title is set aside, and the cited work is
+  searched by title; the report then names both.
+- A match by title alone also needs a year within one of the cited year; a rejected match is
+  listed as a nearest real paper.
+- The cited year is compared with the record's.
+- Researchzy search results saved by the agent are merged (`--researchzy`), and the searches
+  still worth making are written to `lookups.json`.
+- Citations are located in LaTeX, Pandoc and numbered manuscripts, with their sentences; cited
+  keys missing from the list and unused entries are reported.
+- New inputs: LaTeX sources (`thebibliography`, or the `.bib` files they name) and PDF. LaTeX
+  accents and brace-protected letters in BibTeX titles are read as plain text.
+- Output goes to a folder: `references.json`, `report.md`, `lookups.json` and, for BibTeX,
+  `fixes.bib`. Registry answers are cached, requests are paced per host and retried once, and
+  no contact address is sent unless the user gives one.
+- A placeholder ("in press", "forthcoming") is a flag and no longer changes the verdict, and is
+  matched on word boundaries. The `_audit_truncated` field is no longer read; BibTeX's
+  `and others` is.
+- Entries with the same title and first author are reported as duplicates.
+- Comments that referred to upstream's project conventions are reworded.
+
+`quote_match.py`: the module's introductory comment is rewritten; the code is unchanged.
+
+`check_claims.py`, `SKILL.md`, the reference files and the tests are Researchzy's own.

@@ -1,7 +1,7 @@
 {
   "name": "researchzy",
-  "version": "1.6.1",
-  "description": "Researchzy literature search, library and PDFs, lawful full-text downloads, close reading, research cards and manuscript revision support.",
+  "version": "1.7.0",
+  "description": "Researchzy literature search and reviews, library and PDFs, lawful full-text downloads, close reading, research cards, reference checks and manuscript revision support.",
   "author": {
     "name": "Researchzy",
     "url": "https://github.com/Researchzy"
