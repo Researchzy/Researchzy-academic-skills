@@ -5,13 +5,25 @@
     "url": "https://github.com/Researchzy"
   },
   "metadata": {
-    "description": "Academic research skills for AI agents: find papers in 250 million records, review the literature, get full text, read closely, check references and prepare manuscript revisions."
+    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, read papers closely, and prepare, check and revise manuscripts."
   },
   "plugins": [
     {
       "name": "researchzy",
       "source": "./plugins/researchzy",
-      "description": "Researchzy literature search and reviews, library and PDFs, lawful full-text downloads, close reading, research cards, reference checks and manuscript revision support.",
+      "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, and write literature reviews that cite only what the search returned. Needs a Researchzy account.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-reading",
+      "source": "./plugins/researchzy-reading",
+      "description": "Read papers with your agent: lawful full-text downloads, a close reading of one paper, and structured Paper Cards. Works on your own PDFs; no account needed.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-manuscript",
+      "source": "./plugins/researchzy-manuscript",
+      "description": "Prepare a manuscript with your agent: check that references are real and correct, review statistical reporting, draft Data and Code Availability statements and answer reviewers. No account needed.",
       "category": "research"
     }
   ]

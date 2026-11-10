@@ -1,7 +1,7 @@
 {
   "name": "researchzy",
-  "version": "1.7.0",
-  "description": "Researchzy literature search and reviews, library and PDFs, lawful full-text downloads, close reading, research cards, reference checks and manuscript revision support.",
+  "version": "2.0.0",
+  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, and write literature reviews that cite only what the search returned. Needs a Researchzy account.",
   "author": {
     "name": "Researchzy",
     "url": "https://github.com/Researchzy"
@@ -13,11 +13,9 @@
     "research",
     "academic",
     "papers",
+    "literature-search",
     "literature-review",
     "pdf",
-    "peer-review",
-    "rebuttal",
-    "statistics",
     "mcp"
   ],
   "mcpServers": {

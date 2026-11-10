@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-reading",
+  "version": "2.0.0",
+  "description": "Read papers with your agent: lawful full-text downloads, a close reading of one paper, and structured Paper Cards. Works on your own PDFs; no account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Reading",
+    "shortDescription": "Download full text, read papers closely and build Paper Cards.",
+    "longDescription": "Download full text through open access or your own publisher API keys, read one paper closely (design choices, worked formulas, how far the evidence reaches) and create evidence-grounded Paper Cards. Works on the PDFs you give it; no Researchzy account needed.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Read this paper closely: why did the authors design it this way, and how far does the evidence reach?"
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

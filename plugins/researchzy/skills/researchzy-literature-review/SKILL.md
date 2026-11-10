@@ -49,7 +49,7 @@ python3 "$SKILL_DIR/scripts/review_ledger.py" <command> …
 
 5. **Seed check.** Run `status`. A seed listed under `seeds_not_found_by_any_search` means the queries miss part of the topic: add the vocabulary that paper uses and search again.
 
-6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`. Get their full text: `get_pdf_download` with the `corpusId`, then `researchzy-download`, then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`.
+6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`. Get their full text: `get_pdf_download` with the `corpusId`, then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`.
 
 7. **Follow the references.** From the reference lists of three to five core papers, pick the works that several of them cite or that the text leans on, look each up with `search_papers`, and add what the index has (`--pass chain`). The index has no "cited by" search, so later papers come only from the `recent` pass.
 

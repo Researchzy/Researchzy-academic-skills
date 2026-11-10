@@ -27,7 +27,7 @@ Read [manifest.yaml](manifest.yaml), then read every file under `always_load`. D
 
 If the input is a DOI, arXiv ID, title or Researchzy ID and full text has not yet
 been obtained, read
-[Researchzy source acquisition](../researchzy/references/researchzy-source.md).
+[Researchzy source acquisition](references/researchzy-source.md).
 Use connected Researchzy tools to retrieve a verified local PDF before continuing.
 Local PDFs and supplied reader source maps need no Researchzy connection and no
 extra bilingual translation step. Keep metadata-only requests in

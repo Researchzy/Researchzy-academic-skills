@@ -44,7 +44,7 @@ Ask the user one question before starting, unless they already said: reference c
                 "invented2023": []}}
    ```
 
-   Copy the fields exactly as the tool returned them. Write an empty list when nothing came back: that records that the search was made. Do not judge which paper matches; the script does. If the Researchzy tools are not connected, skip this step and say so in the summary.
+   Copy the fields exactly as the tool returned them. Write an empty list when nothing came back: that records that the search was made. Do not judge which paper matches; the script does. The Researchzy tools come with the `researchzy` plugin and need a Researchzy account. If they are not connected, skip this step and say in the summary that connecting Researchzy would settle these references.
 
 3. **Run the script again** with the saved results:
 
@@ -76,7 +76,7 @@ Flags are separate from the verdict: `retracted`, `partly_retracted`, `expressio
 Run it only when the user asked for it. Read [Claim check](references/claim-check.md) first; in short:
 
 1. Take the citations to check from `citations` in `references.json`. By default check those with `"check": true`: sentences with a number, a comparison, a claim of priority or quoted words. Check all of them when the user asks. Find author-year citations the script did not locate by reading the manuscript.
-2. Get each cited paper's text: the user's own file, then Researchzy (`get_pdf_download` for the record in `lookups.json` under `for_full_text`), then `researchzy-download`, then the abstract. Never judge a claim from the title.
+2. Get each cited paper's text: the user's own file, then Researchzy (`get_pdf_download` for the record in `lookups.json` under `for_full_text`), then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Never judge a claim from the title.
 3. Read the source and give each citing sentence a verdict with a quote and page, in `reference-check/claims.json`.
 4. Run `python3 "$SKILL_DIR/scripts/check_claims.py" check reference-check/claims.json`. A verdict whose quote the script does not find is not accepted: reread the source and correct the quote or the verdict.
 5. Report from `reference-check/claims.md`.

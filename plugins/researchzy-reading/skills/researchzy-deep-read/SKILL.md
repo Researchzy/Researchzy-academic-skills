@@ -27,7 +27,7 @@ The delivered artifact is a Markdown long-read. A section-by-section summary of 
 ## Getting the paper
 
 If the user gives a DOI, arXiv ID, title or Researchzy ID and no full text yet, read
-[Researchzy source acquisition](../researchzy/references/researchzy-source.md) and
+[Researchzy source acquisition](references/researchzy-source.md) and
 obtain a verified local PDF before reading. A local PDF, publisher HTML or pasted text needs no
 Researchzy connection. Retrieving the paper does not save it to the user's library.
 

@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-manuscript",
+  "version": "2.0.0",
+  "description": "Prepare a manuscript with your agent: check that references are real and correct, review statistical reporting, draft Data and Code Availability statements and answer reviewers. No account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Manuscript",
+    "shortDescription": "Check references and statistics, and answer reviewers.",
+    "longDescription": "Check that a manuscript's references are real and correct and that cited papers support the text, audit statistical reporting, draft Data and Code Availability statements, and turn reviewer comments into a revision package. Works on the files you give it; no Researchzy account needed.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Check the references in this manuscript: are they real, and do the DOIs belong to them?"
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

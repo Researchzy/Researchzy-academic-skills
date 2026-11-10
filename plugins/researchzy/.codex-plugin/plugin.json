@@ -1,15 +1,15 @@
 {
   "name": "researchzy",
-  "version": "1.7.0",
-  "description": "Researchzy literature search and reviews, library and PDFs, lawful full-text downloads, close reading, research cards, reference checks and manuscript revision support.",
+  "version": "2.0.0",
+  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, and write literature reviews that cite only what the search returned. Needs a Researchzy account.",
   "author": {
     "name": "Researchzy"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Researchzy",
-    "shortDescription": "Find papers, download full text and create research cards.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Download full text Researchzy has no PDF for through open access or your own publisher API keys, review the literature on a topic, read papers closely, create evidence-grounded research cards, and check a manuscript's references, statistics, data availability statements and responses to reviewers.",
+    "shortDescription": "Search papers, manage your library and review the literature.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers; and write a literature review with logged searches, screening and a synthesis that cites only papers the index returned. Needs a Researchzy account.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

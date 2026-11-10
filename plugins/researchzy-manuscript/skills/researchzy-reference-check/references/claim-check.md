@@ -21,7 +21,7 @@ Try in this order and record which one you used in `read`:
 
 1. A file the user supplied.
 2. Researchzy: find the record (`lookups.json`, `for_full_text`, gives the `search_papers` call), then `get_pdf_download` with its `corpusId`. Follow the PDF rules of the `researchzy` skill: download before the URL expires, send no Researchzy credentials to the signed URL, check that the file is a PDF.
-3. `researchzy-download`, for an open-access copy.
+3. `researchzy-download` (plugin `researchzy-reading`, when installed), for an open-access copy.
 4. The abstract returned by `search_papers` or `get_paper` (pass `detail: full`). Save it as a text file. `read` is then `abstract`.
 
 Save sources under `reference-check/sources/`. For a PDF you cannot read directly, make a text file with page markers:
