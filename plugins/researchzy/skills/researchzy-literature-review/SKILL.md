@@ -33,7 +33,7 @@ python3 "$SKILL_DIR/scripts/review_ledger.py" <command> …
 
 2. **Library first.** Search the user's library with `list_library_papers` (`query`, scope `personal`, then `shared`). Log it (`search --tool list_library_papers --pass library`) and add the relevant papers with `add --library`. Look each seed up by DOI, arXiv number or title and add it with `add --seed`.
 
-3. **Search.** Read [Search tactics](references/search-tactics.md). For each question run the passes below, a few queries each, and log every query with the `total` the tool reported:
+3. **Search.** Read [Search tactics](references/search-tactics.md). For each question run the passes below, a few queries each, and log every query with the `total` the tool reported. A quick map may leave out `foundational` and `recent` when the question does not need them; `relevance`, `reviews` and `contrary` are always run:
 
    | Pass | What it finds | How |
    |---|---|---|
@@ -43,13 +43,13 @@ python3 "$SKILL_DIR/scripts/review_ledger.py" <command> …
    | `reviews` | Earlier surveys | the topic words plus `review`, `survey`, `meta-analysis` |
    | `contrary` | Null results, failed replications, critiques | the topic words plus `replication`, `null`, `no effect`, `limitations`, `critique` |
 
-   Save the papers worth a look from each search as JSON, as returned (`corpusId`, `title`, `authors`, `authorCount`, `year`, `venue`, `doi`, `arxiv`, `citationCount`, `hasReadablePdf`, `readerUrl`, and the abstract when there is one), and add them with `add results.json --search s3`. The ledger removes duplicates.
+   Save every paper whose title or abstract touches the question as JSON, as returned (`corpusId`, `title`, `authors`, `authorCount`, `year`, `venue`, `doi`, `arxiv`, `citationCount`, `hasReadablePdf`, `readerUrl`, and the abstract when there is one), and add them with `add results.json --search s3`. The ledger removes duplicates. Add generously and decide in the next step: a ledger that holds only the papers you meant to include has no record of what was screened out.
 
 4. **Screen.** Judge every candidate against the criteria from its title and abstract: `decide <id> --include` or `--exclude --reason "…"`. Use a small fixed set of reasons so the counts mean something (off topic, wrong population, wrong study type, outside the period, not a research paper). When a record has no abstract, call `get_paper`; if there is still none, decide on the title and say so in the reason. Citation counts never decide inclusion.
 
 5. **Seed check.** Run `status`. A seed listed under `seeds_not_found_by_any_search` means the queries miss part of the topic: add the vocabulary that paper uses and search again.
 
-6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`. Get their full text: `get_pdf_download` with the `corpusId`, then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`.
+6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`; the seeds usually belong here. Get their full text: `get_pdf_download` with the `corpusId`, then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`. A core paper whose full text cannot be had stays core, and the review's limitations name it.
 
 7. **Follow the references.** From the reference lists of three to five core papers, pick the works that several of them cite or that the text leans on, look each up with `search_papers`, and add what the index has (`--pass chain`). The index has no "cited by" search, so later papers come only from the `recent` pass.
 
@@ -57,7 +57,7 @@ python3 "$SKILL_DIR/scripts/review_ledger.py" <command> …
 
 9. **Write.** Read [Synthesis](references/synthesis.md) and start from the [review template](references/review-template.md). Cite with the ledger's keys as `[@key]`. Run `export` for `papers.csv`, `references.bib` and `search-log.md`.
 
-10. **Check, then deliver.** `check literature-review/review.md` must report `ok`: no citation outside the ledger, none of an excluded paper, none of a paper that was not read. Fix the review, not the ledger. Then give the user `review.md`, the comparison table, `references.bib` and the search log, with the `readerUrl` of the core papers. Offer to save the included papers to a collection; create or fill one only when the user says yes.
+10. **Check, then deliver.** `check literature-review/review.md` must report `ok`: no citation outside the ledger, none of an excluded paper, none of a paper that was not read. Fix the review, not the ledger. Run `status` once more: every pass under `passes_not_run` and every paper under `core_not_read_in_full` is either dealt with or named in the review's limitations. Then give the user `review.md`, the comparison table, `references.bib` and the search log, with the `readerUrl` of the core papers. Offer to save the included papers to a collection; create or fill one only when the user says yes.
 
 ## Updating a review
 

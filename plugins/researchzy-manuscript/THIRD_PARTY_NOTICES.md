@@ -104,3 +104,38 @@ Researchzy modifications (2026-11-10, version 2.0.0):
 `quote_match.py`: the module's introductory comment is rewritten; the code is unchanged.
 
 `check_claims.py`, `SKILL.md`, the reference files and the tests are Researchzy's own.
+
+## researchzy-writing, researchzy-paper-review and researchzy-figures scripts
+
+Added on 2026-11-12 (version 2.0.0). Their `SKILL.md` files, reference files and tests are
+Researchzy's own; parts of three scripts are derived from the projects named above.
+
+`skills/researchzy-writing/scripts/manuscript_check.py`:
+
+- From [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills), commit
+  `4e7b3d08e0d17935644a0e281c944764da4b2601`, MIT License ([text](licenses/medsci-skills-MIT.txt),
+  kept beside the script as `LICENSE-MIT.txt`):
+  - `skills/write-paper/scripts/check_placeholders.py`: the placeholder patterns, the skipping of
+    code fences and the reference-section pattern. Researchzy added its three typed placeholders
+    and the unresolved LaTeX reference.
+  - `skills/humanize/scripts/check_rewrite_fidelity.py`: the number pattern, the rule that tells a
+    minus from a range, the binding of inequalities, the citation patterns and the word lists for
+    direction. Researchzy replaced the alignment of the two texts with sentence pairing.
+  - `skills/polish-language/scripts/lint_consistency.py`: the abbreviation rules and the approach
+    to mixed US and UK spelling. The word lists, the separate scopes for abstract and main text
+    and the guard for proper names are Researchzy's.
+- From Nature Skills `nature-shared/scripts/check_consistency.py` (Apache-2.0, the copy bundled
+  in `researchzy-stats-review`): the check for one value written at two precisions and the
+  stripping of LaTeX comments.
+
+`skills/researchzy-paper-review/scripts/quote_match.py` is the file of the same name in
+`researchzy-reference-check`, unchanged, with its `LICENSE-MIT.txt`.
+
+`skills/researchzy-figures/scripts/check_figure.py`: from
+[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills), commit
+`a1a8220366e82ecd8584ea3d7f46cb3969f4b018` (2026-11-10),
+`skills/nature-figure/scripts/audit_pdf_text.py`, Apache License 2.0
+([text](licenses/nature-skills-Apache-2.0.txt), kept beside the script as
+`LICENSE-APACHE-2.0.txt`): the tokenizer patterns, the text-showing operators and the matrix
+helpers are taken as they are; the scan of text runs is rewritten to count only text inside
+text objects and to keep the strings; the decoding of streams and the verdicts are Researchzy's.

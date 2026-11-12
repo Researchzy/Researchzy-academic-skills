@@ -1252,6 +1252,12 @@ def resolved_title_in_text(text: str, resolved: list) -> bool | None:
 NEAR_TITLE_MIN = 0.7
 
 
+def distinctive_title(title: str) -> bool:
+    """A title long enough for a near miss to mean something: "Deep Learning" is near
+    thousands of titles, so its near misses are not worth showing."""
+    return len(_title_words(title) or ()) >= 3
+
+
 def clean_markup(text: str) -> str:
     """A registry title without publisher markup (<i>, <sub>, MathML) and entities."""
     return normalize_space(re.sub(r"<[^>]+>", " ", html.unescape(text or "")))
@@ -1339,7 +1345,7 @@ def lookup_crossref_title(record: RefRecord) -> Lookup:
             sim = 1.0 if title_phrase_in_line(record.raw, titles) else 0.0
         if sim > best_sim:
             best, best_sim = item, sim
-        if sim >= NEAR_TITLE_MIN:
+        if sim >= NEAR_TITLE_MIN and distinctive_title(record.title_guess):
             year = ((item.get("issued") or {}).get("date-parts") or [[None]])[0][0]
             near.append(_candidate(titles[0] if titles else "", year, (item.get("DOI") or "").lower(),
                                    [a.get("family") or a.get("name") or "" for a in item.get("author") or []],
@@ -1430,7 +1436,7 @@ def lookup_researchzy(record: RefRecord, papers: list) -> tuple[str, Lookup]:
             sim = 1.0 if title_phrase_in_line(record.raw, [paper["title"]]) else 0.0
         if sim > best_sim:
             best, best_sim = paper, sim
-        if sim >= NEAR_TITLE_MIN:
+        if sim >= NEAR_TITLE_MIN and distinctive_title(record.title_guess):
             near.append(_candidate(paper["title"], paper["year"], paper["doi"], paper["authors"],
                                    sim if record.title_from_field else None, "researchzy",
                                    corpusId=paper["corpusId"], readerUrl=paper["readerUrl"]))

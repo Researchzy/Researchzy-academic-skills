@@ -1,15 +1,15 @@
 {
   "name": "researchzy-manuscript",
   "version": "2.0.0",
-  "description": "Prepare a manuscript with your agent: check that references are real and correct, review statistical reporting, draft Data and Code Availability statements and answer reviewers. No account needed.",
+  "description": "Write, check and revise a manuscript with your agent: plan and draft from your own results, make and check figures, review the paper as its reviewers will, check that references are real, review statistical reporting, draft availability statements and answer reviewers. No account needed.",
   "author": {
     "name": "Researchzy"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Researchzy Manuscript",
-    "shortDescription": "Check references and statistics, and answer reviewers.",
-    "longDescription": "Check that a manuscript's references are real and correct and that cited papers support the text, audit statistical reporting, draft Data and Code Availability statements, and turn reviewer comments into a revision package. Works on the files you give it; no Researchzy account needed.",
+    "shortDescription": "Write, check and revise a manuscript.",
+    "longDescription": "Plan, draft and revise an empirical paper from your own results; make publication figures and check the exported files; review a manuscript as its reviewers will; check that references are real and correct and that cited papers support the text; audit statistical reporting; draft Data and Code Availability statements; and turn reviewer comments into a revision package. Works on the files you give it; no Researchzy account needed.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

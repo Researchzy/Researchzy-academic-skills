@@ -1,7 +1,7 @@
 {
   "name": "researchzy-manuscript",
   "version": "2.0.0",
-  "description": "Prepare a manuscript with your agent: check that references are real and correct, review statistical reporting, draft Data and Code Availability statements and answer reviewers. No account needed.",
+  "description": "Write, check and revise a manuscript with your agent: plan and draft from your own results, make and check figures, review the paper as its reviewers will, check that references are real, review statistical reporting, draft availability statements and answer reviewers. No account needed.",
   "author": {
     "name": "Researchzy",
     "url": "https://github.com/Researchzy"
@@ -13,9 +13,11 @@
     "research",
     "academic",
     "manuscript",
+    "scientific-writing",
+    "figures",
+    "peer-review",
     "reference-check",
     "statistics",
-    "peer-review",
     "rebuttal"
   ]
 }

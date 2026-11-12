@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: python -m pip install pytest pyyaml
+      - run: python -m pip install pytest pyyaml matplotlib pillow
       - name: Repository
         run: python -m unittest discover -s tests
       - name: researchzy-paper-card
@@ -32,6 +32,14 @@ jobs:
           python -m pytest plugins/researchzy-manuscript/skills/researchzy-rebuttal/tests
       - name: researchzy-literature-review
         run: python -m unittest discover -s plugins/researchzy/skills/researchzy-literature-review/tests
+      - name: researchzy-ideas
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-ideas/tests
+      - name: researchzy-writing
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-writing/tests
+      - name: researchzy-paper-review
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-paper-review/tests
+      - name: researchzy-figures
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-figures/tests
       - name: researchzy-reference-check
         run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-reference-check/tests
       - name: researchzy-download

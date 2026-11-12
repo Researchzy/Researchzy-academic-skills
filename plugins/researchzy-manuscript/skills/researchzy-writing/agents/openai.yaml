@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Writing"
+  short_description: "Plan, draft and revise a research paper from your own results"
+  default_prompt: "Use $researchzy-writing to plan and draft this paper from my results."

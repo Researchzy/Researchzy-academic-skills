@@ -1,7 +1,7 @@
 {
   "name": "researchzy",
   "version": "2.0.0",
-  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, and write literature reviews that cite only what the search returned. Needs a Researchzy account.",
+  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, and develop research ideas with a logged novelty check. Needs a Researchzy account.",
   "author": {
     "name": "Researchzy"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Researchzy",
     "shortDescription": "Search papers, manage your library and review the literature.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers; and write a literature review with logged searches, screening and a synthesis that cites only papers the index returned. Needs a Researchzy account.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers; write a literature review with logged searches, screening and a synthesis that cites only papers the index returned; and develop research ideas whose novelty is checked against real papers. Needs a Researchzy account.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

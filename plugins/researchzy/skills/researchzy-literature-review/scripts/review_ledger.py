@@ -32,6 +32,9 @@ import unicodedata
 from pathlib import Path
 
 PASSES = ("library", "relevance", "foundational", "recent", "reviews", "contrary", "chain", "other")
+# The passes a review is expected to run; `status` names the ones it has not, so that the
+# review's limitations can say so.
+EXPECTED_PASSES = ("relevance", "foundational", "recent", "reviews", "contrary")
 DEPTHS = ("none", "metadata", "abstract", "full_text")
 EXTRACT_FIELDS = ("theme", "question", "method", "data", "result", "limits", "relation", "locator")
 PAPER_FIELDS = ("corpusId", "title", "authors", "authorCount", "year", "venue", "doi", "arxiv",
@@ -237,7 +240,9 @@ def summary(ledger: dict) -> dict:
         "seeds_not_found_by_any_search": [p["key"] for p in seeds if not p["found_by"]],
         "included_without_extraction": [p["key"] for p in included if not p["extract"]],
         "included_not_read": [p["key"] for p in included if p["read"] in ("none", "metadata")],
+        "core_not_read_in_full": [p["key"] for p in included if p["core"] and p["read"] != "full_text"],
         "passes_run": sorted({s["pass"] for s in ledger["searches"]}),
+        "passes_not_run": [name for name in EXPECTED_PASSES if name not in {s["pass"] for s in ledger["searches"]}],
     }
 
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Paper Review"
+  short_description: "Review a manuscript before submission, or draft a referee report"
+  default_prompt: "Use $researchzy-paper-review to review this manuscript before I submit it."

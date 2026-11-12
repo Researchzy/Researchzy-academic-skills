@@ -1,11 +1,11 @@
 ---
 name: researchzy
-description: Researchzy, the entry point for research with real papers. Searches about 250 million papers by DOI, arXiv ID, title or keywords, manages the user's library, gets and adds PDFs, and routes literature reviews, full-text downloads, close reading, Paper Cards, reference checks, statistics, Data Availability statements and reviewer responses to the other Researchzy skills. Use when the user mentions Researchzy, wants to find, save or get papers, or asks for research help without naming a skill.
+description: Researchzy, the entry point for research with real papers. Searches about 250 million papers by DOI, arXiv ID, title or keywords, manages the user's library, gets and adds PDFs, and routes literature reviews, research ideas, full-text downloads, close reading, Paper Cards, writing, figures, paper review, reference checks, statistics, Data Availability statements and reviewer responses to the other Researchzy skills. Use when the user mentions Researchzy, wants to find, save or get papers, or asks for research help without naming a skill.
 ---
 
 # Researchzy
 
-This is the entry point to Researchzy. It searches and manages papers itself with Researchzy's MCP tools, and hands the other research tasks to the other Researchzy skills. `researchzy-literature-review` comes with this plugin; the reading skills come with the `researchzy-reading` plugin and the manuscript skills with `researchzy-manuscript`.
+This is the entry point to Researchzy. It searches and manages papers itself with Researchzy's MCP tools, and hands the other research tasks to the other Researchzy skills. `researchzy-literature-review` and `researchzy-ideas` come with this plugin; the reading skills come with the `researchzy-reading` plugin and the manuscript skills with `researchzy-manuscript`.
 
 ## Which skill
 
@@ -13,9 +13,13 @@ This is the entry point to Researchzy. It searches and manages papers itself wit
 |---|---|---|
 | Find papers, look up a DOI or arXiv ID, browse or organize the library, get or add a PDF | This skill, below | `researchzy` |
 | A literature review, related work, or a survey of what is known about a topic | `researchzy-literature-review` | `researchzy` |
+| Research ideas: generate them, sharpen a hypothesis, or judge an idea and its novelty | `researchzy-ideas` | `researchzy` |
 | The full text of papers Researchzy has no PDF for | `researchzy-download` | `researchzy-reading` |
 | A close reading of one paper: how the authors got there, the formulas worked through, how far the evidence reaches | `researchzy-deep-read` | `researchzy-reading` |
 | A Paper Card, claim-to-evidence analysis, limitations or research ideas for one paper | `researchzy-paper-card` | `researchzy-reading` |
+| Plan, draft or revise a manuscript from the author's own results | `researchzy-writing` | `researchzy-manuscript` |
+| Figures from data, or a check of a figure file | `researchzy-figures` | `researchzy-manuscript` |
+| A critical review of a manuscript before submission, or a referee report | `researchzy-paper-review` | `researchzy-manuscript` |
 | A check that a manuscript's or `.bib` file's references are real and correct, or that the cited papers support the text | `researchzy-reference-check` | `researchzy-manuscript` |
 | A review or draft of a manuscript's statistical reporting | `researchzy-stats-review` | `researchzy-manuscript` |
 | A Data and Code Availability statement, repository plan or dataset citations | `researchzy-data-availability` | `researchzy-manuscript` |

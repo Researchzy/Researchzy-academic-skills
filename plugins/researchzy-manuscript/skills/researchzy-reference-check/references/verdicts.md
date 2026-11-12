@@ -39,6 +39,7 @@ Every verdict is in `reference-check/references.json` (`records[].status`) with 
 - **A registry was down or rate-limited.** The reference stays `unconfirmed` and its evidence says "lookup failed". Run the script again later; answers already obtained are cached.
 - **Old or regional DOIs.** Some older IEEE DOIs and DOIs registered with agencies outside Crossref and DataCite (for example Chinese and Japanese agencies) are confirmed to exist by doi.org but have no metadata the script can compare. They stay `unconfirmed` with "registered with another agency".
 - **Titles in a non-Latin script.** They are not compared, so an identifier is accepted without a title check.
+- **DOIs that follow the latest version.** A software or dataset DOI that always points at the newest release (a Zenodo "all versions" DOI) changes its record's title with every release, so an entry citing an older version is reported as "identifier belongs to a different work". Tell the user which version the DOI now resolves to and suggest the DOI of the version they used.
 - **Translated or changed titles.** A preprint whose title changed on publication can be reported as "identifier belongs to a different work". Check the record the identifier resolves to before recommending a change.
 - **Author lists cut short without `and others`.** Reported as an author-count mismatch. In BibTeX, end the list with `and others`, or cite all authors.
 - **Collective authors.** Guideline bodies, consortia and collaborations are not compared name by name; the note says so.

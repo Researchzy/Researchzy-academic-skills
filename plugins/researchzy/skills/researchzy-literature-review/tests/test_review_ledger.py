@@ -83,6 +83,8 @@ class LedgerTests(unittest.TestCase):
         self.assertEqual(status["included_read"], {"none": 1, "metadata": 0, "abstract": 1, "full_text": 1})
         self.assertEqual(status["seeds_not_found_by_any_search"], ["seed2001seed"])
         self.assertEqual(status["included_without_extraction"], ["seed2001seed"])
+        self.assertEqual(status["core_not_read_in_full"], ["yoo2007sleep"])
+        self.assertEqual(status["passes_not_run"], ["recent", "reviews", "contrary"])
         self.assertIn("2 searches reported 9412 results, of which 21 were looked at.", status["flow"])
         self.assertIn("(animal study: 1)", status["flow"])
 
