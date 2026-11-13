@@ -1,0 +1,44 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 15:03
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count284
+)
+(./main.aux
+No file chapters/appendix.aux.
+)
+
+ [1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+
+No file chapters/appendix.tex.
+
+! LaTeX Error: File `sections/discussion.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+./main.tex:6: Emergency stop.
+<read *> 
+         
+l.6 \input{sections/discussion}
+                               ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+./main.tex:6:  ==> Fatal error occurred, no output PDF file produced!
+

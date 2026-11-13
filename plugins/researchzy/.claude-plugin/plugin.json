@@ -1,7 +1,7 @@
 {
   "name": "researchzy",
-  "version": "2.0.0",
-  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, and develop research ideas with a logged novelty check. Needs a Researchzy account.",
+  "version": "2.1.0",
+  "description": "Find and use the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, develop research ideas with a logged novelty check, find papers for uncited sentences and keep the quote that supports each, and choose where to submit from evidence. Needs a Researchzy account.",
   "author": {
     "name": "Researchzy",
     "url": "https://github.com/Researchzy"
@@ -17,7 +17,9 @@
     "literature-review",
     "research-ideas",
     "pdf",
-    "mcp"
+    "mcp",
+    "citations",
+    "journal-selection"
   ],
   "mcpServers": {
     "researchzy": {

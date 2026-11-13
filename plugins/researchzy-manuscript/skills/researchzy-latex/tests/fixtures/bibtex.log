@@ -1,0 +1,52 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 15:03
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
+LaTeX Info: Redefining \cite on input line 694.
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count285
+)
+(./main.aux)
+
+
+Package natbib Warning: Citation `smith2020dose' on page 1 undefined on input l
+ine 5.
+
+
+Package natbib Warning: Citation `lee2018sample' on page 1 undefined on input l
+ine 6.
+
+
+Package natbib Warning: Citation `nokey2020' on page 1 undefined on input line 
+6.
+
+No file main.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./main.aux)
+ ***********
+ ***********
+ ) 
+Output written on main.pdf (1 page, 35502 bytes).
+PDF statistics:
+ 23 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+
+

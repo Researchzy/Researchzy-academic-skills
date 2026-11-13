@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Grants"
+  short_description: "Draft and check a grant proposal against the call's own text"
+  default_prompt: "Use $researchzy-grants to draft a proposal for this call from my project."

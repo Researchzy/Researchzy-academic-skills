@@ -1,12 +1,14 @@
 # Researchzy plugin
 
-Version 2.0.0. Find and review the literature with real papers. This is the one Researchzy plugin that needs a Researchzy account: it connects your agent to Researchzy through nine MCP tools (`search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`) and bundles three skills that use them.
+Version 2.1.0. Find and review the literature with real papers. This is the one Researchzy plugin that needs a Researchzy account: it connects your agent to Researchzy through nine MCP tools (`search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`) and bundles five skills that use them.
 
 | User goal | Skill | Result |
 |---|---|---|
 | Start here: search, metadata, library, or PDF retrieval, and the way to every other Researchzy skill | `researchzy` | Real metadata or a verified local PDF |
 | A literature review on a topic | `researchzy-literature-review` | `review.md` with a comparison table and gaps, `papers.csv`, `references.bib` and a search log |
 | Research ideas: generate, sharpen or judge them, with a logged novelty check | `researchzy-ideas` | `ideas.md` with one card per idea, the closest existing papers and what differs, and a novelty log |
+| Real papers for the sentences of a draft that need a citation | `researchzy-citation-finder` | A citation map with a verdict, the grade of reading and a quote per sentence, `new-references.bib`, and the searches tried where nothing was found |
+| Where to submit a paper | `researchzy-find-journal` | A shortlist of journals or conferences with the evidence for each (where similar papers and your references were published), registry facts with their source and date, a list of what to confirm on the venue's site, and a plan for after a rejection |
 
 The reading skills (`researchzy-download`, `researchzy-deep-read`, `researchzy-paper-card`) are in the [`researchzy-reading`](../researchzy-reading) plugin and the manuscript skills in [`researchzy-manuscript`](../researchzy-manuscript). They need no account, and use the tools of this plugin when it is installed and connected.
 
@@ -22,8 +24,10 @@ Example prompts:
 - `Find the most-cited papers on CRISPR off-target effects since 2020 and save the top five to my "Gene editing" collection.`
 - `Review the literature on sleep deprivation and memory encoding since 2010.`
 - `Here is my idea for a study; has it been done, and is it worth doing?`
+- `Find real papers for the [Citation needed] places in draft.md and give me BibTeX.`
+- `Where should I submit this paper? It has to be open access.`
 
-The ledger scripts of the literature review and the ideas skill need Python 3.10+.
+The scripts of these skills need Python 3.10+. The journal finder's registry lookup calls Crossref and DOAJ, which need no key.
 
 ## Connection
 

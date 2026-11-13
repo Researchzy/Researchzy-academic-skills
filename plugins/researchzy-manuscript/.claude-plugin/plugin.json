@@ -1,7 +1,7 @@
 {
   "name": "researchzy-manuscript",
-  "version": "2.0.0",
-  "description": "Write, check and revise a manuscript with your agent: plan and draft from your own results, make and check figures, review the paper as its reviewers will, check that references are real, review statistical reporting, draft availability statements and answer reviewers. No account needed.",
+  "version": "2.1.0",
+  "description": "Analyse, write, check, submit and present a paper with your agent: analyse your data, plan and draft from your own results, make and check figures, review the paper as its reviewers will, check references, statistics and availability statements, build LaTeX cleanly, prepare and check the submission package, make slides, write grant proposals, and answer reviewers. No account needed.",
   "author": {
     "name": "Researchzy",
     "url": "https://github.com/Researchzy"
@@ -18,6 +18,11 @@
     "peer-review",
     "reference-check",
     "statistics",
-    "rebuttal"
+    "rebuttal",
+    "data-analysis",
+    "latex",
+    "submission",
+    "slides",
+    "grants"
   ]
 }

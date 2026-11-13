@@ -1,0 +1,6 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+Helvetica                            Type 1            WinAnsi          no  no  no       5  0
+ArialNarrow-BoldItalicMT-WithAVeryLongPostScriptName TrueType          WinAnsi          no  no  no       6  0
+NotoSansCJKsc-Regular                CID Type 0        Identity-H       no  no  no       7  0
+ABCDEF+Times-Roman                   Type 1            Builtin          yes yes no       9  0

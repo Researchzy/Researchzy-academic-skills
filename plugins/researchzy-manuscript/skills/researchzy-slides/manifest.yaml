@@ -1,0 +1,32 @@
+name: researchzy-slides
+version: 1.0.0
+description: >
+  Turn a paper into a talk: a slide plan sized to the time slot with claim
+  titles and speaker notes, checked before the build for time, words, figures
+  and numbers against the paper's text; figures cropped unchanged from the
+  paper with a manifest; a Beamer deck, PDF and notes, and PPTX when
+  python-pptx is installed.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing or fixing plan.md, reading a plan check result, or changing the slide budget
+      path: references/plan-format.md
+    - condition: reading the paper for the talk, writing titles and notes, choosing the arc, or any journal club
+      path: references/writing-the-talk.md
+    - condition: cropping figures, a NOT_FOUND number, retyping a table, or using a figure made elsewhere
+      path: references/figures-and-numbers.md
+    - condition: building, compiling and checking the deck, looking at frames, PPTX questions, the hand-over
+      path: references/formats-and-checks.md
+    - condition: checking the plan against the slot and the paper, or the built deck against the plan
+      path: scripts/slide_plan.py
+    - condition: previewing a page of the paper and cropping a figure with its manifest row
+      path: scripts/paper_figure.py
+    - condition: building deck.tex, notes.md and deck.pptx from the plan
+      path: scripts/build_deck.py
+interface:
+  display_name: "Researchzy Slides"
+  short_description: "Turn a paper into a checked talk with the paper's own figures"
+  default_prompt: "Use $researchzy-slides to make a 10-minute talk from this paper."

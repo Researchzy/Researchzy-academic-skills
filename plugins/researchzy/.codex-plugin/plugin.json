@@ -1,15 +1,15 @@
 {
   "name": "researchzy",
-  "version": "2.0.0",
-  "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, and develop research ideas with a logged novelty check. Needs a Researchzy account.",
+  "version": "2.1.0",
+  "description": "Find and use the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, develop research ideas with a logged novelty check, find papers for uncited sentences and keep the quote that supports each, and choose where to submit from evidence. Needs a Researchzy account.",
   "author": {
     "name": "Researchzy"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Researchzy",
-    "shortDescription": "Search papers, manage your library and review the literature.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers; write a literature review with logged searches, screening and a synthesis that cites only papers the index returned; and develop research ideas whose novelty is checked against real papers. Needs a Researchzy account.",
+    "shortDescription": "Search papers, review the literature, find citations and choose a journal.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers; write a literature review with logged searches, screening and a synthesis that cites only papers the index returned; develop research ideas whose novelty is checked against real papers; find papers for the sentences of a draft that need a citation, read them and keep the quote that supports each; and shortlist journals from where similar papers and your references were published. Needs a Researchzy account.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

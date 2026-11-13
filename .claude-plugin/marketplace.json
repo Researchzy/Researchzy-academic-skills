@@ -5,13 +5,13 @@
     "url": "https://github.com/Researchzy"
   },
   "metadata": {
-    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, develop research ideas, read papers closely, and write, check and revise manuscripts."
+    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, develop research ideas, find citations and choose a journal, read papers closely, and analyse, write, check, submit and present a manuscript."
   },
   "plugins": [
     {
       "name": "researchzy",
       "source": "./plugins/researchzy",
-      "description": "Find and review the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, and develop research ideas with a logged novelty check. Needs a Researchzy account.",
+      "description": "Find and use the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, develop research ideas with a logged novelty check, find papers for uncited sentences and keep the quote that supports each, and choose where to submit from evidence. Needs a Researchzy account.",
       "category": "research"
     },
     {
@@ -23,7 +23,7 @@
     {
       "name": "researchzy-manuscript",
       "source": "./plugins/researchzy-manuscript",
-      "description": "Write, check and revise a manuscript with your agent: plan and draft from your own results, make and check figures, review the paper as its reviewers will, check that references are real, review statistical reporting, draft availability statements and answer reviewers. No account needed.",
+      "description": "Analyse, write, check, submit and present a paper with your agent: analyse your data, plan and draft from your own results, make and check figures, review the paper as its reviewers will, check references, statistics and availability statements, build LaTeX cleanly, prepare and check the submission package, make slides, write grant proposals, and answer reviewers. No account needed.",
       "category": "research"
     }
   ]

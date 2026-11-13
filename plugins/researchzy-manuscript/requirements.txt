@@ -1,2 +1,11 @@
-# Optional host dependency for the Paper Card's PDF preparation/extraction.
+# Optional Python packages. Every script runs without them and says what it could not do.
+# Reading PDFs (Paper Card preparation, slide figures, paper-review quotes):
 PyMuPDF>=1.24,<2
+# Statistical analysis and power (researchzy-statistics); statsmodels only for models:
+scipy>=1.10
+statsmodels>=0.14
+# Figures (researchzy-figures):
+matplotlib>=3.7
+Pillow>=10
+# PowerPoint slides (researchzy-slides):
+python-pptx>=0.6.21
