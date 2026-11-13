@@ -1,0 +1,133 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 10:29
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+))
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
+LaTeX Info: Redefining \cite on input line 694.
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/nameref/nameref.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+tyPackage: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+))
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty
+)
+LaTeX Info: Redefining \url on input line 4805.
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+))
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count301
+)
+(./main.aux)
+
+
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+))
+
+(./main.out) (./main.out)
+
+ (./sections/method.tex
+)
+<figures/plot.pdf, id=28, 227.62239pt x 142.26349pt>
+<use figures/plot.pdf>
+ (./main.bbl) [1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./f
+igures/plot.pdf>] (./main.aux)
+ ***********
+ ***********
+ ) 
+Output written on main.pdf (2 pages, 71625 bytes).
+PDF statistics:
+ 245 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+
+

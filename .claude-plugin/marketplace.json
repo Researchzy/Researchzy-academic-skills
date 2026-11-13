@@ -5,13 +5,25 @@
     "url": "https://github.com/Researchzy"
   },
   "metadata": {
-    "description": "Academic research skills for AI agents: find papers in 250 million records, get their full text, read them closely and prepare manuscript revisions."
+    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, develop research ideas, find citations and choose a journal, read papers closely, and analyse, write, check, submit and present a manuscript."
   },
   "plugins": [
     {
       "name": "researchzy",
       "source": "./plugins/researchzy",
-      "description": "Researchzy literature search, library and PDFs, lawful full-text downloads, close reading, research cards and manuscript revision support.",
+      "description": "Find and use the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, develop research ideas with a logged novelty check, find papers for uncited sentences and keep the quote that supports each, and choose where to submit from evidence. Needs a Researchzy account.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-reading",
+      "source": "./plugins/researchzy-reading",
+      "description": "Read papers with your agent: lawful full-text downloads, a close reading of one paper, and structured Paper Cards. Works on your own PDFs; no account needed.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-manuscript",
+      "source": "./plugins/researchzy-manuscript",
+      "description": "Analyse, write, check, submit and present a paper with your agent: analyse your data, plan and draft from your own results, make and check figures, review the paper as its reviewers will, check references, statistics and availability statements, build LaTeX cleanly, prepare and check the submission package, make slides, write grant proposals, and answer reviewers. No account needed.",
       "category": "research"
     }
   ]

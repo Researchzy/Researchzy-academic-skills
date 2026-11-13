@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Submission"
+  short_description: "Prepare and check a journal or conference submission package"
+  default_prompt: "Use $researchzy-submission to prepare and check the submission package for this manuscript."

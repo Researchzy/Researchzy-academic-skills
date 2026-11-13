@@ -1,0 +1,110 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 15:03
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+))
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count284
+)
+(./main.aux
+
+LaTeX Warning: Label `sec:intro' multiply defined.
+
+)
+
+
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+))
+
+LaTeX Warning: Citation `nokey2020' on page 1 undefined on input line 6.
+
+
+LaTeX Warning: Reference `sec:a-label-with-a-very-long-name-that-makes-the-warn
+ing-wrap-in-the-log' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `nokey2020' on page 1 undefined on input line 8.
+
+
+LaTeX Warning: Citation `other2019' on page 1 undefined on input line 8.
+
+(./sections/method.tex
+
+LaTeX Warning: Reference `tab:missing' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Reference `tab:missing' on page 1 undefined on input line 3.
+
+
+Overfull \hbox (121.27858pt too wide) in paragraph at lines 5--6
+[] 
+ []
+
+
+Overfull \hbox (1.2pt too wide) in paragraph at lines 7--8
+[] 
+ []
+
+) [1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \vbox (109.99832pt too high) has occurred while \output is active []
+
+
+[2]
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 14.
+
+Missing character: There is no È in font cmr10!
+<figures/plot.pdf, id=12, 227.62239pt x 142.26349pt>
+<use figures/plot.pdf>
+[3 <./figures/plot.pdf>] (./main.aux)
+ ***********
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Output written on main.pdf (3 pages, 43923 bytes).
+PDF statistics:
+ 36 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+
+

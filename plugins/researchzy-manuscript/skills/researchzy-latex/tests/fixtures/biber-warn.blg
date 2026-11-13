@@ -1,0 +1,18 @@
+[0] Config.pm:329> INFO - This is Biber 2.22
+[1] Config.pm:332> INFO - Logfile is 'main.blg'
+[70] biber:342> INFO - === Thu Nov 12, 2026, 15:05:40
+[90] Biber.pm:421> INFO - Reading 'main.bcf'
+[180] Biber.pm:1002> INFO - Found 3 citekeys in bib section 0
+[197] Biber.pm:4487> INFO - Processing section 0
+[208] Biber.pm:4680> INFO - Looking for bibtex file 'refs.bib' for section 0
+[209] bibtex.pm:1713> INFO - LaTeX decoding ...
+[213] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[267] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[268] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[268] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[268] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[272] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[274] bbl.pm:779> INFO - Output to main.bbl
+[274] Biber.pm:132> WARN - article entry 'lee2018sample' (refs.bib): Invalid format '2018-13-45' of date field 'date' - ignoring
+[274] Biber.pm:132> WARN - I didn't find a database entry for 'nokey2020' (section 0)
+[274] Biber.pm:134> INFO - WARNINGS: 2

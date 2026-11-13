@@ -15,6 +15,30 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "researchzy-reading",
+      "source": {
+        "source": "local",
+        "path": "./plugins/researchzy-reading"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "researchzy-manuscript",
+      "source": {
+        "source": "local",
+        "path": "./plugins/researchzy-manuscript"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
     }
   ]
 }

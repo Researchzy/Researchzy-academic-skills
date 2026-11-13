@@ -1,0 +1,119 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 15:05
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/logreq/logreq.def
+))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty
+)
+\blx@maxsegment@0=\count321
+\blx@sectionciteorder@0=\count325
+\blx@sectionciteorderinternal@0=\count326
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-dm.def
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-compat.def
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.def
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+\c@bbx:relatedcount=\count409
+\c@bbx:relatedtotal=\count410
+))
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/biblatex.cfg
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count411
+))
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+)
+))
+
+(./main.aux)
+
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+)
+
+
+(./main.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'lee2018sample':
+(biblatex)                - article entry 'lee2018sample' (refs.bib): Invalid f
+ormat '2018-13-45' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                nokey2020
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
+
+
+LaTeX Warning: Citation 'nokey2020' on page 1 undefined on input line 7.
+
+[1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./main.aux)
+ ***********
+ ***********
+
+ ) 
+Output written on main.pdf (1 page, 52610 bytes).
+PDF statistics:
+ 28 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+
+

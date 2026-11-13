@@ -1,32 +1,33 @@
 # Researchzy plugin
 
-Version 1.6.1 connects your agent to Researchzy through nine MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`. It also bundles seven skills that run on your machine. `researchzy` is the entry point: it searches and manages papers itself and hands the other tasks to the skill that fits, to download full text, read papers closely, build research cards and prepare manuscript revisions. The plugin does not wrap Researchzy's AI Search, AI Survey or automated literature reviews.
-
-Search takes titles, keywords, DOI and arXiv identifiers. Paper metadata has `hasReadablePdf`, and a paper whose PDF Researchzy can show has `readerUrl`, its page in the Researchzy reader. The PDF tool returns a short-lived URL, its expiry, and the file's hash and size when known; the host downloads and verifies the file as the [`researchzy` skill](skills/researchzy/SKILL.md) describes. The upload tool returns a short-lived URL that the host PUTs a local PDF file to, for a library paper that has no PDF yet.
-
-## Workflows
+Version 2.1.0. Find and review the literature with real papers. This is the one Researchzy plugin that needs a Researchzy account: it connects your agent to Researchzy through nine MCP tools (`search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`) and bundles five skills that use them.
 
 | User goal | Skill | Result |
 |---|---|---|
-| Start here: search, metadata, library, or PDF retrieval, and the way to every other skill | `researchzy` | Real metadata or a verified local PDF |
-| Full text Researchzy has no PDF for | `researchzy-download` | Verified PDFs or full text from open access or the user's publisher API keys, and `manifest.json` |
-| Close reading: how the authors got there, load-bearing design, worked formulas, evidence boundary | `researchzy-deep-read` | A Markdown long-read |
-| Paper Card, evidence chain, methods, or limitations | `researchzy-paper-card` | Source-anchored `paper-card.md` and an audit report |
-| Statistical reporting of a manuscript | `researchzy-stats-review` | Issues by severity, ready-to-paste Statistical analysis text, and author questions |
-| Data and Code Availability statements | `researchzy-data-availability` | A ready-to-paste statement, repository and citation actions, and missing-information flags |
-| Responses to reviewers and revision packages | `researchzy-rebuttal` | A master tracker, one response per reviewer, a cover letter, and optional LaTeX files |
+| Start here: search, metadata, library, or PDF retrieval, and the way to every other Researchzy skill | `researchzy` | Real metadata or a verified local PDF |
+| A literature review on a topic | `researchzy-literature-review` | `review.md` with a comparison table and gaps, `papers.csv`, `references.bib` and a search log |
+| Research ideas: generate, sharpen or judge them, with a logged novelty check | `researchzy-ideas` | `ideas.md` with one card per idea, the closest existing papers and what differs, and a novelty log |
+| Real papers for the sentences of a draft that need a citation | `researchzy-citation-finder` | A citation map with a verdict, the grade of reading and a quote per sentence, `new-references.bib`, and the searches tried where nothing was found |
+| Where to submit a paper | `researchzy-find-journal` | A shortlist of journals or conferences with the evidence for each (where similar papers and your references were published), registry facts with their source and date, a list of what to confirm on the venue's site, and a plan for after a rejection |
 
-For a close reading or a Paper Card, the agent follows the [source acquisition rules](skills/researchzy/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested skill locally. Researchzy's servers do not run these skills. Local PDFs work directly. Metadata alone is never enough to invent full-text claims or page references.
+The reading skills (`researchzy-download`, `researchzy-deep-read`, `researchzy-paper-card`) are in the [`researchzy-reading`](../researchzy-reading) plugin and the manuscript skills in [`researchzy-manuscript`](../researchzy-manuscript). They need no account, and use the tools of this plugin when it is installed and connected.
+
+The plugin does not wrap Researchzy's AI Search or AI Survey: the literature review skill runs in your agent and uses the search tool.
+
+## Tools
+
+Search takes titles, keywords, DOI and arXiv identifiers. Paper metadata has `hasReadablePdf`, and a paper whose PDF Researchzy can show has `readerUrl`, its page in the Researchzy reader. The PDF tool returns a short-lived URL, its expiry, and the file's hash and size when known; the host downloads and verifies the file as the [`researchzy` skill](skills/researchzy/SKILL.md) describes. The upload tool returns a short-lived URL that the host PUTs a local PDF file to, for a library paper that has no PDF yet. See the [tool reference](docs/tools.md) for boundaries.
 
 Example prompts:
 
 - `Use Researchzy to look up DOI 10.1051/0004-6361/202556799 and return metadata only.`
-- `Download the full text of 10.1371/journal.pone.0000308 and 10.1016/j.cell.2020.02.052.`
-- `Create a Paper Card for this local PDF and separate author claims from your analysis.`
-- `Read arXiv 1706.03762 closely: why did the authors design it this way, and how far does the evidence reach?`
-- `Here are the editor's letter and the reviewers' comments; draft the point-by-point responses.`
+- `Find the most-cited papers on CRISPR off-target effects since 2020 and save the top five to my "Gene editing" collection.`
+- `Review the literature on sleep deprivation and memory encoding since 2010.`
+- `Here is my idea for a study; has it been done, and is it worth doing?`
+- `Find real papers for the [Citation needed] places in draft.md and give me BibTeX.`
+- `Where should I submit this paper? It has to be open access.`
 
-Python 3.10+ is recommended for the bundled scripts. PDF preparation uses PyMuPDF from `requirements.txt`; scanned PDFs also need OCR support. The downloader needs Node.js 22+ and verifies PDFs with pdfplumber or pypdf. Pinned upstream sources, licenses, and Researchzy's modifications are recorded in the [third-party notices](THIRD_PARTY_NOTICES.md).
+The scripts of these skills need Python 3.10+. The journal finder's registry lookup calls Crossref and DOAJ, which need no key.
 
 ## Connection
 
@@ -42,4 +43,4 @@ Every tool needs a connected Researchzy account. Search, paper details, library 
 4. Save a paper only when requested. Use `list_collections` and `canAddPapers` before selecting a collection.
 5. When the user asks to add a local PDF to a library paper without one, call `create_pdf_upload` and PUT the file to `uploadUrl`.
 
-Example identifiers illustrate input formats and do not guarantee a match. See the [tool reference](docs/tools.md) for boundaries.
+Example identifiers illustrate input formats and do not guarantee a match.

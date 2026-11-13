@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-manuscript",
+  "version": "2.1.0",
+  "description": "Analyse, write, check, submit and present a paper with your agent: analyse your data, plan and draft from your own results, make and check figures, review the paper as its reviewers will, check references, statistics and availability statements, build LaTeX cleanly, prepare and check the submission package, make slides, write grant proposals, and answer reviewers. No account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Manuscript",
+    "shortDescription": "Analyse, write, check, submit and present a paper.",
+    "longDescription": "Analyse your own data with a kept script and a record of every test; plan, draft and revise an empirical paper from your own results; make publication figures and check the exported files; review a manuscript as its reviewers will; check that references are real and correct and that cited papers support the text; audit statistical reporting; draft Data and Code Availability statements; get a LaTeX paper to build without changing its content and pack the source; prepare the submission package and check it against the venue's instructions; turn a paper into slides with speaker notes; write a grant proposal against the call; and turn reviewer comments into a revision package. Works on the files you give it; no Researchzy account needed.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Check the references in this manuscript: are they real, and do the DOIs belong to them?"
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

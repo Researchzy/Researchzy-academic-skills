@@ -1,0 +1,25 @@
+name: researchzy-citation-finder
+version: 1.0.0
+description: >
+  Find a citation for each manuscript sentence that needs one: collect the
+  placeholders and uncited claims, search Researchzy's index with logged
+  queries, read each candidate against the sentence, accept a citation only
+  on a quote found in the saved text, and write BibTeX for the new papers.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: deciding what a sentence needs, writing the queries, or when a search returns too much or nothing
+      path: references/searching.md
+    - condition: reading a candidate, choosing the grade and the verdict, or when check rejects a verdict
+      path: references/reading.md
+    - condition: a command refuses, check names a rule, or the user asks how the BibTeX entries or the manuscript copy were made
+      path: references/ledger-and-files.md
+    - condition: finding targets, logging searches, recording candidates and verdicts, PDF text, BibTeX, the check and the manuscript copy
+      path: scripts/citation_ledger.py
+interface:
+  display_name: "Researchzy Citation Finder"
+  short_description: "Find and verify citations for sentences that need one"
+  default_prompt: "Use $researchzy-citation-finder to find citations for the sentences in this manuscript that need one."

@@ -19,18 +19,45 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: python -m pip install pytest pyyaml
+      - run: python -m pip install pytest pyyaml matplotlib pillow scipy statsmodels python-pptx pymupdf
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils
       - name: Repository
         run: python -m unittest discover -s tests
       - name: researchzy-paper-card
-        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-paper-card/tests
+        run: python -m unittest discover -s plugins/researchzy-reading/skills/researchzy-paper-card/tests
       - name: researchzy-stats-review
-        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-stats-review/shared/tests
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-stats-review/shared/tests
       - name: researchzy-rebuttal
         run: |
-          python -m unittest discover -s plugins/researchzy/skills/researchzy-rebuttal/shared/tests
-          python -m pytest plugins/researchzy/skills/researchzy-rebuttal/tests
+          python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-rebuttal/shared/tests
+          python -m pytest plugins/researchzy-manuscript/skills/researchzy-rebuttal/tests
+      - name: researchzy-literature-review
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-literature-review/tests
+      - name: researchzy-ideas
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-ideas/tests
+      - name: researchzy-writing
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-writing/tests
+      - name: researchzy-paper-review
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-paper-review/tests
+      - name: researchzy-figures
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-figures/tests
+      - name: researchzy-reference-check
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-reference-check/tests
+      - name: researchzy-citation-finder
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-citation-finder/tests
+      - name: researchzy-find-journal
+        run: python -m unittest discover -s plugins/researchzy/skills/researchzy-find-journal/tests
+      - name: researchzy-statistics
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-statistics/tests
+      - name: researchzy-slides
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-slides/tests
+      - name: researchzy-grants
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-grants/tests
+      - name: researchzy-submission
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-submission/tests
+      - name: researchzy-latex
+        run: python -m unittest discover -s plugins/researchzy-manuscript/skills/researchzy-latex/tests
       - name: researchzy-download
         run: |
-          python -m unittest discover -s plugins/researchzy/skills/researchzy-download/tests/python
-          node --test plugins/researchzy/skills/researchzy-download/tests/unit/*.test.mjs
+          python -m unittest discover -s plugins/researchzy-reading/skills/researchzy-download/tests/python
+          node --test plugins/researchzy-reading/skills/researchzy-download/tests/unit/*.test.mjs

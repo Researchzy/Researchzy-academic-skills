@@ -1,0 +1,28 @@
+name: researchzy-grants
+version: 1.0.0
+description: >
+  Draft a grant proposal from the user's own project and the text of the call:
+  a record of the call's sections, limits, criteria and budget rules with
+  quotes checked against the call, the aims page first, then plan, timeline,
+  budget justification and impact, and a script that checks the draft against
+  the record.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: the user has no call text, reading a call, writing requirements.json, or the requirement matrix
+      path: references/call-record.md
+    - condition: writing or changing the aims or objectives page, aims.json, aim dependencies and fallbacks
+      path: references/aims.md
+    - condition: drafting significance, the plan per aim, timeline.csv, team, budget.csv and its justification, or impact
+      path: references/sections.md
+    - condition: starting criteria.md, reviewing the draft against the call's criteria, or the coherence pass
+      path: references/review.md
+    - condition: checking the record's quotes against the call, the proposal against the record, or the budget arithmetic
+      path: scripts/grant_check.py
+interface:
+  display_name: "Researchzy Grants"
+  short_description: "Draft and check a grant proposal against the call's own text"
+  default_prompt: "Use $researchzy-grants to draft a proposal for this call from my project."

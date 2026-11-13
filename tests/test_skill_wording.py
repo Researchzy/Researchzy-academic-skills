@@ -4,7 +4,8 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-SKILLS = Path(__file__).parents[1] / "plugins" / "researchzy" / "skills"
+PLUGINS = Path(__file__).parents[1] / "plugins"
+SKILLS = PLUGINS / "researchzy" / "skills"
 HOST_SPECIFIC = ("Use the host connection flow", "explain that Researchzy must be connected",
                  "Confirm that the tools are connected")
 
@@ -15,10 +16,10 @@ def normalized(path: Path) -> str:
 
 class SkillWordingTests(unittest.TestCase):
     def test_skills_do_not_assume_a_host_connection_flow(self):
-        for path in sorted(SKILLS.rglob("*.md")):
+        for path in sorted(PLUGINS.glob("*/skills/**/*.md")):
             text = normalized(path)
             for phrase in HOST_SPECIFIC:
-                self.assertNotIn(phrase, text, f"{path.relative_to(SKILLS)}: {phrase!r}")
+                self.assertNotIn(phrase, text, f"{path.relative_to(PLUGINS)}: {phrase!r}")
 
     def test_authorization_failures_still_forbid_asking_for_credentials(self):
         for name in ("researchzy/SKILL.md", "researchzy/references/researchzy-source.md"):

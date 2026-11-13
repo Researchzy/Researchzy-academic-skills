@@ -1,0 +1,33 @@
+name: researchzy-figures
+version: 1.0.0
+description: >
+  Make publication figures from data: a figure contract, a data profile that
+  rules out charts the data cannot support, one matplotlib script per figure at
+  the printed size, PDF and PNG export with a record, and a checker for the
+  exported file's size, smallest text, fonts, resolution and colours.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: choosing the chart, replacing a chart type the user named, or deciding between a table and a figure
+      path: references/chart-selection.md
+    - condition: setting the width, fonts, line widths, colours or the file format
+      path: references/sizes-and-style.md
+    - condition: before drawing bars, areas, log axes or missing values, on an axes FAIL, or before writing caption facts
+      path: references/honest-encoding.md
+    - condition: before using seaborn, error bars or mathtext, or when the size or the text comes out wrong
+      path: references/library-pitfalls.md
+    - condition: the user asks for a flow chart, a schematic or a graphical abstract
+      path: references/diagrams.md
+    - condition: column roles, n per group, missing values, pairing and the charts a data file rules out
+      path: scripts/profile_data.py
+    - condition: the style, the size in millimetres, the axis audit and the export with its record
+      path: scripts/rz_figure.py
+    - condition: checking an exported PDF, PNG or TIFF, including figures made in R or other tools
+      path: scripts/check_figure.py
+interface:
+  display_name: "Researchzy Figures"
+  short_description: "Make and check publication figures from data"
+  default_prompt: "Use $researchzy-figures to make a publication figure from this data file."

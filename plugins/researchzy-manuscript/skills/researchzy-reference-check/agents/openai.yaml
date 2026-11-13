@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Reference Check"
+  short_description: "Check that references are real, correct and support what cites them"
+  default_prompt: "Use $researchzy-reference-check to check that the references in this manuscript are real and correct."

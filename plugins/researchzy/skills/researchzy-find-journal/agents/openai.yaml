@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Find Journal"
+  short_description: "Shortlist venues for a manuscript from real evidence"
+  default_prompt: "Use $researchzy-find-journal to find journals that fit this manuscript."

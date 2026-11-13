@@ -1,0 +1,30 @@
+name: researchzy-submission
+version: 1.0.0
+description: >
+  Prepare a submission package for a finished manuscript: requirements taken only
+  from the guidelines the user supplies, the authors' facts with placeholders,
+  drafts of the cover letter, title page, highlights, declarations and reviewer
+  table, and scripts that check the package against the requirements, across
+  documents and for double-blind anonymity.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: building requirements.json from the venue's guidelines, or authors.json from the authors' answers
+      path: references/input-files.md
+    - condition: drafting or revising a cover letter, including after a rejection elsewhere
+      path: references/cover-letter.md
+    - condition: drafting declarations, the title page, highlights or a significance statement; CRediT roles; AI-use disclosure
+      path: references/declarations.md
+    - condition: suggested or opposed reviewers and their conflicts, or any blinded review
+      path: references/reviewers-and-anonymity.md
+    - condition: checking limits, required statements, files, placeholders, agreement between documents and the cover letter; the title-page author block
+      path: scripts/check_package.py
+    - condition: finding names, ids, self-citations, links and file metadata that identify the authors in a blinded submission
+      path: scripts/check_anonymity.py
+interface:
+  display_name: "Researchzy Submission"
+  short_description: "Prepare and check a journal or conference submission package"
+  default_prompt: "Use $researchzy-submission to prepare and check the submission package for this manuscript."

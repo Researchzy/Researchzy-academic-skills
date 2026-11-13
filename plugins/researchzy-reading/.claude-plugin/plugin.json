@@ -1,0 +1,20 @@
+{
+  "name": "researchzy-reading",
+  "version": "2.1.0",
+  "description": "Read papers with your agent: lawful full-text downloads, a close reading of one paper, and structured Paper Cards. Works on your own PDFs; no account needed.",
+  "author": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic",
+    "papers",
+    "paper-reading",
+    "open-access",
+    "pdf"
+  ]
+}
