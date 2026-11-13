@@ -57,7 +57,7 @@ Ask at most once, in one message, for what is missing and changes the result. Do
 
 5. **Fix** (only in fix mode).
    1. Snapshot first: `python3 "$SKILL_DIR/scripts/latex_guard.py" snapshot path/to/project/main.tex -o latex-build/before.json`.
-   2. Fix the first error if it is on the closed list in [reading a build](references/reading-a-build.md): a mistyped `\ref` target, a figure or input path or extension, a package option clash, an encoding declaration, stale auxiliary files, or a `\usepackage` for a command the log names. Anything else: report it with a proposed change and wait.
+   2. Fix the first error if it is on the closed list in [reading a build](references/reading-a-build.md): a mistyped `\ref` target, an evident `\cite` key or duplicate label, a figure or input path or extension, a package option clash, an encoding declaration, outline fonts in place of Type 3 bitmap fonts, a negative space that makes text overlap, stale auxiliary files, or a `\usepackage` for a command the log names. Anything else: report it with a proposed change and wait.
    3. Missing package: name the file, give the install command, ask once, and stop until the user answers.
    4. Rebuild (step 2, `build-2.out`, ...) and parse (step 3). Repeat at most five rounds, and stop early after a round that changed nothing.
    5. Snapshot again (`-o latex-build/after.json`, a new name each time), then compare and scan:
@@ -106,7 +106,7 @@ Ask at most once, in one message, for what is missing and changes the result. Do
 
 - Diagnose is the default. In fix mode, change only what the closed list allows, snapshot before and compare after, and tell the user every edit.
 - Never delete, comment out or hide content, citations or figures; never silence an error; never edit a venue's class or style file; never add a layout override. [What never to do](references/never-do.md) gives the reason for each.
-- Never write a `.bib` entry or a citation key. Never rename a label or key.
+- Never write a `.bib` entry or a citation key. Never rename a `.bib` key, or a label that a `\ref` uses correctly; the two exceptions are in the closed list.
 - A build with errors in its log has failed, whatever the PDF looks like. No log, or a missing tool, is `not_checked`, never clean.
 - No venue facts from memory: page limits, page sizes, fonts and style names come only from the kit or a page the user supplies, quoted with source and date.
 - Ask before installing anything, before `-shell-escape`, and before downloading a kit from a URL the user did not give.

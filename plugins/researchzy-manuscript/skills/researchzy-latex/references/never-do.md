@@ -6,7 +6,7 @@ Each of these makes a build pass or a paper fit by changing what the paper says 
 |---|---|
 | Delete, comment out, or wrap in `\iffalse ... \fi` or a `comment` environment any text, figure, table, equation, citation or `\ref` to get past an error | The build passes and the paper silently loses content. `latex_guard.py compare` reports it as a content change |
 | Write a `.bib` entry from memory, invent a citation key, or point a `\cite` at a different paper | That is a fabricated reference. Missing entries go to the user, `researchzy-citation-finder` or `researchzy-reference-check` |
-| Rename a `\label` or a citation key | Every other `\ref` or `\cite` to it changes meaning or breaks |
+| Rename a `.bib` key, or a `\label` that a `\ref` uses correctly | Every other `\ref` or `\cite` to it changes meaning or breaks. The two evident cases in the closed list (a `\cite` key one suffix away from its entry, a duplicate label on the object an undefined `\ref` means) are fixed in the `\cite` or the duplicate, never in the `.bib` |
 | Silence errors or warnings: run without `-halt-on-error` to get a PDF, use `latexmk -f`, `\batchmode` or `\nonstopmode` in the source, raise `\hbadness`, `\vbadness` or `\hfuzz`, load a package that filters warnings, or redefine `\PackageWarning` | The log stops telling the truth, and the next problem goes unseen |
 | Define a missing command or environment as nothing (`\providecommand{\SI}[2]{}`, an empty environment), or map an unknown character to nothing | The error disappears and so does the content it would have printed |
 | Turn on draft mode (`draft` option of the class or of `graphicx`) to get past missing figures | The PDF shows empty boxes where the figures should be |

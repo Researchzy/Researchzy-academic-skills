@@ -62,7 +62,8 @@ Everything goes in `grant/` in the user's working directory.
    | `aim_fields`, `aim_fallback` | Complete the aim in `aims.json` and on the aims page |
    | `aim_milestone`, `aim_budget_line`, `timeline_aims`, `budget_aims` | Make `aims.json`, `timeline.csv` and `budget.csv` name the same ids |
    | `milestones_in_period` | Move the milestone into the project period |
-   | `quantity_x_unit_cost`, `stated_total`, `total_against_cap` | Show the user the arithmetic; the user decides which figure is right |
+   | `quantity_x_unit_cost`, `stated_total` | Show the user the arithmetic; the user decides which figure is right |
+   | `total_against_cap`, a budget rule of the call | Show the user the arithmetic and the lines that could change. You may propose a cut to lines the user supplied, never a new line or a new rate; keep the user's original table, mark the proposal as such in the hand-over, and wait for their approval |
    | `lines_without_aim`, `amounts_in_text` | Tie the line to an aim or `project`; correct the amount in the text from the table |
 
    `not_checked` and `not_stated` are never passes: a page limit without a PDF, a limit whose counting rule the call leaves open, the deadline, formatting and attachments are reported to the user as such.
