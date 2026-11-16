@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Translate"
+  short_description: "Translate academic text with numbers, citations and terms checked"
+  default_prompt: "Use $researchzy-translate to translate this section into academic English."

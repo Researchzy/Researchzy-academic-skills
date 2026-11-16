@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy LaTeX"
+  short_description: "Build, diagnose and pack a LaTeX paper without changing its content"
+  default_prompt: "Use $researchzy-latex to find out why this LaTeX paper does not compile."

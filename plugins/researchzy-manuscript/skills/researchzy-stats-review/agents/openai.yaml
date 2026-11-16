@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Stats Review"
+  short_description: "Audit statistical design, analysis, and reporting"
+  default_prompt: "Use $researchzy-stats-review to audit the study design, analysis choices, and statistical reporting in this manuscript."

@@ -1,0 +1,25 @@
+name: researchzy-find-journal
+version: 1.0.0
+description: >
+  Shortlist journals or conferences for a manuscript from evidence in
+  Researchzy's index: venue tallies of similar papers and of the references,
+  a venue-filtered search per candidate, Crossref and DOAJ lookups, bands with
+  reasons, a facts-to-confirm table and a cascade plan, checked by a script.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before searching for similar papers or looking up references, or when searches return too much, too little or the wrong thing
+      path: references/evidence.md
+    - condition: giving bands and reasons, separating topic fit from the design bar, or planning the next venue after a rejection
+      path: references/bands-and-cascade.md
+    - condition: writing shortlist.md, filling the facts-to-confirm table, or fixing a problem the check reported
+      path: references/shortlist-template.md
+    - condition: venue tallies, registry lookups, recording venue facts and checking the shortlist
+      path: scripts/venue_tally.py
+interface:
+  display_name: "Researchzy Find Journal"
+  short_description: "Shortlist venues for a manuscript from real evidence"
+  default_prompt: "Use $researchzy-find-journal to find journals that fit this manuscript."

@@ -1,0 +1,27 @@
+name: researchzy-paper-review
+version: 1.0.0
+description: >
+  Review a manuscript before submission the way its reviewers will, or draft a
+  referee report on someone else's paper: claims against evidence, a numbers
+  audit, a novelty check against real papers, findings with verified quotes,
+  and two readiness verdicts with no score.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before listing the load-bearing claims and before the numbers-and-displays audit
+      path: references/review-method.md
+    - condition: before the novelty and missing-citation check, with or without Researchzy connected
+      path: references/novelty-and-citations.md
+    - condition: before writing findings.json, the verdicts, or a second round on a revised manuscript
+      path: references/findings.md
+    - condition: the manuscript is someone else's and the user is its reviewer, before reading it
+      path: references/referee-mode.md
+    - condition: checking findings.json against the manuscript, writing the reports, rechecking a revised manuscript
+      path: scripts/review_check.py
+interface:
+  display_name: "Researchzy Paper Review"
+  short_description: "Review a manuscript before submission, or draft a referee report"
+  default_prompt: "Use $researchzy-paper-review to review this manuscript before I submit it."

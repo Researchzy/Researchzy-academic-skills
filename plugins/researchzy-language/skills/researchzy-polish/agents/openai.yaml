@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Polish"
+  short_description: "Polish a manuscript's language and check that its content did not change"
+  default_prompt: "Use $researchzy-polish to polish the language of this manuscript without changing its content."

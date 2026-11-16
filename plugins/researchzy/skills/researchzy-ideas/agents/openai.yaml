@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Ideas"
+  short_description: "Develop research ideas and check them against real papers"
+  default_prompt: "Use $researchzy-ideas to develop and check research ideas on this topic."

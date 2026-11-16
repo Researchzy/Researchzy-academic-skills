@@ -1,0 +1,19 @@
+{
+  "total": 4,
+  "totalPages": 1,
+  "hasMore": false,
+  "papers": [
+    {"corpusId": 900001, "title": "Evening Meal Timing and Sleep Quality: A Synthetic Randomised Trial",
+     "authors": [{"name": "Ada Fixture"}], "authorCount": 2, "year": 2021, "venue": "Synthetic Journal of Test Data",
+     "doi": "10.5555/fixture.001", "citationCount": 4,
+     "abstract": "This record is invented for software tests. Adults were randomly assigned to an early or a late evening meal for eight weeks."},
+    {"corpusId": 900002, "title": "Time of the last meal and sleep in older adults: a synthetic crossover trial",
+     "authors": ["B. Placeholder"], "year": 2022, "venue": "Synthetic Reports in Testing",
+     "abstract": "An invented crossover trial in adults aged 65 years or older; the ﬁnal meal was moved earlier by three hours."},
+    {"corpusId": 900003, "title": "Time of the last meal and sleep in older adults: a synthetic cross-over trial",
+     "authors": ["B. Placeholder"], "year": 2023, "venue": "Synthetic Preprints",
+     "abstract": "Another copy of the invented crossover trial."},
+    {"corpusId": 900004, "title": "Snack timing in mice: an invented laboratory study", "authors": ["C. Mockdata"],
+     "year": 2019, "abstract": "Male mice received a late snack. All data are synthetic."}
+  ]
+}

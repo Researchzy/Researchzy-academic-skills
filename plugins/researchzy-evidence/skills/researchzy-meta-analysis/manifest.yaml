@@ -1,0 +1,36 @@
+name: researchzy-meta-analysis
+version: 1.0.0
+description: >
+  Pool study results from an extraction table: effect sizes with every
+  conversion declared per row, fixed or random effects with REML,
+  Hartung-Knapp and a prediction interval, heterogeneity, forest and funnel
+  plots, sensitivity and subgroup analyses, small-study tests only from ten
+  studies, a result file, and a check of the results text against it.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: building or converting the extraction table, what each reported_as needs, effect-size formulas, cluster and crossover designs, multi-arm studies, or a warning from effect_sizes.py
+      path: references/effect-sizes.md
+    - condition: writing the plan, choosing the model, the tau-squared estimator or the interval, the prediction interval, zero cells and rare events, or a method outside the skill's scope
+      path: references/pooling.md
+    - condition: subgroups, sensitivity analyses, small-study tests and funnel plots, or how to read I-squared and tau-squared
+      path: references/heterogeneity-and-bias.md
+    - condition: writing the results and methods paragraphs from results.json, or fixing a finding of check_meta.py
+      path: references/writing-results.md
+    - condition: turning the extraction table into one effect size per study and comparison, with refusals and warnings
+      path: scripts/effect_sizes.py
+    - condition: pooling, heterogeneity, prediction interval, sensitivity and subgroup analyses, small-study tests, plots and the result file
+      path: scripts/meta_pool.py
+    - condition: checking results.json and the text written from it
+      path: scripts/check_meta.py
+    - condition: the result file and ledger that meta_pool.py records into (copied from researchzy-statistics)
+      path: scripts/rz_results.py
+    - condition: the number check that check_meta.py extends (copied from researchzy-statistics)
+      path: scripts/check_results.py
+interface:
+  display_name: "Researchzy Meta-analysis"
+  short_description: "Pool study results and check the text against them"
+  default_prompt: "Use $researchzy-meta-analysis to pool the results in this extraction table."

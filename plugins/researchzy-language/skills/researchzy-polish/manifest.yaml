@@ -1,0 +1,27 @@
+name: researchzy-polish
+version: 1.0.0
+description: >
+  Polish the language of a manuscript at an agreed level without changing its
+  content: numbers, citations, cross-references and protected terms kept, the
+  claim ladder compared sentence by sentence, a change log checked against the
+  real diff, a word-level redline, and optional descriptive style profiles.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before polishing, writing changes.json or queries.md, or reading polish-check.md or log-check.md
+      path: references/levels.md
+    - condition: before polishing, and for any finding about claim strength, negation, quantifiers, modals, links, tense or articles
+      path: references/claim-strength.md
+    - condition: the author wants their own style or a target journal's papers described, or profile notes are passed on
+      path: references/style-profiles.md
+    - condition: surveying the original, comparing original and polished text, checking the change log and writing the redline
+      path: scripts/polish_check.py
+    - condition: building a style profile from the author's texts, journal papers or saved Researchzy search results, and comparing a draft with it
+      path: scripts/style_profile.py
+interface:
+  display_name: "Researchzy Polish"
+  short_description: "Polish a manuscript's language and check that its content did not change"
+  default_prompt: "Use $researchzy-polish to polish the language of this manuscript without changing its content."

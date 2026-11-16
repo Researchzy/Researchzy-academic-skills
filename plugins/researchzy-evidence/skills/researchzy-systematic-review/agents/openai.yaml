@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Systematic Review"
+  short_description: "Run a systematic review from protocol to PRISMA flow"
+  default_prompt: "Use $researchzy-systematic-review to run a systematic review of this question."

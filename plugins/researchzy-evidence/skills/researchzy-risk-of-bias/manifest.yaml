@@ -1,0 +1,30 @@
+name: researchzy-risk-of-bias
+version: 1.0.0
+description: >
+  Assess risk of bias study by study, result by result and domain by domain
+  with a tool registered for the review from its own file or official page,
+  every judgement backed by a quote checked against the saved full text; draw
+  traffic-light and summary plots; and rate GRADE certainty per outcome with a
+  reason and the studies behind each downgrade.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: choosing and registering the tool, writing tool.json, the overall rule or an answers-to-judgement mapping
+      path: references/tools.md
+    - condition: assessing a study, writing assessments.json, or acting on a failure from rob_check.py check
+      path: references/assessing.md
+    - condition: the user asks for certainty of the evidence, GRADE, an evidence profile or a summary of findings
+      path: references/certainty.md
+    - condition: hashing the tool file and texts, checking the assessments and their quotes, exporting tables
+      path: scripts/rob_check.py
+    - condition: drawing the traffic-light and summary plots
+      path: scripts/rob_plot.py
+    - condition: checking sof.json, computing absolute effects, comparing with the meta-analysis results, writing sof.md
+      path: scripts/sof_check.py
+interface:
+  display_name: "Researchzy Risk of Bias"
+  short_description: "Assess risk of bias with quoted evidence and rate certainty"
+  default_prompt: "Use $researchzy-risk-of-bias to assess the risk of bias of the studies included in my review."

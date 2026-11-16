@@ -1,0 +1,27 @@
+name: researchzy-writing
+version: 1.0.0
+description: >
+  Plan, draft and revise an empirical research paper from the author's own
+  results: a claim ledger with evidence grades, a gap report with typed
+  placeholders, an outline with a word budget, evidence-first drafting, and a
+  script that checks the draft and what a revision changed.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before the inventory, the claim ledger, the gap report or the outline
+      path: references/planning.md
+    - condition: before drafting or restructuring a section
+      path: references/sections.md
+    - condition: before revising existing text, or when reading revision-check.md
+      path: references/revising.md
+    - condition: naming the reporting guideline for the study design
+      path: references/reporting-guidelines.md
+    - condition: checking a draft (placeholders, numbers, terms, citation keys, word budget), or comparing a text before and after a revision
+      path: scripts/manuscript_check.py
+interface:
+  display_name: "Researchzy Writing"
+  short_description: "Plan, draft and revise a research paper from your own results"
+  default_prompt: "Use $researchzy-writing to plan and draft this paper from my results."

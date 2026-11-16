@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Notes from CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v head="## ${version} " 'index($0, head) == 1 {found = 1; next} /^## / {found = 0} found' CHANGELOG.md > notes.md
+          test -s notes.md || { echo "CHANGELOG.md has no section for ${version}"; exit 1; }
+          cat >> notes.md <<'EOF'
+
+          ## Install
+
+          Claude Code: `/plugin marketplace add Researchzy/Researchzy-academic-skills`, then `/plugin install <plugin>@researchzy`. Codex: `codex plugin marketplace add Researchzy/Researchzy-academic-skills`, then `codex plugin add <plugin>@researchzy`. One skill in any Agent Skills host: `gh skill install Researchzy/Researchzy-academic-skills <skill>`. The [README](https://github.com/Researchzy/Researchzy-academic-skills#readme) lists the plugins and their skills.
+          EOF
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" --verify-tag --title "Researchzy Academic Skills ${GITHUB_REF_NAME#v}" --notes-file notes.md

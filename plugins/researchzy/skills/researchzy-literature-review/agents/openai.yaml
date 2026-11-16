@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Literature Review"
+  short_description: "Write a checkable literature review from real papers"
+  default_prompt: "Use $researchzy-literature-review to review the literature on this topic."

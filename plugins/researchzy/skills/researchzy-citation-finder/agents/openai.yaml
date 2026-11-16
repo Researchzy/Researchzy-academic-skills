@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Citation Finder"
+  short_description: "Find and verify citations for sentences that need one"
+  default_prompt: "Use $researchzy-citation-finder to find citations for the sentences in this manuscript that need one."

@@ -1,0 +1,27 @@
+name: researchzy-ideas
+version: 1.0.0
+description: >
+  Develop research ideas that can be checked: generate, sharpen or evaluate
+  them, write one card per idea with the result that would refute it, check
+  novelty with logged searches of Researchzy's index, pass gates before
+  ratings, and recommend only what a ledger finds supported by the record.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: generating candidates from a topic, an observation or a review's gaps, or choosing operators for the researcher's situation
+      path: references/generating.md
+    - condition: writing, sharpening or revising an idea card, or choosing its claim type
+      path: references/idea-card.md
+    - condition: searching for prior work on an idea, recording the closest works, or setting or reporting a novelty status
+      path: references/novelty.md
+    - condition: gates, assumption risk, rating the five dimensions, the adversarial pass, the minimum first study, or what a test means for theory and qualitative work
+      path: references/selection.md
+    - condition: recording cards, searches, closest works, gates, ratings and attacks, recommending or rejecting, exporting ideas.md and novelty-log.md
+      path: scripts/idea_ledger.py
+interface:
+  display_name: "Researchzy Ideas"
+  short_description: "Develop research ideas and check them against real papers"
+  default_prompt: "Use $researchzy-ideas to develop and check research ideas on this topic."

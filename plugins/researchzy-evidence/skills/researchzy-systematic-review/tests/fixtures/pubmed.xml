@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<!-- Synthetic records for software tests: no real article is described here. -->
+<PubmedArticleSet>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">99000001</PMID>
+    <Article PubModel="Print">
+      <Journal>
+        <JournalIssue CitedMedium="Internet"><PubDate><Year>2021</Year><Month>Mar</Month></PubDate></JournalIssue>
+        <Title>Synthetic Journal of Test Data</Title>
+      </Journal>
+      <ArticleTitle>Evening meal timing and sleep quality: a <i>synthetic</i> randomised trial</ArticleTitle>
+      <ELocationID EIdType="doi" ValidYN="Y">10.5555/fixture.001</ELocationID>
+      <Abstract>
+        <AbstractText Label="BACKGROUND">This record is invented for software tests.</AbstractText>
+        <AbstractText Label="METHODS">Adults were randomly assigned to an early or a late evening meal for eight weeks.</AbstractText>
+      </Abstract>
+      <AuthorList>
+        <Author><LastName>Fixture</LastName><ForeName>Ada</ForeName></Author>
+        <Author><CollectiveName>Test Data Collaborative</CollectiveName></Author>
+      </AuthorList>
+      <DataBankList CompleteYN="Y">
+        <DataBank>
+          <DataBankName>ClinicalTrials.gov</DataBankName>
+          <AccessionNumberList><AccessionNumber>NCT09999901</AccessionNumber></AccessionNumberList>
+        </DataBank>
+      </DataBankList>
+    </Article>
+  </MedlineCitation>
+  <PubmedData>
+    <ArticleIdList>
+      <ArticleId IdType="pubmed">99000001</ArticleId>
+      <ArticleId IdType="doi">10.5555/fixture.001</ArticleId>
+    </ArticleIdList>
+    <ReferenceList>
+      <Reference><Citation>A cited work.</Citation>
+        <ArticleIdList><ArticleId IdType="doi">10.5555/cited.999</ArticleId></ArticleIdList></Reference>
+    </ReferenceList>
+  </PubmedData>
+</PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">99000002</PMID>
+    <Article PubModel="Print">
+      <Journal>
+        <JournalIssue CitedMedium="Print"><PubDate><MedlineDate>2019 Dec-2020 Jan</MedlineDate></PubDate></JournalIssue>
+        <Title>Synthetic Reports in Testing</Title>
+      </Journal>
+      <ArticleTitle>Late eating in adolescents: an invented cohort</ArticleTitle>
+      <Abstract><AbstractText>Participants aged 12 to 17 years were followed for one year. This text is synthetic.</AbstractText></Abstract>
+    </Article>
+  </MedlineCitation>
+  <PubmedData><ArticleIdList><ArticleId IdType="pubmed">99000002</ArticleId></ArticleIdList></PubmedData>
+</PubmedArticle>
+</PubmedArticleSet>

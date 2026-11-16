@@ -1,0 +1,34 @@
+name: researchzy-statistics
+version: 1.0.0
+description: >
+  Analyse the user's data from a written plan: a design probe that finds pairs,
+  repeated measures, clusters and replicates, a method chosen from the design, a
+  kept analysis script that records estimates, intervals and effect sizes with a
+  ledger and hashes, family-based multiplicity, a check of the text against the
+  results, and sample size and power with a sourced effect.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: choosing the method from the probe's route, handling replicates or clusters, or a question outside the skill's scope
+      path: references/method-table.md
+    - condition: writing the plan's families and missing-data decision, correcting for multiplicity, or reporting diagnostics
+      path: references/multiplicity-missing-diagnostics.md
+    - condition: writing Results sentences or the Statistical analysis paragraph from results.json
+      path: references/writing-results.md
+    - condition: sample size, power, a detectable effect, or where an effect size for planning comes from
+      path: references/power-and-sample-size.md
+    - condition: rows per unit, pairs, n in units and rows, outcome type, sparse cells and the design of a data table
+      path: scripts/probe_design.py
+    - condition: recording results, the ledger, multiplicity adjustment and the hashes from an analysis script
+      path: scripts/rz_results.py
+    - condition: checking results.json, the ledger, hashes, the analysis script and the numbers in the text
+      path: scripts/check_results.py
+    - condition: computing sample size, power or the detectable effect with a table and a justification
+      path: scripts/power.py
+interface:
+  display_name: "Researchzy Statistics"
+  short_description: "Analyse data from its design and check the text against the results"
+  default_prompt: "Use $researchzy-statistics to analyse this data file and write the results."

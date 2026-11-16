@@ -1,0 +1,24 @@
+name: researchzy-reference-check
+version: 1.0.0
+description: >
+  Check that the references of a manuscript or bibliography are real and
+  correct against public registries and Researchzy's index, and optionally that
+  each cited paper supports the sentence citing it, with a verified quote.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: reporting results, or explaining why a reference got its verdict or flag
+      path: references/verdicts.md
+    - condition: the user asked for the claim check (does the cited paper support the citing sentence)
+      path: references/claim-check.md
+    - condition: parsing references, registry lookups, merging Researchzy results, writing the report and fixes.bib
+      path: scripts/check_references.py
+    - condition: turning a PDF into text with page markers, or verifying the quotes behind claim verdicts
+      path: scripts/check_claims.py
+interface:
+  display_name: "Researchzy Reference Check"
+  short_description: "Check that references are real, correct and support what cites them"
+  default_prompt: "Use $researchzy-reference-check to check that the references in this manuscript are real and correct."

@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-language",
+  "version": "2.2.0",
+  "description": "Academic translation and language polishing with your agent: numbers, citations, LaTeX and terms kept exactly, a glossary, side-by-side output, edits limited to language with a reason for each, and scripts that check nothing in the content changed. No account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Language",
+    "shortDescription": "Academic translation and language polishing.",
+    "longDescription": "Translate a manuscript section or a paper, Chinese to English and back or between other languages, with numbers, units, citations, LaTeX commands, placeholders and terms kept exactly, a glossary, and side-by-side output a script checks against the source. Polish academic English at the level you choose, with a reason for every change, optionally in your own voice or a target journal's conventions, and a script that proves numbers, citations and the strength of claims did not change. Works on the files you give it; no Researchzy account needed.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Translate the Methods section of my Chinese manuscript into academic English and keep every number and citation."
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,25 @@
+name: researchzy-literature-review
+version: 1.0.0
+description: >
+  Write a literature review from papers in Researchzy's index: a confirmed
+  brief, logged searches in several passes, screening with reasons, full-text
+  reading of the core papers, a themed synthesis and a ledger that keeps the
+  counts and the citations honest.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before searching, or when a search returns too much, too little or the wrong thing
+      path: references/search-tactics.md
+    - condition: before writing the synthesis, the gaps or the limitations
+      path: references/synthesis.md
+    - condition: the structure of review.md
+      path: references/review-template.md
+    - condition: logging searches, adding and screening papers, recording reading depth and extraction, exporting and checking citations
+      path: scripts/review_ledger.py
+interface:
+  display_name: "Researchzy Literature Review"
+  short_description: "Write a checkable literature review from real papers"
+  default_prompt: "Use $researchzy-literature-review to review the literature on this topic."

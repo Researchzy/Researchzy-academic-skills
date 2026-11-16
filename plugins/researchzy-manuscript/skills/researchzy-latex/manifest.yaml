@@ -1,0 +1,32 @@
+name: researchzy-latex
+version: 1.0.0
+description: >
+  Build a LaTeX paper with its own engine and bibliography tool, parse TeX's
+  log into a problem list with file and line, fix only a closed list of
+  mechanical problems with a before-and-after content check, move a paper into
+  a venue kit the user supplies, pack a source archive that rebuilds, and read
+  the final PDF's pages, page size and fonts.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: reporting or fixing build problems, the closed list of fixes, or a missing package
+      path: references/reading-a-build.md
+    - condition: before any fix, or when a fix would remove, hide or squeeze content or layout
+      path: references/never-do.md
+    - condition: moving a paper into a venue's kit, or any page-limit question
+      path: references/venue-kit.md
+    - condition: packing a source archive, the rebuild test, anonymity leaks in sources, PDF facts or a latexdiff revision diff
+      path: references/archive-and-pdf.md
+    - condition: finding the main file, engine and bibliography tool, parsing a .log and .blg, or reading PDF facts
+      path: scripts/latex_log.py
+    - condition: snapshots before and after a fix or a template move, the content comparison, the layout-override scan
+      path: scripts/latex_guard.py
+    - condition: copying the used files into a new folder with comments removed, the archives, the manifest and the rebuild commands
+      path: scripts/latex_pack.py
+interface:
+  display_name: "Researchzy LaTeX"
+  short_description: "Build, diagnose and pack a LaTeX paper without changing its content"
+  default_prompt: "Use $researchzy-latex to find out why this LaTeX paper does not compile."

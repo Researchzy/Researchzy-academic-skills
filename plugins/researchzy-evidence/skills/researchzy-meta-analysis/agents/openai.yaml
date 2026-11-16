@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Meta-analysis"
+  short_description: "Pool study results and check the text against them"
+  default_prompt: "Use $researchzy-meta-analysis to pool the results in this extraction table."

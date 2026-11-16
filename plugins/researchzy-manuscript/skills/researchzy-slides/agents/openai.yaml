@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Slides"
+  short_description: "Turn a paper into a checked talk with the paper's own figures"
+  default_prompt: "Use $researchzy-slides to make a 10-minute talk from this paper."

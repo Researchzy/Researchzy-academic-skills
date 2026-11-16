@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Figures"
+  short_description: "Make and check publication figures from data"
+  default_prompt: "Use $researchzy-figures to make a publication figure from this data file."

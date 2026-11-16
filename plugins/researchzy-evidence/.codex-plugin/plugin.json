@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-evidence",
+  "version": "2.2.0",
+  "description": "Systematic reviews, risk of bias and meta-analysis with your agent: a protocol, logged searches of Researchzy and PubMed, screening with reasons and a PRISMA 2020 flow that adds up, risk-of-bias judgements backed by quotes, and pooled effects with heterogeneity, plots and checked text. Searching the Researchzy index needs the researchzy plugin and a Researchzy account; risk of bias and meta-analysis work on your own files.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Evidence",
+    "shortDescription": "Systematic reviews, risk of bias and meta-analysis.",
+    "longDescription": "Run a systematic review from protocol to PRISMA 2020 flow: logged searches of the Researchzy index, PubMed and ClinicalTrials.gov, deduplication, screening with a reason for every exclusion and a calibration sample you screen, extraction and flow counts a script checks. Judge risk of bias per domain with quotes from each study and build a summary-of-findings table with reasoned certainty. Pool effects with fixed and random effects, heterogeneity, prediction intervals, forest and funnel plots, and Results text checked against the analysis. Searching the Researchzy index needs the researchzy plugin and a Researchzy account; risk of bias and meta-analysis work on your own files.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Run a systematic review of randomised trials of time-restricted eating in shift workers."
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

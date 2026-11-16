@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Statistics"
+  short_description: "Analyse data from its design and check the text against the results"
+  default_prompt: "Use $researchzy-statistics to analyse this data file and write the results."

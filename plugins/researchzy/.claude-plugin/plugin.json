@@ -1,0 +1,30 @@
+{
+  "name": "researchzy",
+  "version": "2.2.0",
+  "description": "Find and use the literature with real papers: search about 250 million records, manage your library and PDFs, write literature reviews that cite only what the search returned, develop research ideas with a logged novelty check, find papers for uncited sentences and keep the quote that supports each, and choose where to submit from evidence. Needs a Researchzy account.",
+  "author": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic",
+    "papers",
+    "literature-search",
+    "literature-review",
+    "research-ideas",
+    "pdf",
+    "mcp",
+    "citations",
+    "journal-selection"
+  ],
+  "mcpServers": {
+    "researchzy": {
+      "type": "http",
+      "url": "https://app.researchzy.com/mcp"
+    }
+  }
+}

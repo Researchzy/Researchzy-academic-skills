@@ -1,0 +1,105 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded form
+at=pdflatex 2026.11.12)  12 NOV 2026 15:03
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+))
+)
+
+./main.tex:4: LaTeX Error: Option clash for package graphicx.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \begin
+          {document}
+The package graphicx has already been loaded with options:
+  [draft]
+There has now been an attempt to load it with options
+  [final]
+Adding the global options:
+  draft,final
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+\l__color_backend_stack_int=\count284
+)
+No file main.aux.
+
+
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/grfext/grfext.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+))
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+)
+)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+))
+
+./main.tex:5: LaTeX Error: Unicode character ℏ (U+210F)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 Text with a symbol ℏ
+                           that the engine cannot read.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[1
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./main.aux)
+ ***********
+ ***********
+ ) 
+Output written on main.pdf (1 page, 15522 bytes).
+PDF statistics:
+ 13 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+
+

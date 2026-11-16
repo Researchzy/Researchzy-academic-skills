@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Data Availability"
+  short_description: "Draft and audit Data and Code Availability statements"
+  default_prompt: "Use $researchzy-data-availability to draft a Nature-ready Data Availability statement, repository plan, and FAIR checklist."

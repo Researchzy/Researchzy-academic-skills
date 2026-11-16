@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "researchzy": {
+      "type": "http",
+      "url": "https://app.researchzy.com/mcp",
+      "oauth": {
+        "clientId": "paperone-codex",
+        "callbackUrl": "http://127.0.0.1:8766/callback",
+        "callbackPort": 8766
+      }
+    }
+  }
+}

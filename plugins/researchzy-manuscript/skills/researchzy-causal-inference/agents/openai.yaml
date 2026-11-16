@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Causal Inference"
+  short_description: "Estimate causal effects from a probed design and check the text against the results"
+  default_prompt: "Use $researchzy-causal-inference to estimate the effect of this policy from my panel data."

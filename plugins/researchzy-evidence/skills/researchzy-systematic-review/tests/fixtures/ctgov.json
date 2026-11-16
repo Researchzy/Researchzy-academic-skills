@@ -1,0 +1,21 @@
+{
+  "totalCount": 2,
+  "studies": [
+    {"protocolSection": {
+       "identificationModule": {"nctId": "NCT09999901", "briefTitle": "Meal Timing and Sleep (Synthetic)",
+                                "officialTitle": "Evening Meal Timing and Sleep Quality in Adults: a Synthetic Test Registration"},
+       "statusModule": {"studyFirstPostDateStruct": {"date": "2020-02-11"}, "startDateStruct": {"date": "2020-03"}},
+       "descriptionModule": {"briefSummary": "An invented registration used to test the parser."},
+       "conditionsModule": {"conditions": ["Sleep Quality"]},
+       "designModule": {"studyType": "INTERVENTIONAL", "designInfo": {"allocation": "RANDOMIZED"}},
+       "armsInterventionsModule": {"interventions": [{"type": "BEHAVIORAL", "name": "Early evening meal"}]},
+       "eligibilityModule": {"minimumAge": "18 Years"},
+       "referencesModule": {"references": [{"pmid": "99000001", "type": "RESULT", "citation": "Synthetic citation."}]}},
+     "hasResults": false},
+    {"protocolSection": {
+       "identificationModule": {"nctId": "NCT09999902", "briefTitle": "Snack Timing in Mice (Synthetic)"},
+       "statusModule": {"startDateStruct": {"date": "2018-05"}},
+       "designModule": {"studyType": "INTERVENTIONAL", "designInfo": {"allocation": "NA"}}},
+     "hasResults": false}
+  ]
+}

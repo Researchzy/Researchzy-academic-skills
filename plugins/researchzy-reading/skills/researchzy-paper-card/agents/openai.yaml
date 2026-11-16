@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Paper Card"
+  short_description: "Build evidence-grounded deep-reading paper cards"
+  default_prompt: "Use $researchzy-paper-card to turn this paper into a source-grounded Sections 01-16 deep-reading Paper Card."

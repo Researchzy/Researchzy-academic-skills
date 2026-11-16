@@ -1,0 +1,31 @@
+name: researchzy-systematic-review
+version: 1.0.0
+description: >
+  Run a PRISMA 2020 systematic review from a coded protocol: logged searches of
+  Researchzy's index, PubMed, ClinicalTrials.gov and the user's exports,
+  deduplication, screening calibrated against the user with quoted reasons, an
+  extraction table, and flow counts computed from a per-record ledger.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing or amending the protocol, its criteria codes, calibration thresholds or registration wording
+      path: references/protocol.md
+    - condition: building, running and logging the searches, an update, or a known paper that no search found
+      path: references/searching.md
+    - condition: calibration, title-abstract and full-text screening, the audit of exclusions, decision lines, or a finding of check
+      path: references/screening.md
+    - condition: PRISMA counts and identities, records versus reports versus studies, updates, the extraction table, or report.md
+      path: references/prisma.md
+    - condition: recording the protocol, searches, records, duplicates and decisions, and checking them
+      path: scripts/sr_ledger.py
+    - condition: drawing and scoring a calibration sample, or auditing the model's exclusions
+      path: scripts/sr_agreement.py
+    - condition: the PRISMA 2020 counts, identities, registration sentence and flow diagram computed from the ledger
+      path: scripts/sr_prisma.py
+interface:
+  display_name: "Researchzy Systematic Review"
+  short_description: "Run a systematic review from protocol to PRISMA flow"
+  default_prompt: "Use $researchzy-systematic-review to run a systematic review of this question."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Download"
+  short_description: "Download papers' full text through open access or publisher APIs"
+  default_prompt: "Use $researchzy-download to get the full text of these papers through open access or my publisher API keys."

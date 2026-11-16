@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Risk of Bias"
+  short_description: "Assess risk of bias with quoted evidence and rate certainty"
+  default_prompt: "Use $researchzy-risk-of-bias to assess the risk of bias of the studies included in my review."

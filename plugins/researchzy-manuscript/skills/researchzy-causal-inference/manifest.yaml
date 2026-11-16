@@ -1,0 +1,38 @@
+name: researchzy-causal-inference
+version: 1.0.0
+description: >
+  Estimate causal effects with quasi-experimental designs: a probe of the data
+  that routes each request to one outcome, a design stage before any estimate,
+  Callaway-Sant'Anna for staggered adoption with TWFE beside it, event studies,
+  2SLS with the Anderson-Rubin set, RD through rdrobust, panel fixed effects,
+  basic synthetic control and propensity weighting, each with its required
+  diagnostics, clustering at the assignment level, a specification ledger, and
+  a check of the text against the results.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: any difference-in-differences or event study, control groups, aggregations, TWFE, pre-trends, sensitivity or few clusters
+      path: references/did.md
+    - condition: instrumental variables, instrument strength and the Anderson-Rubin set, or regression discontinuity
+      path: references/iv-rd.md
+    - condition: panel fixed effects, synthetic control or propensity-score weighting
+      path: references/panel-sc-weighting.md
+    - condition: writing the estimand, the identifying assumption, the verbs, the robustness table or the methods paragraph
+      path: references/writing-results.md
+    - condition: duplicates, cohorts, untreated periods, leads and lags, clusters against the assignment level, RD, IV and SC facts, and the route
+      path: scripts/probe_causal.py
+    - condition: estimating a design, its diagnostics and recording every specification from the analysis script
+      path: scripts/causal_tools.py
+    - condition: checking the results against the probe, the diagnostics, clustering, the specification ledger, the verbs and the numbers in the text
+      path: scripts/check_causal.py
+    - condition: the result file, the ledger and the hashes written by the analysis script
+      path: scripts/rz_results.py
+    - condition: the shared checks of results.json and of the numbers in the text
+      path: scripts/check_results.py
+interface:
+  display_name: "Researchzy Causal Inference"
+  short_description: "Estimate causal effects from a probed design and check the text against the results"
+  default_prompt: "Use $researchzy-causal-inference to estimate the effect of this policy from my panel data."

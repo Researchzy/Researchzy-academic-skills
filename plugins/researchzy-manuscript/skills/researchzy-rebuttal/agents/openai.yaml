@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Rebuttal"
+  short_description: "Draft isolated reviewer responses and revision packages"
+  default_prompt: "Use $researchzy-rebuttal to prepare mutually isolated reviewer responses and a consistent revision package."

@@ -1,0 +1,28 @@
+name: researchzy-translate
+version: 1.0.0
+description: >
+  Translate a manuscript section or a paper's text, Chinese and English or
+  another pair, with the host model: a glossary agreed first, formulas, LaTeX,
+  citations and links masked as tokens, units restored only when every token
+  survives, and a check of numbers, dates, citations, figure numbers and terms
+  against the source, with a bilingual table.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: before translating the first unit, when a claim, hedge or negation is hard to carry over, or before writing translator's notes
+      path: references/translating.md
+    - condition: building or confirming the glossary, choosing between candidate terms, or a glossary warning
+      path: references/glossary.md
+    - condition: reading the check report, or a finding that looks like a false alarm
+      path: references/checks.md
+    - condition: splitting a .md, .tex, .txt or .docx text into units, masking tokens, and restoring a translation
+      path: scripts/tr_units.py
+    - condition: comparing a translation with its source unit by unit, and writing the bilingual table
+      path: scripts/tr_check.py
+interface:
+  display_name: "Researchzy Translate"
+  short_description: "Translate academic text with numbers, citations and terms checked"
+  default_prompt: "Use $researchzy-translate to translate this section into academic English."

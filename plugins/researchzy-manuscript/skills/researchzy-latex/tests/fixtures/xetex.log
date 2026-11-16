@@ -1,0 +1,63 @@
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded form
+at=xelatex 2026.11.12)  12 NOV 2026 15:05
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+\l__fontspec_script_int=\count281
+\l__fontspec_language_int=\count282
+\l__fontspec_strnum_int=\count283
+\l__fontspec_tmp_int=\count284
+\l__fontspec_tmpa_int=\count285
+\l__fontspec_tmpb_int=\count286
+\l__fontspec_tmpc_int=\count287
+\l__fontspec_em_int=\count288
+\l__fontspec_emdef_int=\count289
+\l__fontspec_strong_int=\count290
+\l__fontspec_strongdef_int=\count291
+\l__fontspec_tmpa_dim=\dimen151
+\l__fontspec_tmpb_dim=\dimen152
+\l__fontspec_tmpc_dim=\dimen153
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/l3backend-xetex.def
+\g__graphics_track_int=\count292
+\g__pdfannot_backend_int=\count293
+\g__pdfannot_backend_link_int=\count294
+)
+(./main.aux)
+
+
+Missing character: There is no 中 (U+4E2D) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no 文 (U+6587) in font [lmroman10-regular]:mapping=t
+ex-text;!
+
+LaTeX Warning: Reference `sec:none' on page 1 undefined on input line 6.
+
+[1
+
+] (./main.aux)
+ ***********
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+
+Output written on main.xdv (1 page, 1928 bytes).
+

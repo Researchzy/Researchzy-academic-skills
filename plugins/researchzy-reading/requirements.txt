@@ -1,0 +1,2 @@
+# Optional host dependency for the Paper Card's PDF preparation/extraction.
+PyMuPDF>=1.24,<2
