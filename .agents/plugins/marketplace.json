@@ -63,6 +63,42 @@
         "authentication": "ON_USE"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "researchzy-thesis",
+      "source": {
+        "source": "local",
+        "path": "./plugins/researchzy-thesis"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "researchzy-social",
+      "source": {
+        "source": "local",
+        "path": "./plugins/researchzy-social"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "researchzy-clinical",
+      "source": {
+        "source": "local",
+        "path": "./plugins/researchzy-clinical"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
     }
   ]
 }

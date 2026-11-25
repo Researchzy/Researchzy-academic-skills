@@ -1,10 +1,10 @@
 # Researchzy plugin
 
-Version 2.2.0. Find and review the literature with real papers. This is the one Researchzy plugin that needs a Researchzy account: it connects your agent to Researchzy through nine MCP tools (`search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`) and bundles five skills that use them.
+Version 2.3.0. Find and review the literature with real papers. This is the one Researchzy plugin that needs a Researchzy account: it connects your agent to Researchzy through nine MCP tools (`search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_paper_files`, `create_pdf_upload` and `get_profile`) and bundles five skills that use them.
 
 | User goal | Skill | Result |
 |---|---|---|
-| Start here: search, metadata, library, or PDF retrieval, and the way to every other Researchzy skill | `researchzy` | Real metadata or a verified local PDF |
+| Start here: search, metadata, library, or a paper's PDF and full text, and the way to every other Researchzy skill | `researchzy` | Real metadata, or a verified local PDF and its text |
 | A literature review on a topic | `researchzy-literature-review` | `review.md` with a comparison table and gaps, `papers.csv`, `references.bib` and a search log |
 | Research ideas: generate, sharpen or judge them, with a logged novelty check | `researchzy-ideas` | `ideas.md` with one card per idea, the closest existing papers and what differs, and a novelty log |
 | Real papers for the sentences of a draft that need a citation | `researchzy-citation-finder` | A citation map with a verdict, the grade of reading and a quote per sentence, `new-references.bib`, and the searches tried where nothing was found |
@@ -33,13 +33,13 @@ The scripts of these skills need Python 3.10+. The journal finder's registry loo
 
 The plugin's MCP server is `https://app.researchzy.com/mcp`. Codex signs in with the public OAuth client `paperone-codex` and the callback `http://127.0.0.1:8766/callback` (`.mcp.json`); Claude Code identifies itself with its own client metadata document (`.claude-plugin/plugin.json`). See [connection setup](../../docs/connection.md) for other hosts.
 
-Every tool needs a connected Researchzy account. Search, paper details, library access and `get_profile` need `library.read`; saving papers, creating collections and adding PDFs to library papers need `library.write`; PDF download metadata needs `pdf.read`. The host requests these scopes and the user approves them. An access token lasts an hour, and the host renews it with a refresh token that is replaced on every use and lasts 90 days, so a connection stays signed in while it is used at least once in 90 days. The user can disconnect an app on the Researchzy Account page, which ends its tokens at once. Never store passwords, cookies, access tokens or signing keys in this package.
+Every tool needs a connected Researchzy account. Search, paper details, library access and `get_profile` need `library.read`; saving papers, creating collections and adding PDFs to library papers need `library.write`; a paper's files (the PDF and its TEI XML) need `pdf.read`. The host requests these scopes and the user approves them. An access token lasts an hour, and the host renews it with a refresh token that is replaced on every use and lasts 90 days, so a connection stays signed in while it is used at least once in 90 days. The user can disconnect an app on the Researchzy Account page, which ends its tokens at once. Never store passwords, cookies, access tokens or signing keys in this package.
 
 ## Basic flow
 
 1. Call `search_papers` with exactly one of `doi`, `arxiv`, or `query`.
 2. Reuse returned metadata; call `get_paper` only when additional details are needed.
-3. When the user requests a PDF, call `get_pdf_download`, download the signed URL, and verify the file.
+3. When the user requests a PDF or a task needs the full text, call `get_paper_files`, download the signed URLs it returns (`pdf`, and `grobidTeiXml` when it is not `null`), and verify the files. `scripts/tei_text.py` in the `researchzy` skill turns the TEI XML into Markdown with page marks and a JSON reference list.
 4. Save a paper only when requested. Use `list_collections` and `canAddPapers` before selecting a collection.
 5. When the user asks to add a local PDF to a library paper without one, call `create_pdf_upload` and PUT the file to `uploadUrl`.
 

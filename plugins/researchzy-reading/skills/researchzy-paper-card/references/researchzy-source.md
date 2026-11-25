@@ -24,32 +24,40 @@ to the requesting skill afterward. Do not invoke skills recursively.
   query means Researchzy did not find a record; it is not proof the paper does not
   exist. Never substitute a similarly titled paper for an unmatched DOI.
 
-## Obtain and verify the PDF
+## Obtain and verify the files
 
 1. Retain the actual title, authors, DOI/arXiv, year, venue and
    `hasReadablePdf`. This flag is a hint; a failed download must still be reported.
-2. For a full-text request, call `get_pdf_download` once for the selected
-   paper to get its current availability, including when the earlier hint was
+2. For a full-text request, call `get_paper_files` once for the selected
+   paper to get its current files, including when the earlier hint was
    false. Use `{corpusId: ...}` for a corpus result or `{paperId: ...}` for a
    library result; never both. A library authorization failure must not be
-   bypassed by retrying the same request as a corpus lookup.
-3. Use the returned `url` before `expiresAt` to download into the task workspace.
+   bypassed by retrying the same request as a corpus lookup. It returns `pdf`
+   and `grobidTeiXml`, each a signed URL or `null` when Researchzy does not
+   have that file; it never creates one.
+3. Download the PDF, and the TEI XML when it is not `null`, before `expiresAt`
+   into the task workspace.
    The signed GET request must not include Researchzy Authorization or Cookies.
    A URL alone is not a downloaded PDF. Verify the download: check HTTP success
    and actual PDF content, and compare `sizeBytes` and `fileHashSha256` when returned.
-4. On expiry or HTTP 403, refresh with `get_pdf_download` once and retry once.
+4. On expiry or HTTP 403, refresh with `get_paper_files` once and retry once.
    Report a repeated failure using the actual `code`/`userMessage`. For an
    authorization failure, point to the host's Researchzy connection flow when one
    exists; never request a password, token or Cookie.
-5. Hand back the verified local path plus bibliographic metadata and source
-   provenance. Do not store signed URLs or credentials in reading or card artifacts.
+5. Hand back the verified local paths plus bibliographic metadata and source
+   provenance. The `researchzy` skill's `scripts/tei_text.py` turns the TEI XML
+   into `paper.md`, the text with `[[page N]]` lines and citations linked to
+   `references.json`, the parsed reference list; read tables and formulas in the
+   PDF. Do not store signed URLs or credentials in reading or card artifacts.
    Record which document version was actually available; an arXiv `vN` request
    does not guarantee Researchzy supplies that PDF version.
 
 ## Continue the requested analysis
 
 - `researchzy-deep-read`: read the whole local PDF, including appendix and
-  supplementary material when available, before writing the long-read.
+  supplementary material when available, before writing the long-read. When
+  there is a `paper.md` from the TEI XML, quote from it with its page, and use
+  its linked citations and `references.json` to name the work a passage cites.
 - `researchzy-paper-card`: prepare the local PDF or existing source map with its
   bundled `prepare_paper.py`; preserve its locator modes and run its auditor.
 - Researchzy is optional for local inputs. When disconnected, or when a public

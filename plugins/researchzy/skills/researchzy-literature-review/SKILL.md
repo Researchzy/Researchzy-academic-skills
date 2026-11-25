@@ -7,7 +7,7 @@ description: "Write a literature review from real papers: scope the questions, s
 
 This skill turns a topic into a review that a reader can check: every cited paper is a record Researchzy's index returned, every search is logged with its counts, and every statement about a paper's methods or results comes from text that was actually read.
 
-It needs the Researchzy tools (`search_papers`, `get_paper`, `list_library_papers`, `get_pdf_download`). If they are not connected, say so and stop: do not write a review from memory or from web snippets. The bundled ledger script needs Python 3.10 or newer. Resolve `SKILL_DIR` to the directory containing this `SKILL.md`.
+It needs the Researchzy tools (`search_papers`, `get_paper`, `list_library_papers`, `get_paper_files`). If they are not connected, say so and stop: do not write a review from memory or from web snippets. The bundled ledger script needs Python 3.10 or newer. Resolve `SKILL_DIR` to the directory containing this `SKILL.md`.
 
 It writes a narrative or scoping review with a transparent search. It is not a PRISMA systematic review with dual screening and risk-of-bias assessment; say so if the user asks for one and hand it to `researchzy-systematic-review` (plugin `researchzy-evidence`, when installed), or offer this as the first pass.
 
@@ -49,9 +49,9 @@ python3 "$SKILL_DIR/scripts/review_ledger.py" <command> …
 
 5. **Seed check.** Run `status`. A seed listed under `seeds_not_found_by_any_search` means the queries miss part of the topic: add the vocabulary that paper uses and search again.
 
-6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`; the seeds usually belong here. Get their full text: `get_pdf_download` with the `corpusId`, then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`. A core paper whose full text cannot be had stays core, and the review's limitations name it.
+6. **Choose the core and read it.** Mark the papers the review rests on with `decide <id> --include --core`; the seeds usually belong here. Get their full text: `get_paper_files` with the `corpusId` (the `researchzy` skill's `tei_text.py` turns its `grobidTeiXml` into the text and `references.json`), then `researchzy-download` (plugin `researchzy-reading`, when installed), then the abstract. Record how far each included paper was read with `read <id> --depth full_text|abstract|metadata`. A core paper whose full text cannot be had stays core, and the review's limitations name it.
 
-7. **Follow the references.** From the reference lists of three to five core papers, pick the works that several of them cite or that the text leans on, look each up with `search_papers`, and add what the index has (`--pass chain`). The index has no "cited by" search, so later papers come only from the `recent` pass.
+7. **Follow the references.** From the reference lists of three to five core papers (their `references.json`, where `citedInText` counts how often the text cites each work, or the PDF's reference section), pick the works that several of them cite or that the text leans on, look each up with `search_papers`, and add what the index has (`--pass chain`). The index has no "cited by" search, so later papers come only from the `recent` pass.
 
 8. **Extract.** For every included paper record one row with `extract`: `theme`, `question`, `method`, `data`, `result` (with its number), `limits`, `relation` (to other included papers) and `locator` (page or section). Write method and result only from what was read; leave a field empty rather than infer it from the title.
 

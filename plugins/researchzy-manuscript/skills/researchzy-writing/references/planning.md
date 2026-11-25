@@ -57,7 +57,7 @@ One row per claim the paper will make, in the order of the argument.
 
 A statement needs no citation only when it has no number, no name and no comparison, and a textbook of the field states it. Everything else has a row.
 
-With the Researchzy tools, the grade follows the tool results of this session, not what the paper's title suggests: a hit from `search_papers` or `list_library_papers` is `metadata`; an abstract returned by `get_paper` is `abstract`; a full text obtained through `get_pdf_download` and read is `full-text`. Notes from `researchzy-deep-read` or a Paper Card (plugin `researchzy-reading`) count as `full-text` for the pages they cover. A paper raised to a higher grade gets its row updated.
+With the Researchzy tools, the grade follows the tool results of this session, not what the paper's title suggests: a hit from `search_papers` or `list_library_papers` is `metadata`; an abstract returned by `get_paper` is `abstract`; a full text obtained through `get_paper_files` and read is `full-text`. Notes from `researchzy-deep-read` or a Paper Card (plugin `researchzy-reading`) count as `full-text` for the pages they cover. A paper raised to a higher grade gets its row updated.
 
 ## 4. Gap report (`gaps.md`)
 

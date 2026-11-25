@@ -1,0 +1,30 @@
+name: researchzy-qualitative
+version: 1.0.0
+description: >
+  Code interviews, focus groups, field notes and open answers under an approach
+  chosen first: a versioned codebook, a ledger of quotes checked at their
+  offsets with their speakers, blind calibration rounds scored per code,
+  participant support per theme with a table of new codes per source, negative
+  cases by type, an identifier screen of every output, and a CSV export.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: choosing the approach, writing protocol.json or approach.md, a request for a coefficient under reflexive analysis, or writing the methods
+      path: references/approach.md
+    - condition: converting transcripts, writing sources.csv, codebook.csv, codebook-changes.csv or codings.jsonl, memos, or acting on a failure from check
+      path: references/codebook-and-codings.md
+    - condition: drawing, sealing or scoring a calibration round, codes that are not estimable, thresholds, or reporting agreement
+      path: references/calibration.md
+    - condition: building themes, recording negative cases, reading support.md, judging saturation, or describing how many participants hold a view
+      path: references/themes-negatives-saturation.md
+    - condition: locating quotes, checking the ledger and a findings draft, counting support, calibration rounds, exporting
+      path: scripts/qual_ledger.py
+    - condition: computing Cohen's kappa, kappa per code, Krippendorff's alpha or a per-class report from a table of codes
+      path: scripts/rz_agreement.py
+interface:
+  display_name: "Researchzy Qualitative"
+  short_description: "Code interviews with checked quotes, calibration and support counts"
+  default_prompt: "Use $researchzy-qualitative to code these interview transcripts."

@@ -11,13 +11,14 @@
   <b>Give your AI agent the skills of a careful researcher — working from real papers.</b><br>
   Find papers among 250 million records, review the literature or run a systematic review,<br>
   test your ideas, read closely, analyse and pool the evidence, write, translate and polish,<br>
-  check and submit your paper, present it, and answer the reviewers.
+  check and submit your paper, present it, and answer the reviewers;<br>
+  plan and defend a thesis, study surveys, scales and interviews, and run clinical studies.
 </p>
 
 <p align="center">
   <a href="LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg"></a>
-  <a href="CHANGELOG.md"><img alt="Version" src="https://img.shields.io/badge/Version-2.2.0-4C6BD6.svg"></a>
-  <a href="#-whats-included"><img alt="Skills" src="https://img.shields.io/badge/Skills-26-brightgreen.svg"></a>
+  <a href="CHANGELOG.md"><img alt="Version" src="https://img.shields.io/badge/Version-2.3.0-4C6BD6.svg"></a>
+  <a href="#-whats-included"><img alt="Skills" src="https://img.shields.io/badge/Skills-41-brightgreen.svg"></a>
   <a href="plugins/researchzy/docs/tools.md"><img alt="MCP tools" src="https://img.shields.io/badge/MCP_tools-9-orange.svg"></a>
   <a href="#-whats-included"><img alt="Papers" src="https://img.shields.io/badge/Papers-250M-8FA8E8.svg"></a>
   <a href="https://agentskills.io/"><img alt="Agent Skills" src="https://img.shields.io/badge/Standard-Agent_Skills-blueviolet.svg"></a>
@@ -27,7 +28,7 @@
 
 ---
 
-Researchzy Academic Skills is **twenty-six agent skills for the whole life of a paper**, from choosing the question to answering the reviewers, in five plugins: one that searches real papers and needs a Researchzy account, and four that work on your own files with no account. They follow the open [Agent Skills](https://agentskills.io/) standard, install as plugins in **Claude Code** and **Codex**, and work in any host that supports Agent Skills. These are the same skills that run inside the [Researchzy Agent](https://researchzy.com).
+Researchzy Academic Skills is **forty-one agent skills for the whole life of a paper**, from choosing the question to answering the reviewers, in eight plugins: one that searches real papers and needs a Researchzy account, and seven that work on your own files with no account. They follow the open [Agent Skills](https://agentskills.io/) standard, install as plugins in **Claude Code** and **Codex**, and work in any host that supports Agent Skills. These are the same skills that run inside the [Researchzy Agent](https://researchzy.com).
 
 > ⭐ **If these skills save you an afternoon, please [star the repository](https://github.com/Researchzy/Researchzy-academic-skills).** Stars help other researchers find it and tell us which skills to build next.
 
@@ -52,6 +53,9 @@ Researchzy Academic Skills is **twenty-six agent skills for the whole life of a 
 - 🛠️ **LaTeX that builds, untouched.** The build log becomes a short list of real problems; fixes are mechanical and a check confirms that no label, citation, figure or word of content changed. Then a source archive that is rebuilt to prove it compiles.
 - 🎤 **Talks and grants from the same evidence.** Slides use the paper's own figures and a script flags any number that is not in the paper. A grant proposal is checked against the call you supply: sections, limits, criteria, aims with fallbacks, and the budget arithmetic.
 - ✍️ **From draft to acceptance.** Audit your statistics, draft the Data and Code Availability statement journals ask for, and turn reviewer comments into a point-by-point response, a cover letter and a LaTeX revision package.
+- 🎓 **A thesis from proposal to defence.** The proposal follows your school's own template, recorded with quotes, and cites only papers that were found and read. A thesis assembled from your published papers is measured against the school's format rules, a whole-thesis audit finds inconsistent numbers, abbreviations, callouts and identity in the blind-review copy (in Chinese or English), and defence questions come with answer outlines whose pages and numbers a script finds in the thesis.
+- 🗂️ **Surveys, scales and interviews, checked.** Exclusion rules are written before fielding and the response audit counts under them; reliability and validity come from a declared item map with seeded parallel analysis, CFA convergence, CR, AVE and HTMT; mediation and moderation use bootstrap intervals and the Johnson-Neyman region; interview quotes are checked at their place in the transcript; text labelled by the model is validated against yours in sealed blind rounds. Every cut-off is a convention you choose.
+- 🏥 **Clinical studies that agree with themselves.** A protocol, its registry entry and its analysis plan are checked item by item; a trial report is compared with its ClinicalTrials.gov record; the reporting checklist your journal asks for is filled with a page and a quote for every item; survival and diagnostic-accuracy analyses make every default explicit and never pick a threshold on the test set; a case report is screened for patient identifiers without printing them. No clinical advice.
 - 🧩 **Works where you work.** Plugins for Claude Code and Codex; `npx skills` or `gh skill` for Cursor, Gemini CLI, GitHub Copilot, Antigravity and 40+ other hosts.
 - 🔒 **You stay in control.** The skills run in your agent. Researchzy only answers the literature tools, after you sign in and approve their scopes, and you can disconnect at any time.
 
@@ -67,7 +71,7 @@ Researchzy Academic Skills is **twenty-six agent skills for the whole life of a 
 | 🔗 [`researchzy-citation-finder`](plugins/researchzy/skills/researchzy-citation-finder/SKILL.md) | Find real papers for the sentences of a draft that need a citation: logged searches per sentence, reading to the depth the claim needs, a verdict with a quote, a narrower wording when the evidence supports less<br>**You get:** A citation map, `new-references.bib`, and the searches tried where nothing was found |
 | 🎯 [`researchzy-find-journal`](plugins/researchzy/skills/researchzy-find-journal/SKILL.md) | Choose where to submit: tally where similar papers and your references were published, check each venue in Crossref and DOAJ, and plan the next step after a rejection<br>**You get:** A shortlist with the evidence for each venue, sourced and dated facts, and a list of what to confirm on the venue's site |
 
-The plugin connects nine [MCP tools](plugins/researchzy/docs/tools.md): `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, `create_pdf_upload` and `get_profile`.
+The plugin connects nine [MCP tools](plugins/researchzy/docs/tools.md): `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_paper_files`, `create_pdf_upload` and `get_profile`.
 
 ### `researchzy-reading` — read papers (no account)
 
@@ -110,6 +114,36 @@ The plugin connects nine [MCP tools](plugins/researchzy/docs/tools.md): `search_
 | 🌐 [`researchzy-translate`](plugins/researchzy-language/skills/researchzy-translate/SKILL.md) | Translate a manuscript section or a paper between Chinese and English, or another pair: the glossary agreed first, LaTeX, maths and citations masked, the translation checked unit by unit<br>**You get:** The translation in the source's format, a side-by-side table, the glossary and a check of numbers, dates, citations and terms |
 | ✒️ [`researchzy-polish`](plugins/researchzy-language/skills/researchzy-polish/SKILL.md) | Polish academic English without changing what it says, at the level you choose, optionally compared with your own style or a target journal's papers<br>**You get:** The polished text, a redline, a change log with a reason for every edit, questions for you, and a check of numbers, citations and claim strength |
 
+### `researchzy-thesis` — a degree thesis from proposal to defence (the proposal's search needs a Researchzy account)
+
+| Skill | What it does |
+|---|---|
+| 🎓 [`researchzy-thesis-proposal`](plugins/researchzy-thesis/skills/researchzy-thesis-proposal/SKILL.md) | A thesis proposal or a PhD research proposal written to the school's own template: its rules recorded with quotes, questions you choose, a literature basis of papers found and read, a matrix and a timeline<br>**You get:** The proposal under the template's own headings, the template record, the literature ledger and a check of sections, limits, citations and dates |
+| 📚 [`researchzy-thesis-build`](plugins/researchzy-thesis/skills/researchzy-thesis-build/SKILL.md) | Assemble a thesis from your published papers in the school's Word template or LaTeX class, and measure it against the school's format rules<br>**You get:** The school's rules with quotes, a chapter plan, a reuse table, text snapshots that show no published sentence changed, and a check of the .docx and the PDF |
+| 🔎 [`researchzy-thesis-audit`](plugins/researchzy-thesis/skills/researchzy-thesis-audit/SKILL.md) | Audit a whole thesis before review: abbreviations, declared key numbers, sample sizes, figure and table callouts, citations, hypotheses, the two abstracts and the blind-review copy<br>**You get:** A report of pass, fail and not checked with file and line, leads grouped apart, in Chinese or English |
+| 🎙️ [`researchzy-defense`](plugins/researchzy-thesis/skills/researchzy-defense/SKILL.md) | Prepare a thesis defence: questions anchored to printed pages, starting from the reviewers' reports, answer outlines, and a mock defence one question at a time<br>**You get:** A question bank, outlines whose pages, numbers and quotes a script finds in the thesis, a session log and a revision list |
+
+### `researchzy-social` — surveys, scales, path models, interviews and text (no account)
+
+| Skill | What it does |
+|---|---|
+| 📋 [`researchzy-survey`](plugins/researchzy-social/skills/researchzy-survey/SKILL.md) | Design a questionnaire and audit the responses: items with sources and licence status, a wording review, exclusion rules dated before fielding<br>**You get:** An item table, a wording review, the rules, and a data-quality report of straight-lining, speed, attention, duplicates and missing data counted under your rules |
+| 📐 [`researchzy-psychometrics`](plugins/researchzy-social/skills/researchzy-psychometrics/SKILL.md) | Reliability and validity of multi-item scales from your data: scoring from a declared item map, alpha and omega, EFA with parallel analysis, CFA, CR, AVE, HTMT, invariance<br>**You get:** `results.json` with every estimate and its conditions, and Results text checked against it |
+| 🔀 [`researchzy-path-models`](plugins/researchzy-social/skills/researchzy-path-models/SKILL.md) | Mediation, moderation, moderated mediation and SEM paths from a model registered before estimation<br>**You get:** Bootstrap intervals, simple slopes and the Johnson-Neyman region, the index of moderated mediation, a ledger of every model and wording checked against the design |
+| 🗣️ [`researchzy-qualitative`](plugins/researchzy-social/skills/researchzy-qualitative/SKILL.md) | Code interviews, field notes and open answers with the approach recorded first and a versioned codebook<br>**You get:** A ledger of quotes checked at their place and speaker, blind calibration with kappa and alpha, participants per theme, negative cases and a CSV export |
+| 🏷️ [`researchzy-text-as-data`](plugins/researchzy-social/skills/researchzy-text-as-data/SKILL.md) | Turn texts into a research variable and show it is measured well<br>**You get:** Sealed blind rounds scored against your labels, frozen instructions with provenance on every row, dictionary and topic comparisons and corrected class shares |
+
+### `researchzy-clinical` — protocols, registries, checklists, survival, diagnostic accuracy, case reports (no account; no clinical advice)
+
+| Skill | What it does |
+|---|---|
+| 🧾 [`researchzy-protocol`](plugins/researchzy-clinical/skills/researchzy-protocol/SKILL.md) | A trial or observational protocol, registry entry and analysis plan from one set of core items, with sourced variable definitions and the institution's form<br>**You get:** Three documents checked item by item, a definitions table, a target-trial table and a check that the filled form kept its styles |
+| 🗃️ [`researchzy-registry-check`](plugins/researchzy-clinical/skills/researchzy-registry-check/SKILL.md) | Compare a trial report with its ClinicalTrials.gov record, or search the registry before a study<br>**You get:** Outcomes, time points, enrolment and dates side by side, registration timing, the record version read, and a logged search with every status kept |
+| ☑️ [`researchzy-reporting-checklist`](plugins/researchzy-clinical/skills/researchzy-reporting-checklist/SKILL.md) | Fill the reporting checklist your journal asks for from the file you downloaded<br>**You get:** Every item with a page and a quote a script finds there, reasons for items that do not apply, an upload list and a list of gaps |
+| ⏳ [`researchzy-survival`](plugins/researchzy-clinical/skills/researchzy-survival/SKILL.md) | Time-to-event analysis with every default explicit: probe, Kaplan-Meier, log-rank, Cox with Efron ties, a proportional-hazards test, RMST, competing risks<br>**You get:** Figures with numbers at risk, medians or "not reached", `results.json`, and Results text checked against it |
+| 🩺 [`researchzy-diagnostic-accuracy`](plugins/researchzy-clinical/skills/researchzy-diagnostic-accuracy/SKILL.md) | Diagnostic test accuracy and clinical prediction models: leakage probe, exact intervals, DeLong, calibration, optimism correction, decision curves<br>**You get:** One record per model and dataset, thresholds with their source, and Results text checked against it |
+| 📄 [`researchzy-case-report`](plugins/researchzy-clinical/skills/researchzy-case-report/SKILL.md) | A case report from the clinician's notes, screened for identifiers before and after writing<br>**You get:** A sourced timeline, a similar-cases table with checked quotes, a consent statement from the record, and a check that names categories and lines but never the values |
+
 The plugins without an account work on the PDFs, text and files you give them. With `researchzy` installed and connected they do more: the reading skills find a paper by DOI or title and use the PDF Researchzy holds, the reference check looks up references that have no DOI and can check that a cited paper supports the sentence that cites it, the paper review tests claims of novelty against real papers, a power calculation can take its effect size from a prior study's full text, and the systematic review searches Researchzy's index beside PubMed and ClinicalTrials.gov.
 
 ## 🔄 One Workflow, from Search to Revision
@@ -138,6 +172,9 @@ Use the whole chain or any single step. With `researchzy` installed, start there
 /plugin install researchzy-manuscript@researchzy   # check and revise a manuscript, no account
 /plugin install researchzy-evidence@researchzy     # systematic reviews and meta-analysis
 /plugin install researchzy-language@researchzy     # translate and polish, no account
+/plugin install researchzy-thesis@researchzy       # a thesis from proposal to defence
+/plugin install researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
+/plugin install researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
 /plugin install researchzy@researchzy              # search and literature reviews, needs an account
 ```
 
@@ -151,6 +188,9 @@ codex plugin add researchzy-reading@researchzy      # read papers, no account
 codex plugin add researchzy-manuscript@researchzy   # check and revise a manuscript, no account
 codex plugin add researchzy-evidence@researchzy     # systematic reviews and meta-analysis
 codex plugin add researchzy-language@researchzy     # translate and polish, no account
+codex plugin add researchzy-thesis@researchzy       # a thesis from proposal to defence
+codex plugin add researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
+codex plugin add researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
 codex plugin add researchzy@researchzy              # search and literature reviews, needs an account
 ```
 
@@ -176,7 +216,8 @@ To use the `researchzy` skill's search and library, also add the MCP server `htt
 - **Python 3.10+** for the bundled scripts; `pip install -r plugins/researchzy-reading/requirements.txt` adds PyMuPDF for reading PDFs.
 - **Node.js 22+** for `researchzy-download`, plus `pdfplumber` or `pypdf` to verify PDFs.
 - **scipy** (and **statsmodels** for models) for `researchzy-statistics`; **numpy** and **scipy** (and **matplotlib** for plots) for `researchzy-meta-analysis`; **numpy**, **pandas** and **statsmodels** for `researchzy-causal-inference`; a **TeX distribution** with `latexmk` for `researchzy-latex` and `researchzy-slides`; **python-pptx** for PowerPoint slides; Poppler's `pdfinfo` and `pdffonts` for PDF checks. Each skill says what is missing and what it could not check without it.
-- A **Researchzy account** for the `researchzy` plugin only; the systematic review uses it to search Researchzy's index.
+- **numpy**, **pandas**, **scipy**, **statsmodels** and **scikit-learn** for `researchzy-psychometrics`, `researchzy-path-models`, `researchzy-text-as-data`, `researchzy-survival` and `researchzy-diagnostic-accuracy`; **semopy** or R with **lavaan** for confirmatory factor analysis (lavaan for invariance); **python-docx** to fill Word forms; **pandoc** for citation samples. A step whose package is missing is reported as not run.
+- A **Researchzy account** for the `researchzy` plugin only; the systematic review and the thesis proposal use it to search Researchzy's index.
 
 ## 💡 Example Prompts
 
@@ -229,6 +270,27 @@ To use the `researchzy` skill's search and library, also add the MCP server `htt
 
 > Polish the English of this Discussion; I'm not a native speaker. Don't change what it says.
 
+**Thesis**
+> Write my thesis proposal to this department template from my notes and my supervisor's references.
+
+> Check my thesis for inconsistencies before it goes to blind review, and check the blind copy for anything that names me.
+
+> My defence is next week. Here are the thesis and the two review reports: give me the likely questions and run a mock defence.
+
+**Surveys, scales and interviews**
+> Here is my questionnaire and the exported responses. Review the items, then audit the data before I analyse it.
+
+> Check the reliability and validity of my three scales from this .sav file, then test whether meaning mediates autonomy and engagement.
+
+> Code these six interview transcripts with codebook thematic analysis and check every quote in my findings draft.
+
+**Clinical research**
+> Draft the protocol, registry entry and analysis plan for this trial idea, and check that they agree.
+
+> Compare my trial paper with its ClinicalTrials.gov record, then fill the CONSORT checklist the journal asks for with page numbers.
+
+> Analyse overall survival by arm in this cohort, and validate the prediction model on the test split without leakage.
+
 **Submit and present**
 > Where should I submit this paper? It must be open access, and Nutrients already rejected it.
 
@@ -249,7 +311,7 @@ The [Researchzy Agent](https://researchzy.com) runs these skills for you on its 
 <details>
 <summary><b>Do I need a Researchzy account?</b></summary>
 
-Only for the `researchzy` plugin: search, your library, literature reviews, ideas, citation finding and journal choice, and for searching Researchzy's index in a systematic review. `researchzy-reading`, `researchzy-manuscript`, `researchzy-evidence` and `researchzy-language` need none and work on the PDFs, text and files you provide. With `researchzy` connected they do more: the reading skills find papers by DOI or title and use the PDFs Researchzy holds, and the reference check looks up references that have no DOI and can run the claim check.
+Only for the `researchzy` plugin: search, your library, literature reviews, ideas, citation finding and journal choice, and for searching Researchzy's index in a systematic review. `researchzy-reading`, `researchzy-manuscript`, `researchzy-evidence`, `researchzy-language`, `researchzy-thesis`, `researchzy-social` and `researchzy-clinical` need none and work on the PDFs, text and files you provide. With `researchzy` connected they do more: the reading skills find papers by DOI or title and use the PDFs Researchzy holds, and the reference check looks up references that have no DOI and can run the claim check.
 </details>
 
 <details>
@@ -306,6 +368,21 @@ python3 -m unittest discover -s plugins/researchzy-evidence/skills/researchzy-ri
 python3 -m unittest discover -s plugins/researchzy-evidence/skills/researchzy-meta-analysis/tests      # numpy, scipy and statsmodels for the full run
 python3 -m unittest discover -s plugins/researchzy-language/skills/researchzy-translate/tests
 python3 -m unittest discover -s plugins/researchzy-language/skills/researchzy-polish/tests
+python3 -m unittest discover -s plugins/researchzy-thesis/skills/researchzy-thesis-proposal/tests
+python3 -m unittest discover -s plugins/researchzy-thesis/skills/researchzy-thesis-build/tests        # PyMuPDF and pandoc for the full run
+python3 -m unittest discover -s plugins/researchzy-thesis/skills/researchzy-thesis-audit/tests
+python3 -m unittest discover -s plugins/researchzy-thesis/skills/researchzy-defense/tests             # PyMuPDF for the PDF tests
+python3 -m unittest discover -s plugins/researchzy-social/skills/researchzy-survey/tests
+python3 -m unittest discover -s plugins/researchzy-social/skills/researchzy-psychometrics/tests       # numpy, pandas, scipy, statsmodels and semopy for the full run
+python3 -m unittest discover -s plugins/researchzy-social/skills/researchzy-path-models/tests         # numpy, pandas and statsmodels for the full run
+python3 -m unittest discover -s plugins/researchzy-social/skills/researchzy-qualitative/tests
+python3 -m unittest discover -s plugins/researchzy-social/skills/researchzy-text-as-data/tests        # scikit-learn for the topic tests
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-protocol/tests
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-registry-check/tests
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-reporting-checklist/tests
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-survival/tests          # numpy, scipy, statsmodels and matplotlib for the full run
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-diagnostic-accuracy/tests   # numpy, scipy, statsmodels, scikit-learn and matplotlib
+python3 -m unittest discover -s plugins/researchzy-clinical/skills/researchzy-case-report/tests
 node --test plugins/researchzy-reading/skills/researchzy-download/tests/unit/*.test.mjs
 ```
 

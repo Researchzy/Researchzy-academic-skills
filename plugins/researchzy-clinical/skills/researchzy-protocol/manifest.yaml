@@ -1,0 +1,27 @@
+name: researchzy-protocol
+version: 1.0.0
+description: >
+  Draft a trial or observational study protocol, statistical analysis plan and
+  registry entry from one core record of outcomes, time points, numbers and
+  wording; tie each variable definition to a quoted source; check by script
+  that the three documents agree item by item, with time points normalised;
+  fill the institution's Word form in a copy and prove that only the answers
+  changed; and keep the amendment log.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing core.json, a sample size from another skill, time points and the month rule, locations.json, or what each document holds
+      path: references/core-and-documents.md
+    - condition: writing definitions.csv, saving a source, an ad hoc definition, or a cutoff that a document gives differently
+      path: references/definitions.md
+    - condition: a comparative observational study, the target trial table, time zero or immortal time
+      path: references/observational-design.md
+    - condition: filling the institution's Word form, form-fill.json, a form_check row that fails, or the amendment log
+      path: references/forms-and-amendments.md
+    - condition: checking the three documents against core.json, the definitions against their sources, or the amendment log
+      path: scripts/protocol_check.py
+    - condition: comparing a filled copy of a Word form with the form itself
+      path: scripts/form_check.py

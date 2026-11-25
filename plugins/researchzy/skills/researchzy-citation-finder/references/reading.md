@@ -10,7 +10,7 @@ A search hit says that a paper is about the right words. Only reading says wheth
 | `abstract` | The abstract the tool returned (`search_papers`, or `get_paper` with `detail: full`) | The saved result file (`.json`); the script reads the abstract of that paper from it |
 | `full-text` | The paper's text | The text file made by the `text` command; under 400 words it counts as an abstract |
 
-Getting the full text: `get_pdf_download` with the candidate's `corpusId`, following the PDF rules of the `researchzy` skill (download before the URL expires, send no Researchzy credentials to it, check that the file is a PDF). Save it under `citations/pdf/`, then:
+Getting the full text: `get_paper_files` with the candidate's `corpusId`, following the rules of the `researchzy` skill (download before the URL expires, send no Researchzy credentials to it, check the file). When it returns `grobidTeiXml`, the `researchzy` skill's `tei_text.py` turns it into `paper.md`, the text with `[[page N]]` lines: save it as `citations/texts/<name>.txt` and skip the `text` command. Otherwise save the PDF under `citations/pdf/`, then:
 
 ```sh
 python3 "$SKILL_DIR/scripts/citation_ledger.py" text citations/pdf/okoro2019.pdf --name okoro2019

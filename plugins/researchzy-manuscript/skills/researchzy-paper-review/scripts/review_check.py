@@ -90,7 +90,7 @@ CHECKS = ("novelty", "references", "statistics")
 FINDING_TEXT = ("location", "observation", "basis", "why_it_matters", "fix", "closure_test")
 # A quote of a few words proves little: it matches somewhere in most manuscripts.
 MIN_QUOTE_TOKENS = 5
-# The same floor for a script the word tokens of quote_match do not cover (Chinese, Cyrillic, Arabic…).
+# The floor in characters for a quote mostly in another script (Chinese has no spaces between words).
 MIN_QUOTE_CHARS = 12
 
 PLACEHOLDER_RE = re.compile(r"\b(?:TODO|TBD|FIXME|XXX+)\b|\{\{.*?\}\}|(?i:lorem ipsum)"
@@ -107,7 +107,7 @@ QUOTE_PROBLEM = {
                                      "from the file given to --manuscript."),
     "absent": ("quote_not_found", "it is not in the manuscript. Reread the passage: correct the quote, or withdraw "
                                   "the finding."),
-    "too_short": ("quote_too_short", "quote the whole sentence or table row: at least five words."),
+    "too_short": ("quote_too_short", "quote the whole sentence or table row: at least five words, or twelve characters of Chinese."),
 }
 PASSAGE = {"found": "unchanged", "partly": "changed", "absent": "gone", "too_short": "unknown"}
 RECHECK_PROBLEM = {
@@ -169,8 +169,10 @@ def locate(quote: str, texts: list[tuple[str, str]]) -> str:
     """Is the quote in the manuscript: found, partly (most of its words, in order), absent or too_short."""
     bare = squeeze(quote)
     letters = [ch for ch in bare if ch.isalnum()]
-    if sum(not ch.isascii() for ch in letters) >= max(MIN_QUOTE_CHARS, len(letters) / 2):
-        # Mostly a script without word tokens: match the characters, whatever the line breaks.
+    if letters and sum(not ch.isascii() for ch in letters) >= len(letters) / 2:
+        # Mostly a script without spaces between words: match the characters, whatever the line breaks.
+        if len(letters) < MIN_QUOTE_CHARS:
+            return "too_short"
         return "found" if any(bare in whole for _, whole in texts) else "absent"
     if len(tokens(quote)) < MIN_QUOTE_TOKENS:
         return "too_short"

@@ -1,0 +1,28 @@
+name: researchzy-reporting-checklist
+version: 1.0.0
+description: >
+  Fill the reporting checklist a journal requires, registered from the user's
+  own copy of it with version, design, licence and hash: each item gets a page,
+  lines and a quote found on that page by script, a reason when it does not
+  apply, or a gap with a suggestion whose author-only facts are placeholders;
+  the upload list carries no item wording.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: there is no checklist file, or registering one (checklist.json, versions, design variants, extensions, the licence), or a register failure
+      path: references/registering.md
+    - condition: making the texts with pages and lines, choosing a status, giving places and quotes, writing filled.json, or a check failure
+      path: references/filling.md
+    - condition: writing what is missing and the suggestion for a partly reported or not reported item, or a suggestion failure
+      path: references/suggestions.md
+    - condition: exporting the upload list, filling the user's .docx form, gaps.md, the hand-over, or a manuscript that changed
+      path: references/exporting.md
+    - condition: hashing files, registering the checklist against its file, checking filled.json, exporting
+      path: scripts/checklist_check.py
+interface:
+  display_name: "Researchzy Reporting Checklist"
+  short_description: "Fill a journal's reporting checklist with quotes checked on each page"
+  default_prompt: "Use $researchzy-reporting-checklist to fill the reporting checklist for my manuscript from the checklist file I downloaded."

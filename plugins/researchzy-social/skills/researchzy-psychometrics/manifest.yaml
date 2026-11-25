@@ -1,0 +1,33 @@
+name: researchzy-psychometrics
+version: 1.0.0
+description: >
+  Test multi-item scales on the user's response data: scoring from an item map
+  the user confirms, with keying problems found; item analysis and alpha with
+  an interval; EFA with a seeded parallel analysis; CFA with convergence,
+  identification and Heywood cases recorded before any fit index; omega, CR,
+  AVE and HTMT; invariance through lavaan; common-method tests with their
+  limits; and a check of the text against the recorded results.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing items.json, reverse keys, missing codes, a .sav file, scale licences, or a lead from score_items.py
+      path: references/item-map-and-scoring.md
+    - condition: writing the analysis script, item statistics, alpha and its interval, deleting an item, an EFA, parallel analysis, or the ordinal decision
+      path: references/reliability-and-efa.md
+    - condition: choosing semopy or lavaan, the CFA record, a Heywood case, SRMR, omega, CR, AVE, HTMT, recording a convention, or wording a judgement
+      path: references/cfa-and-validity.md
+    - condition: comparing groups, invariance levels, partial invariance, semopy's limits across groups, or common-method bias
+      path: references/invariance-and-cmv.md
+    - condition: scoring the items from items.json and finding reverse-keying, range and category problems
+      path: scripts/score_items.py
+    - condition: computing alpha, item statistics, parallel analysis, EFA, CFA with semopy, SRMR, omega, CR, AVE, HTMT, Harman's test or the marker adjustment
+      path: scripts/psy_tools.py
+    - condition: checking results.json and the text written from it
+      path: scripts/check_psychometrics.py
+    - condition: the result file and ledger the analysis records into (copied from researchzy-statistics)
+      path: scripts/rz_results.py
+    - condition: the number check that check_psychometrics.py extends (copied from researchzy-statistics)
+      path: scripts/check_results.py

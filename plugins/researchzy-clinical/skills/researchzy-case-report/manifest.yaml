@@ -1,0 +1,25 @@
+name: researchzy-case-report
+version: 1.0.0
+description: >
+  Write a case report about one patient from the clinician's own notes: a
+  script scans the notes for the patient's identifiers before they are read,
+  then a relative timeline quoted from the notes, a table of similar cases from
+  logged and saved searches with quoted cells, a consent statement generated
+  from the clinician's record, and a check of the draft, timeline, captions,
+  image files and Word properties.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing identifiers.json, scanning the notes, an identifiers failure, or any image
+      path: references/privacy-and-identifiers.md
+    - condition: writing timeline.csv, choosing the sections, writing the case, or reviewing the leads of the check
+      path: references/timeline-and-writing.md
+    - condition: searching for similar cases, logging and saving searches, writing similar-cases.json or the count sentence
+      path: references/similar-cases.md
+    - condition: recording consent in consent.json, consent given by someone else, or a consent failure
+      path: references/consent.md
+    - condition: scanning files for identifiers, or checking the draft, timeline, captions, images, consent and similar cases
+      path: scripts/case_check.py

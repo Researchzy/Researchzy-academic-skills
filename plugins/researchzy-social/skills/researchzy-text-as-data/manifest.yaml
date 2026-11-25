@@ -1,0 +1,30 @@
+name: researchzy-text-as-data
+version: 1.0.0
+description: >
+  Turn a collection of texts into a validated research variable: a protocol and
+  a versioned codebook, blind validation rounds in which the model labels and
+  seals its file before the user's labels arrive, scores against the protocol's
+  thresholds with per-class figures and intervals, a frozen instruction file
+  with provenance on every row of the full run, dictionary and topic-model
+  comparisons named only after reading, and class shares corrected for the
+  measured errors.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing protocol.json, codebook.csv, codebook-changes.csv or instructions.md, choosing thresholds, or converting the corpus
+      path: references/protocol-and-codebook.md
+    - condition: drawing, labelling, sealing or scoring a round, a refusal of sample, seal or score, not estimable classes, or reporting a round
+      path: references/rounds-and-sealing.md
+    - condition: the full run, writing run.csv, acting on a check-run failure, text addressed to the coder, or writing the methods
+      path: references/frozen-run.md
+    - condition: dictionary counts, topic models and their names, corrected class shares, error rates by group, or handing the variable on
+      path: references/comparisons-and-error.md
+    - condition: drawing, sealing and scoring rounds, hashing the instructions, checking the full run, correcting the class shares
+      path: scripts/tad_ledger.py
+    - condition: counting dictionary terms with negation and context, or fitting topic models across K and seeds
+      path: scripts/tad_compare.py
+    - condition: computing Cohen's kappa, kappa per code, Krippendorff's alpha or a per-class report from a table of labels
+      path: scripts/rz_agreement.py

@@ -56,7 +56,7 @@ For anything else (mixed models, repeated measures with several occasions, logis
 With the `researchzy` plugin connected (it needs a Researchzy account), the agent can look for the prior study the effect or SD comes from:
 
 1. Search with `search_papers`: 2 to 4 short keyword queries for the outcome, population and design; the index matches words in titles and abstracts only.
-2. Pick studies with the same outcome measure and a similar population; get the full text with `get_pdf_download` (or `researchzy-download`, plugin `researchzy-reading`, when installed).
+2. Pick studies with the same outcome measure and a similar population; get the PDF with `get_paper_files` (or `researchzy-download`, plugin `researchzy-reading`, when installed).
 3. Read the SD, baseline proportion, ICC or effect from the full text: a table, a figure legend or the results text. Never from the abstract shown in the search result, and never from memory.
 4. Pass the DOI and the place to `--source-note`, and tell the user which paper and value were used so they can confirm it.
 

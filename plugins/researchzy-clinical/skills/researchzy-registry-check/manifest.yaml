@@ -1,0 +1,29 @@
+name: researchzy-registry-check
+version: 1.0.0
+description: >
+  Check trials against ClinicalTrials.gov records saved from its public API:
+  before a study, a logged search and a list of every trial it returns,
+  whatever the status; for a trial paper, a check that the record is the
+  paper's trial, then outcomes, time points, enrolment and its type, dates,
+  registration timing and other registration numbers compared item by item,
+  with both texts side by side and the version of the record named.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: fetching a record or the API version, the fields the script reads, earlier versions of a record, or other registries
+      path: references/fetching-records.md
+    - condition: checking that a record is the paper's trial, writing items.json, pairing outcomes, unreported outcomes, states and types, or a problem listed by compare
+      path: references/matching-and-items.md
+    - condition: registration timing, enrolment and its type, the version compared, or wording the report
+      path: references/timing-and-enrolment.md
+    - condition: searching the registry before a study, saving pages, search-log.json, the trial list, relevance calls, or an empty result
+      path: references/prior-trial-search.md
+    - condition: tabulating saved search pages, or comparing items.json, the paper and the saved record
+      path: scripts/registry_compare.py
+interface:
+  display_name: "Researchzy Registry Check"
+  short_description: "Compare a trial paper with its registry record, or list registered trials"
+  default_prompt: "Use $researchzy-registry-check to compare this trial paper with its ClinicalTrials.gov record."

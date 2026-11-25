@@ -109,7 +109,7 @@ Everything goes in `statistics/` in the user's working directory. Run every comm
      --source-note "doi:10.xxxx/yyyy, Table 2, control arm SD" --attrition 0.1
    ```
 
-   Give the user the table from `statistics/power.md` and the justification paragraph. `--solve effect` is a sensitivity analysis and is labelled so; observed power is refused. With the `researchzy` plugin connected (it needs a Researchzy account), find the prior study with `search_papers`, read the SD or effect in its full text from `get_pdf_download`, and record the DOI and the table or page in `--source-note`. Without it, ask the user for the paper or the value with its source.
+   Give the user the table from `statistics/power.md` and the justification paragraph. `--solve effect` is a sensitivity analysis and is labelled so; observed power is refused. With the `researchzy` plugin connected (it needs a Researchzy account), find the prior study with `search_papers`, read the SD or effect in its PDF from `get_paper_files`, and record the DOI and the table or page in `--source-note`. Without it, ask the user for the paper or the value with its source.
 
 ## Outputs
 

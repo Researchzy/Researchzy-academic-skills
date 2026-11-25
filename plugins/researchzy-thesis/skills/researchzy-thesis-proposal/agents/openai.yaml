@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Thesis Proposal"
+  short_description: "Write and check a thesis proposal to the school's own template"
+  default_prompt: "Use $researchzy-thesis-proposal to write my thesis proposal from my school's template."

@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-clinical",
+  "version": "2.3.0",
+  "description": "Clinical research with your agent: protocols whose registry entry and analysis plan agree, trial records compared with the paper, reporting checklists filled with checked quotes, survival and diagnostic-accuracy analyses with checked text, and case reports screened for patient identifiers. No clinical advice. No account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Clinical",
+    "shortDescription": "Protocols, registry checks, reporting checklists, survival, diagnostic accuracy, case reports.",
+    "longDescription": "Draft a trial or observational protocol, its registry entry and its analysis plan from one set of core items and check that the three agree, with sourced variable definitions and an institution's Word form filled without breaking it. Compare a trial report with its ClinicalTrials.gov record item by item, with registration timing and the version read. Fill the reporting checklist your journal asks for from the file you downloaded, each item with a page and a quote a script finds there. Run survival analyses (Kaplan-Meier, log-rank, Cox with a proportional-hazards test, RMST, cumulative incidence) and diagnostic-accuracy and prediction-model analyses (exact intervals, DeLong, calibration, optimism correction, decision curves, a leakage probe), with every number in the text checked. Write a case report from the clinician's notes with a sourced timeline, a consent statement built from the record and a check that no patient identifier remains. No clinical advice.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Compare my trial report with its ClinicalTrials.gov record."
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

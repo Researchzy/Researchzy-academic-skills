@@ -20,7 +20,7 @@ The script locates LaTeX, Pandoc and numeric citations. For author-year citation
 Try in this order and record which one you used in `read`:
 
 1. A file the user supplied.
-2. Researchzy: find the record (`lookups.json`, `for_full_text`, gives the `search_papers` call), then `get_pdf_download` with its `corpusId`. Follow the PDF rules of the `researchzy` skill: download before the URL expires, send no Researchzy credentials to the signed URL, check that the file is a PDF.
+2. Researchzy: find the record (`lookups.json`, `for_full_text`, gives the `search_papers` call), then `get_paper_files` with its `corpusId`. Follow the file rules of the `researchzy` skill: download before the URL expires, send no Researchzy credentials to the signed URL, check the file. When it returns `grobidTeiXml`, the `researchzy` skill's `tei_text.py` turns it into `paper.md`, the text with `[[page N]]` lines that `check` reads as the source; its citations are linked to `references.json`. Read a number from a table in the PDF.
 3. `researchzy-download` (plugin `researchzy-reading`, when installed), for an open-access copy.
 4. The abstract returned by `search_papers` or `get_paper` (pass `detail: full`). Save it as a text file. `read` is then `abstract`.
 

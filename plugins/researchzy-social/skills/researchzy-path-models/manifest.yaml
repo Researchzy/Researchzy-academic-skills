@@ -1,0 +1,38 @@
+name: researchzy-path-models
+version: 1.0.0
+description: >
+  Mediation, moderation and the structural part of an SEM from the user's data:
+  a model written and registered before the first estimate, every equation
+  fitted on the same rows, a seeded case bootstrap of the full-sample a·b with
+  percentile or BCa intervals, simple slopes inside the moderator's observed
+  range with Johnson-Neyman bounds, the index of moderated mediation, a ledger
+  row for every re-specification, and a check of the text against the results
+  and the design.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing or registering paths/model.md, identification assumptions, wording by design, re-specifications and deviations
+      path: references/model-first.md
+    - condition: indirect effects, bootstrap intervals, parallel or serial mediators, proportion mediated, sensitivity, or results from statsmodels Mediation or pingouin
+      path: references/mediation.md
+    - condition: interactions, centring, probe values, simple slopes, Johnson-Neyman bounds, moderated mediation and its index
+      path: references/moderation.md
+    - condition: latent variables, semopy or lavaan, convergence, degrees of freedom, fit, modification indices, comparing paths across groups
+      path: references/sem-structure.md
+    - condition: fitting equations on the same rows, bootstrapping defined parameters, probing, the index and structural models from the analysis script
+      path: scripts/path_tools.py
+    - condition: simple slopes with standard errors and intervals, Johnson-Neyman bounds and probes outside the observed range, from summary numbers
+      path: scripts/probe_interaction.py
+    - condition: registering model.md, checking the results, the registered model, the ledger, and the numbers and wording of the text
+      path: scripts/check_paths.py
+    - condition: the result file, the ledger and the hashes written by the analysis script
+      path: scripts/rz_results.py
+    - condition: the shared checks of results.json and of the numbers in the text
+      path: scripts/check_results.py
+interface:
+  display_name: "Researchzy Path Models"
+  short_description: "Mediation, moderation and SEM paths from a registered model, checked against the text"
+  default_prompt: "Use $researchzy-path-models to test whether meaning mediates the link between autonomy and engagement in my survey data."

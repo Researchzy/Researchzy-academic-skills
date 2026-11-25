@@ -118,7 +118,7 @@ class LedgerTestCase(unittest.TestCase):
             {"record": "R0002", "stage": "ft", "decision": "exclude", "code": "E1", "locator": "p. 2", "reviewer": "model",
              "quote": "The participants were allocated by alternation, so the trial was not randomised"},
             {"record": "R0010", "stage": "ft", "decision": "not_retrieved", "reviewer": "model",
-             "note": "conference abstract only; get_pdf_download had no file and the user had none"})
+             "note": "conference abstract only; get_paper_files had no file and the user had none"})
         if calibration:
             self.write("systematic-review/calibration/round1-score.json",
                        {"round": 1, "status": calibration, "scored": "2026-11-11T10:00:00Z", "records": []})

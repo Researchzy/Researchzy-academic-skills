@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Thesis Build"
+  short_description: "Assemble a thesis from published papers and measure it against the school's rules"
+  default_prompt: "Use $researchzy-thesis-build to assemble my thesis from these papers in my school's template."

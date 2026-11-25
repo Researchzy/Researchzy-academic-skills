@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Diagnostic Accuracy"
+  short_description: "Analyse test accuracy and risk models and check the text against the results"
+  default_prompt: "Use $researchzy-diagnostic-accuracy to analyse the accuracy of this test in my data."

@@ -31,6 +31,9 @@ most MAX_INTERRUPTIONS joins that are interrupted at all, and a cap on the total
 words are scattered one by one across a section fails, while a quote split once by a column
 bleed passes.
 
+Chinese, Japanese and Korean characters are one token each, because those scripts do not put
+spaces between words; other scripts count a run of letters as one word, as Latin does.
+
 Known limit: INTERLEAVED tolerates source tokens between the quote's words, so a quotation that
 drops a word such as "not" still matches. Reread any quotation that turns on a negation.
 
@@ -55,7 +58,8 @@ MIN_TOTAL_INSERT = 20
 # A PARTIAL match must still account for this share of the quote's tokens; below it, ABSENT.
 PARTIAL_COVERAGE = 0.80
 
-_TOKEN_RE = re.compile(r"[0-9a-z]+(?:'[a-z]+)?", re.IGNORECASE)
+_CJK = "\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af"   # kana, Han, Hangul
+_TOKEN_RE = re.compile(rf"[0-9a-z]+(?:'[a-z]+)?|[{_CJK}]|[^\W\d_a-z{_CJK}]+", re.IGNORECASE)
 
 
 def normalize(s: str) -> str:
@@ -76,6 +80,11 @@ def tokens(s: str) -> list[str]:
     """Normalized word/number tokens. Punctuation is dropped, so an injected '.' or a stray
     bracket never breaks a match on its own."""
     return _TOKEN_RE.findall(normalize(s))
+
+
+def _join_cjk(s: str) -> str:
+    """Drop a space between two CJK characters: an extractor's line break inside a Chinese sentence."""
+    return re.sub(rf"(?<=[{_CJK}]) (?=[{_CJK}])", "", s)
 
 
 def _ordered_run(needle: list[str], hay: list[str], allow_missing: bool):
@@ -141,7 +150,7 @@ def match_quality(quote: str, haystack: str) -> dict:
     total = len(q_tok)
     if total == 0:
         return {"grade": "ABSENT", "matched": 0, "total": 0, "inserted": 0, "coverage": 0.0}
-    if nq and nq in nh:
+    if nq and (nq in nh or _join_cjk(nq) in _join_cjk(nh)):
         return {"grade": "EXACT", "matched": total, "total": total, "inserted": 0, "coverage": 1.0}
 
     h_tok = tokens(haystack)

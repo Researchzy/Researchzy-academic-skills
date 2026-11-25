@@ -1,6 +1,6 @@
 # Researchzy Manuscript plugin
 
-Version 2.2.0. Thirteen skills for the manuscript and what surrounds it: analysis, causal inference, writing, figures, checks, submission, talks, grants and revision. They run on your machine and work on the files you give them; no account is needed.
+Version 2.3.0. Thirteen skills for the manuscript and what surrounds it: analysis, causal inference, writing, figures, checks, submission, talks, grants and revision. They run on your machine and work on the files you give them; no account is needed.
 
 | User goal | Skill | Result |
 |---|---|---|

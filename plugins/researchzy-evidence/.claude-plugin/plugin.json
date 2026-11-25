@@ -1,6 +1,6 @@
 {
   "name": "researchzy-evidence",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Systematic reviews, risk of bias and meta-analysis with your agent: a protocol, logged searches of Researchzy and PubMed, screening with reasons and a PRISMA 2020 flow that adds up, risk-of-bias judgements backed by quotes, and pooled effects with heterogeneity, plots and checked text. Searching the Researchzy index needs the researchzy plugin and a Researchzy account; risk of bias and meta-analysis work on your own files.",
   "author": {
     "name": "Researchzy",

@@ -9,7 +9,7 @@ Everything goes in `citations/` in the user's working directory. Run every comma
 | `citations/ledger.json` | the script | Targets, searches, candidates, verdicts, papers. Change it only through commands |
 | `citations/targets.md` | `targets`, `confirm` | Every target and candidate sentence, the other marker forms, placeholders in skipped blocks |
 | `citations/results/<target>-<n>.json` | you | Each tool result, saved as returned and never edited |
-| `citations/pdf/`, `citations/texts/` | you, `text` | PDFs from `get_pdf_download`; their text with `[[page N]]` marks |
+| `citations/pdf/`, `citations/texts/` | you, `text` | PDFs from `get_paper_files`; their text with `[[page N]]` marks, or the `paper.md` that `tei_text.py` makes from the TEI XML |
 | `citations/new-references.bib` | `bib` | Entries for accepted papers that are not in the author's `.bib` |
 | `citations/citation-map.md` | `check` | Per target: sentence, verdict, key, grade, quote with its place, wording, searches |
 | `citations/<name>.cited.md` or `.tex` | `apply` | A copy of the manuscript with supported placeholders replaced |

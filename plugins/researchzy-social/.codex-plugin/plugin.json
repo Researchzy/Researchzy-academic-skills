@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-social",
+  "version": "2.3.0",
+  "description": "Social-science methods with your agent: questionnaires with a recorded wording review and a response-quality audit, scale reliability and validity, mediation and moderation with bootstrap intervals, qualitative coding with quotes checked against the transcripts, and text turned into validated variables. No account needed.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Social",
+    "shortDescription": "Surveys, scales, path models, qualitative coding and text as data.",
+    "longDescription": "Design a questionnaire with an item table that records each scale's source and licence, a wording review and exclusion rules written before fielding, then audit the responses: straight-lining on the raw values, speed, attention items, duplicates and missing data, counted under your rules. Check a scale's reliability and validity from the data: item analysis, alpha and omega, parallel analysis, CFA with convergence and SRMR, CR, AVE and HTMT, and invariance. Estimate mediation, moderation and moderated mediation with bootstrap intervals, Johnson-Neyman regions and a model registered first. Code interviews with every quote checked at its place in the transcript and blind calibration of agreement, and turn text into variables with sealed rounds, a frozen labelling instruction and corrected class shares. Every cut-off is a convention you choose and every number in your text is checked.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Check the reliability and validity of my questionnaire scales from this data file."
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

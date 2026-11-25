@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Text as Data"
+  short_description: "Turn texts into a validated variable with blind rounds and a frozen run"
+  default_prompt: "Use $researchzy-text-as-data to turn these texts into a variable and validate it against my labels."

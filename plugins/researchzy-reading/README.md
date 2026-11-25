@@ -1,6 +1,6 @@
 # Researchzy Reading plugin
 
-Version 2.2.0. Three skills for reading papers. They run on your machine and work on the PDFs and text you give them; no account is needed.
+Version 2.3.0. Three skills for reading papers. They run on your machine and work on the PDFs and text you give them; no account is needed.
 
 | User goal | Skill | Result |
 |---|---|---|

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Psychometrics"
+  short_description: "Test the reliability and validity of multi-item scales"
+  default_prompt: "Use $researchzy-psychometrics to check the reliability and validity of the scales in my survey data."

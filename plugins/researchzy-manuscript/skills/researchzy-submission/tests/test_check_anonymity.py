@@ -232,5 +232,64 @@ class AnonymityTests(unittest.TestCase):
         self.assertEqual(self.run_check()[0], 2)
 
 
+class ChineseTextTests(unittest.TestCase):
+    """Chinese text has no word boundaries: 清华大学 in 本文在清华大学完成, a number after 学号."""
+    tearDown, write, run_check, found = (AnonymityTests.tearDown, AnonymityTests.write, AnonymityTests.run_check,
+                                         AnonymityTests.found)
+
+    def setUp(self):
+        AnonymityTests.setUp(self)
+        self.write("authors.json", json.dumps({
+            "authors": [{"name": "张明远", "affiliations": ["清华大学", "经济管理学院，Northtown", "Invented University"]}],
+            "funding": [{"grant_number": "71872001"}],
+            "anonymity": {"other": ["李国强", "2021210345"]}}, ensure_ascii=False))
+
+    def test_a_one_word_chinese_affiliation_is_kept(self):
+        ids = {(kind, value) for kind, value, _ in ca.identifiers(json.loads(
+            (self.folder / "authors.json").read_text(encoding="utf-8")), ["华北社会调查中心"])}
+        for expected in (("name", "张明远"), ("institution", "清华大学"), ("institution", "经济管理学院"),
+                         ("institution", "Invented University"), ("other", "李国强"), ("extra", "华北社会调查中心")):
+            self.assertIn(expected, ids)
+        self.assertNotIn(("institution", "Northtown"), ids)        # one Latin word is still a city
+
+    def test_identifiers_inside_running_chinese_text(self):
+        self.write("thesis.md", "本文在清华大学完成，数据来自华北社会调查中心。\n"            # affiliation, --extra
+                                "感谢导师李国强教授和经济管理学院的老师。\n"                # anonymity.other, affiliation
+                                "作者张明远，学号2021210345，受国家自然科学基金71872001资助。\n"
+                                "样本量为20212103456人，另见清华园的调查。\n")
+        code, result = self.run_check("--extra", "华北社会调查中心")
+        self.assertEqual(code, 1)
+        self.assertEqual(self.found(result, "identifier"),
+                         [(1, "institution: 清华大学"), (1, "extra: 华北社会调查中心"),
+                          (2, "institution: 经济管理学院"), (2, "other: 李国强"),
+                          (3, "name: 张明远"), (3, "grant number: 71872001"), (3, "other: 2021210345")])
+
+    def test_latin_identifiers_keep_their_word_boundaries(self):
+        self.write("authors.json", json.dumps(AUTHORS))
+        self.write("paper.md", "Okaforson and the MOX model; soil-memoryless and mokafors.\n根据Okafor的研究，MO负责写作。\n")
+        _, result = self.run_check()
+        self.assertEqual(self.found(result, "identifier"), [(2, "family name: Okafor"), (2, "initials: MO")])
+
+    def test_chinese_acknowledgement_and_funding_headings(self):
+        self.write("thesis.md", "# 致谢\n\n感谢所有受访者。\n\n致　谢\n\n基金资助：国家社会科学基金。\n\n"
+                                "**资助项目：** 无。\n\n致谢部分由作者撰写。\n\n基金资助的研究逐年增加。\n")
+        self.write("back.tex", "\\chapter*{致谢}\n\\section{基金项目}\n\\chapter{Acknowledgements}\n")
+        _, result = self.run_check()
+        self.assertEqual([(h["file"], h["where"]) for h in result["hits"] if h["kind"] == "section"],
+                         [("back.tex", 1), ("back.tex", 2), ("back.tex", 3),
+                          ("thesis.md", 1), ("thesis.md", 5), ("thesis.md", 7), ("thesis.md", 9)])
+
+    def test_docx_header_acknowledgement_and_creator(self):
+        header = f'<w:hdr xmlns:w="{W_NS}"><w:p><w:r><w:t>清华大学硕士学位论文</w:t></w:r></w:p></w:hdr>'
+        self.write("blind.docx", docx(["第一章 绪论", "致 谢", "感谢李国强教授。"], core=core("张明远"),
+                                      extra={"word/header1.xml": header}))
+        _, result = self.run_check()
+        hits = self.found(result, file="blind.docx")
+        self.assertIn(("word/header1.xml", "institution: 清华大学"), hits)
+        self.assertIn(("paragraph 3", "other: 李国强"), hits)
+        self.assertIn(("paragraph 2", "致 谢 section in a blinded file"), hits)
+        self.assertIn(("docProps/core.xml", "creator: 张明远"), hits)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -48,7 +48,7 @@ Everything goes in `writing/`. Read [Planning](references/planning.md) before st
    | `metadata` | a title, authors and year: a `.bib` entry or a search hit | that these authors studied this topic, and no finding |
    | `none` | your recollection | nothing: use a placeholder |
 
-   With the Researchzy tools connected (plugin `researchzy`, needs an account), grade a paper by what the tools returned in this session: a `search_papers` or `list_library_papers` hit is `metadata`, an abstract from `get_paper` is `abstract`, a full text obtained with `get_pdf_download` and read is `full-text`. Without them, grade by the files the author supplied.
+   With the Researchzy tools connected (plugin `researchzy`, needs an account), grade a paper by what the tools returned in this session: a `search_papers` or `list_library_papers` hit is `metadata`, an abstract from `get_paper` is `abstract`, a full text obtained with `get_paper_files` and read is `full-text`. Without them, grade by the files the author supplied.
 
 3. **Gap report.** In `writing/gaps.md`, list what the paper needs and the author does not have. Each gap becomes one placeholder in the draft, in exactly these forms:
 

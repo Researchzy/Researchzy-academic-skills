@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Survival"
+  short_description: "Analyse time-to-event data and check the text against the results"
+  default_prompt: "Use $researchzy-survival to analyse the survival data in this file."

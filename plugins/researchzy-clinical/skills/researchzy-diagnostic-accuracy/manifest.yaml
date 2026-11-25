@@ -1,0 +1,40 @@
+name: researchzy-diagnostic-accuracy
+version: 1.0.0
+description: >
+  Analyse the accuracy of diagnostic tests and logistic risk models on the
+  user's data: a probe for patients in two splits, partial verification,
+  several units per patient and separation; 2x2 measures with exact intervals
+  and likelihood ratios; AUCs with DeLong or patient-bootstrap intervals;
+  paired comparisons of two tests; calibration; decision curves; bootstrap
+  optimism that reruns the whole pipeline; a null-label check; and a check of
+  the text against the results.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: the data table, sampling designs, partial verification, several units per patient, leakage between splits, events per parameter, separation, or a probe finding
+      path: references/input-and-probe.md
+    - condition: sensitivity, specificity, likelihood ratios, predictive values, AUC intervals, comparing two tests on the same patients, or what a record holds
+      path: references/accuracy-measures.md
+    - condition: developing a logistic model, the pipeline function, bootstrap optimism, the null-label check, calibration, external validation or updating a model
+      path: references/model-development-and-validation.md
+    - condition: where a cut-off comes from, prevalence, decision curves, or writing the results and methods
+      path: references/thresholds-and-decision-curves.md
+    - condition: probing the data table before any estimate
+      path: scripts/probe_accuracy.py
+    - condition: computing and recording accuracy measures, AUCs, comparisons, calibration, net benefit, optimism, the null-label check and the figures from the analysis script
+      path: scripts/rz_accuracy.py
+    - condition: checking results.json against the probe, the leads in the scripts, and the text
+      path: scripts/check_accuracy.py
+    - condition: the result file and ledger that rz_accuracy.record() writes into (copied from researchzy-statistics)
+      path: scripts/rz_results.py
+    - condition: the number check that check_accuracy.py extends (copied from researchzy-statistics)
+      path: scripts/check_results.py
+    - condition: the figure style and export behind the ROC, calibration and decision figures (copied from researchzy-figures)
+      path: scripts/rz_figure.py
+interface:
+  display_name: "Researchzy Diagnostic Accuracy"
+  short_description: "Analyse test accuracy and risk models and check the text against the results"
+  default_prompt: "Use $researchzy-diagnostic-accuracy to analyse the accuracy of this test in my data."

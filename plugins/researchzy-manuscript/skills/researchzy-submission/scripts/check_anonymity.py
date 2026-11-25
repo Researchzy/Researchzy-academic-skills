@@ -8,7 +8,9 @@ Identifiers come from authors.json (default: in the folder): each author's name,
 "name_native", initials with and without full stops, email and its institutional domain, ORCID,
 the parts of each affiliation, grant numbers, ethics and registration ids, and the lists under
 "anonymity" ("handles", "repositories", "earlier_venues", "other"); add more with --extra or
---extra-file (one per line). Every file under the folder is read except requirements.json,
+--extra-file (one per line). An identifier with Han characters is found anywhere in running
+Chinese text ("本文在清华大学完成"), and a Han character next to any identifier is a boundary
+("学号2021210345"). Every file under the folder is read except requirements.json,
 authors.json, report.md, anonymity.md, reviewer-candidates.json and the --identified files,
 which are meant to carry names.
 
@@ -16,7 +18,8 @@ which are meant to carry names.
                     reference list or in the text)
   self_citation     "our previous work", "we previously showed", "in our earlier study" …,
                     noting whether the sentence carries a citation
-  section           an acknowledgements or funding section, or \\thanks, in a blinded file
+  section           an acknowledgements or funding section (also 致谢, 基金资助, 资助项目), or
+                    \\thanks, in a blinded file
   url               repository, personal and institutional links (anonymised mirrors are not hits)
   latex             \\author, \\affiliation, \\institute, \\address, \\email, \\orcid, \\thanks with content
   metadata          .docx, .xlsx, .pptx creator, last modified by, company, manager; tracked-change
@@ -54,6 +57,7 @@ VECTOR = {".svg", ".eps", ".ps"}               # pictures stored as text: read a
 OOXML = {".docx", ".xlsx", ".pptx", ".docm"}
 IMAGES = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".gif", ".bmp", ".webp"}
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+HAN = "\u3400-\u9fff"                          # \w matches Han characters, but Chinese text has no word boundaries
 # Values of an author field that name a program or nobody, not a person.
 NOT_A_PERSON = {"", "unknown", "anonymous", "author", "authors", "user", "administrator", "admin", "microsoft office user",
                 "pandoc", "libreoffice", "openoffice", "word", "microsoft word", "overleaf", "latex", "pdftex", "quarto",
@@ -70,9 +74,10 @@ SELF_CITE = re.compile(
     r"|\b(?:our|my)\s+(?:group|lab|laboratory|team)\s+(?:has|have|had|previously|recently)\b"
     r"|\bwe\s+(?:extend|build\s+on|build\s+upon|follow\s+up\s+on)\s+(?:our|my)\b", re.I)
 CITATION = re.compile(r"\\[A-Za-z]*cite[A-Za-z]*\*?\s*[\[{]|\[-?@|\[\d+(?:[-–,]\s*\d+)*\]|\(\s*[A-Z][^()]{0,60}\d{4}[a-z]?\s*\)")
-SECTION = re.compile(r"^\s*(?:#{1,6}\s*|\*\*\s*|__\s*|\\(?:sub)*section\*?\s*\{\s*|\\begin\{)?"
+SECTION = re.compile(r"^\s*(?:#{1,6}\s*|\*\*\s*|__\s*|\\(?:chapter|(?:sub)*section)\*?\s*\{\s*|\\begin\{)?"
                      r"(acknowledge?ments?|acks|funding(?: statement| sources?)?|financial support|grant support"
-                     r"|role of the funding source)\b\s*(?:\}|\*\*|__|:)?(.*)$", re.I)
+                     r"|role of the funding source|致\s*谢|鸣\s*谢|谢\s*辞|基金(?:资助|项目)|资助项目)\b\s*(?:\}|\*\*|__|[:：])?(.*)$",
+                     re.I)
 LATEX = re.compile(r"\\(author|affiliation|affil|institute|institution|address|email|orcid|thanks|authornote)\*?"
                    r"\s*(?:\[[^\]]*\])?\s*\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}")
 ANONYMOUS = re.compile(r"anonym|blind|withheld|redacted|^\s*(?:authors?|author names?)\s*$|^\s*$", re.I)
@@ -99,10 +104,13 @@ def identifiers(record: dict, extra: list) -> list:
     """(kind, value, pattern) for everything that could identify an author."""
     out = []
 
-    def add(kind, value, case_sensitive=False, body=None, before=r"(?<![\w@.])", after=r"(?![\w@]|\.\w)"):
+    def add(kind, value, case_sensitive=False, body=None,
+            before=rf"(?<![^\W{HAN}]|[@.])", after=rf"(?![^\W{HAN}]|@|\.\w)"):   # a Han neighbour is a boundary
         value = " ".join(str(value or "").split())
         if len(value) < 2 or any(v == value for _, v, _ in out):
             return
+        if re.search(f"[{HAN}]", value):            # "本文在清华大学完成": found anywhere in running text
+            before = after = ""
         body = body or re.escape(value if case_sensitive else fold(value))
         out.append((kind, value, re.compile(before + body + after, 0 if case_sensitive else re.I)))
 
@@ -123,8 +131,9 @@ def identifiers(record: dict, extra: list) -> list:
             add("email domain", domain, before=r"(?<![\w@-])")
         add("ORCID", re.sub(r"^https?://orcid\.org/", "", str(author.get("orcid") or "")))
         for affiliation in author.get("affiliations") or []:
-            for part in str(affiliation).split(","):
-                if len(part.split()) >= 2:          # one word is a city or a country: too common to count
+            for part in re.split("[,，]", str(affiliation)):
+                # one Latin word is a city or a country: too common to count; a Chinese name has no spaces
+                if len(part.split()) >= 2 or re.search(f"[{HAN}]", part):
                     add("institution", part)
         for handle in author.get("handles") or []:
             add("handle", handle)
@@ -171,7 +180,8 @@ def scan_lines(name: str, lines: list, ids: list, tex: bool) -> list:
             hits.append(hit("self_citation", name, where, "; ".join(phrases), line, cited=bool(CITATION.search(visible))))
         section = SECTION.match(visible)
         # a heading, a bare line "Acknowledgements", or a run-in label "Funding: …"; not a sentence
-        if section and len(visible.strip()) <= 120 and (not section.group(2).strip() or ":" in visible[:section.end(1) + 3]
+        if section and len(visible.strip()) <= 120 and (not section.group(2).strip()
+                                                        or re.search("[:：]", visible[:section.end(1) + 3])
                                                         or visible.lstrip()[:1] in ("#", "*", "_", "\\")):
             hits.append(hit("section", name, where, f"{section.group(1)} section in a blinded file", line))
         for m in LATEX.finditer(visible) if tex else ():

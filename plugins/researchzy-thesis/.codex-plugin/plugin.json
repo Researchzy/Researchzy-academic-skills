@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-thesis",
+  "version": "2.3.0",
+  "description": "Degree theses with your agent: a proposal written to your school's own template from real papers, a thesis assembled from your published papers into the school's template and measured against its format rules, a consistency audit of the whole thesis and its blind-review copy, and defence questions with answer outlines checked against the thesis. The proposal's literature search needs the researchzy plugin and a Researchzy account; the rest works on your own files.",
+  "author": {
+    "name": "Researchzy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Researchzy Thesis",
+    "shortDescription": "Thesis proposal, assembly and format, audit and defence.",
+    "longDescription": "Write a thesis proposal to your school's own template: sections and limits recorded with quotes, research questions you choose, a literature basis of real papers, a question-by-method matrix and a timeline a script checks. Assemble a thesis from published papers into the school's Word template or LaTeX class and measure the PDF and the .docx against the school's format rules, which are read from the school's documents and never bundled. Audit the whole thesis before review: abbreviations, key numbers, sample sizes, figures and tables, citations, hypotheses, the two abstracts and the blind-review copy, in Chinese or English. Prepare the defence with questions tied to pages of the thesis, answer outlines whose pages and numbers a script verifies, and a mock defence one question at a time. The proposal's literature search needs the researchzy plugin and a Researchzy account; the rest works on your own files.",
+    "developerName": "Researchzy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Check my thesis for inconsistencies before it goes to blind review."
+  },
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "license": "Apache-2.0"
+}

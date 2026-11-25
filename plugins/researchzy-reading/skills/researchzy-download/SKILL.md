@@ -14,7 +14,7 @@ It covers no institutional or browser access: it does not sign in to libraries, 
 ## Before downloading
 
 1. Establish a definite list of papers: DOIs, exact titles, or legitimate PDF URLs. Do not turn a keyword search into bulk downloading, and do not download whole journal issues, volumes or result sets. Process only the papers the user identified or confirmed.
-2. Researchzy first. When the Researchzy tools are available, look each paper up with `search_papers` (pass its DOI as `doi`, an arXiv ID as `arxiv`, a title as `query`) and call `get_pdf_download` for it. When that returns a URL, download and verify the file as `researchzy` describes and skip the downloader for that paper. Run the downloader for the papers Researchzy has no PDF for, or for all of them when the tools are not available.
+2. Researchzy first. When the Researchzy tools are available, look each paper up with `search_papers` (pass its DOI as `doi`, an arXiv ID as `arxiv`, a title as `query`) and call `get_paper_files` for it. When that returns a `pdf`, download and verify the file as `researchzy` describes and skip the downloader for that paper. Run the downloader for the papers Researchzy has no PDF for, or for all of them when the tools are not available.
 3. Prefer DOIs. Resolve a title to its DOI with Researchzy search when possible; titles are not unique.
 4. Save into the task workspace unless the user names another folder.
 

@@ -1,0 +1,28 @@
+name: researchzy-defense
+version: 1.0.0
+description: >
+  Prepare a thesis defence: the thesis's load-bearing claims quoted with their
+  printed pages, likely questions by category with the reviewers' objections
+  first, answer outlines with page, table, number and quote anchors checked
+  against the thesis by script, a one-question-at-a-time mock defence logged
+  turn by turn, and a revision list by chapter with the numbers to know.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: building the question bank, its categories and sources, signals by kind of study, follow-ups, or searching for close recent work
+      path: references/questions.md
+    - condition: writing answer outlines, anchors, defence levels, analyses that were not done, or acting on a failed anchor or number
+      path: references/answer-outlines.md
+    - condition: running the mock defence, judging and recording a turn, or the debrief
+      path: references/mock-defence.md
+    - condition: writing claims.json or questions.json, or reading thesis-pages.txt, check.md or session.jsonl
+      path: references/files.md
+    - condition: reading the printed page numbers of the thesis, checking the outlines, or recording a mock-defence turn
+      path: scripts/defense_check.py
+interface:
+  display_name: "Researchzy Defense"
+  short_description: "Prepare for a thesis defence with checked answer outlines and a mock"
+  default_prompt: "Use $researchzy-defense to prepare me for my thesis defence from my thesis and the reviewers' reports."

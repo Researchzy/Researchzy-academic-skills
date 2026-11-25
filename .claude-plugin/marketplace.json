@@ -5,7 +5,7 @@
     "url": "https://github.com/Researchzy"
   },
   "metadata": {
-    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, develop research ideas, find citations and choose a journal, read papers closely, run systematic reviews and meta-analyses, translate and polish academic English, and analyse, write, check, submit and present a manuscript."
+    "description": "Academic research skills for AI agents: find and review the literature in 250 million real papers, develop research ideas, find citations and choose a journal, read papers closely, run systematic reviews and meta-analyses, translate and polish academic English, analyse, write, check, submit and present a manuscript, plan and defend a thesis, study surveys, scales and interviews, and run clinical studies."
   },
   "plugins": [
     {
@@ -36,6 +36,24 @@
       "name": "researchzy-language",
       "source": "./plugins/researchzy-language",
       "description": "Academic translation and language polishing with your agent: numbers, citations, LaTeX and terms kept exactly, a glossary, side-by-side output, edits limited to language with a reason for each, and scripts that check nothing in the content changed. No account needed.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-thesis",
+      "source": "./plugins/researchzy-thesis",
+      "description": "Degree theses with your agent: a proposal written to your school's own template from real papers, a thesis assembled from your published papers into the school's template and measured against its format rules, a consistency audit of the whole thesis and its blind-review copy, and defence questions with answer outlines checked against the thesis. The proposal's literature search needs the researchzy plugin and a Researchzy account; the rest works on your own files.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-social",
+      "source": "./plugins/researchzy-social",
+      "description": "Social-science methods with your agent: questionnaires with a recorded wording review and a response-quality audit, scale reliability and validity, mediation and moderation with bootstrap intervals, qualitative coding with quotes checked against the transcripts, and text turned into validated variables. No account needed.",
+      "category": "research"
+    },
+    {
+      "name": "researchzy-clinical",
+      "source": "./plugins/researchzy-clinical",
+      "description": "Clinical research with your agent: protocols whose registry entry and analysis plan agree, trial records compared with the paper, reporting checklists filled with checked quotes, survival and diagnostic-accuracy analyses with checked text, and case reports screened for patient identifiers. No clinical advice. No account needed.",
       "category": "research"
     }
   ]

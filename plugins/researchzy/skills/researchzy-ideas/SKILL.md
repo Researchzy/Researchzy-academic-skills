@@ -11,7 +11,7 @@ It does not run pilot experiments, judge fit to a venue or journal, or ask a sec
 
 ## Requirements
 
-- The Researchzy tools (`search_papers`, `get_paper`, `list_library_papers`, `get_pdf_download`), for the evidence base and the novelty check. **If they are not connected**, say so once and work without them: skip the library look, the search in step 2 and step 5; generate or sharpen the ideas; leave every idea's novelty `unsearched` and `difference` unrated; and tell the user that nothing can be recommended until the index has been searched. Do not judge novelty from memory or from web snippets.
+- The Researchzy tools (`search_papers`, `get_paper`, `list_library_papers`, `get_paper_files`), for the evidence base and the novelty check. **If they are not connected**, say so once and work without them: skip the library look, the search in step 2 and step 5; generate or sharpen the ideas; leave every idea's novelty `unsearched` and `difference` unrated; and tell the user that nothing can be recommended until the index has been searched. Do not judge novelty from memory or from web snippets.
 - Python 3.10 or newer for the ledger. Resolve `SKILL_DIR` to the directory containing this `SKILL.md`.
 
 ## Inputs
@@ -56,7 +56,7 @@ python3 "$SKILL_DIR/scripts/idea_ledger.py" <command> …
    python3 "$SKILL_DIR/scripts/idea_ledger.py" search i1 --intent skeptic --query '…' --failed "CODE: userMessage"
    ```
 
-   Save the three to five closest works as the tool returned them, add `what_it_solved`, `overlap`, `difference`, `why_it_matters` and `read`, mark the one with the largest overlap `"decisive": true`, and record them with `closest i1 closest.json`. Read the decisive work in full: `get_pdf_download` with its `corpusId`, then `researchzy-deep-read` (plugin `researchzy-reading`, when installed) or your own reading of the PDF; record it again with `"read": "full_text"`. Then `novelty i1 --status differentiated`, `overlap_found` or `inconclusive`. The ledger refuses `differentiated` without completed searches of two intents, one of them `duplicate`, and a closest work.
+   Save the three to five closest works as the tool returned them, add `what_it_solved`, `overlap`, `difference`, `why_it_matters` and `read`, mark the one with the largest overlap `"decisive": true`, and record them with `closest i1 closest.json`. Read the decisive work in full: `get_paper_files` with its `corpusId`, then `researchzy-deep-read` (plugin `researchzy-reading`, when installed) or your own reading of the PDF; record it again with `"read": "full_text"`. Then `novelty i1 --status differentiated`, `overlap_found` or `inconclusive`. The ledger refuses `differentiated` without completed searches of two intents, one of them `duplicate`, and a closest work.
 
 6. **Gates and assumptions.** Read [Selection](references/selection.md). Gates first: `gate i1 data=confirmed ethics=plausible equipment=confirmed skills=plausible time=unknown`; a blocked gate carries its reason, `data=blocked:"…"`. Then one `assume i1 --text "…" --risk 4 --months 2 --test "…"` for each assumption. A blocked gate ends the idea as it stands: `revise` it so the block no longer applies, or `reject` it.
 

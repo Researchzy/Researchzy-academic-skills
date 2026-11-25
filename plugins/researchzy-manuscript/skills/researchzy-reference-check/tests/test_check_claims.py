@@ -34,6 +34,19 @@ class QuoteMatchTests(unittest.TestCase):
                                        source)["grade"], "PARTIAL")
         self.assertEqual(match_quality("an entirely different sentence about protein folding", source)["grade"], "ABSENT")
 
+    def test_chinese_quotes(self):
+        # No spaces between Chinese words: each character is a token, and a line break is not a gap.
+        source = "本研究共回收有效问卷312份，结果表明组织信任显著正向影响员工的\n知识共享行为[12]（β = 0.42）。"
+        self.assertEqual(match_quality("组织信任显著正向影响员工的知识共享行为", source)["grade"], "EXACT")
+        self.assertEqual(match_quality("员工的知识共享行为（β = 0.42）", source)["grade"], "INTERLEAVED")  # the [12]
+        self.assertEqual(match_quality("组织信任显著负向影响员工的知识共享行为", source)["grade"], "PARTIAL")
+        self.assertEqual(match_quality("完全不相干的一句话出现在这里没有关系", source)["grade"], "ABSENT")
+
+    def test_other_scripts_are_words(self):
+        source = "Наши результаты показывают значительный эффект."
+        self.assertEqual(match_quality("результаты показывают значительный", source)["grade"], "EXACT")
+        self.assertEqual(match_quality("совсем другая фраза о свёртывании белков", source)["grade"], "ABSENT")
+
 
 class ClaimTests(unittest.TestCase):
     def setUp(self):

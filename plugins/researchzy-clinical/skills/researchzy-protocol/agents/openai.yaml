@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Protocol"
+  short_description: "Draft a study protocol, analysis plan and registry entry that agree"
+  default_prompt: "Use $researchzy-protocol to draft the protocol, analysis plan and registry entry for my study."

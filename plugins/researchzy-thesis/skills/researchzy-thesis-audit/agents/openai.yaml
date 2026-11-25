@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Thesis Audit"
+  short_description: "Check a whole thesis for consistency before review or defence"
+  default_prompt: "Use $researchzy-thesis-audit to check my thesis for consistency before I submit it for blind review."

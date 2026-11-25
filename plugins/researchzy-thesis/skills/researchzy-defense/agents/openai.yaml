@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Defense"
+  short_description: "Prepare for a thesis defence with checked answer outlines and a mock"
+  default_prompt: "Use $researchzy-defense to prepare me for my thesis defence from my thesis and the reviewers' reports."

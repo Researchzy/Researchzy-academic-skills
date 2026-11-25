@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Registry Check"
+  short_description: "Compare a trial paper with its registry record, or list registered trials"
+  default_prompt: "Use $researchzy-registry-check to compare this trial paper with its ClinicalTrials.gov record."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Survey"
+  short_description: "Design a questionnaire and audit its responses before analysis"
+  default_prompt: "Use $researchzy-survey to review my questionnaire and plan the data checks before I field it."

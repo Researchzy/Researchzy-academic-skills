@@ -1,6 +1,6 @@
 {
   "name": "researchzy-language",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Academic translation and language polishing with your agent: numbers, citations, LaTeX and terms kept exactly, a glossary, side-by-side output, edits limited to language with a reason for each, and scripts that check nothing in the content changed. No account needed.",
   "author": {
     "name": "Researchzy"

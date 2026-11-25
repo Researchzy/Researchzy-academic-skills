@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Reporting Checklist"
+  short_description: "Fill a journal's reporting checklist with quotes checked on each page"
+  default_prompt: "Use $researchzy-reporting-checklist to fill the reporting checklist for my manuscript from the checklist file I downloaded."

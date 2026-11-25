@@ -1,6 +1,6 @@
 # Researchzy Language plugin
 
-Version 2.2.0. Two skills for the language of a paper: academic translation and language polishing. They run on your machine, use your agent's own model, and work on the files you give them; no account is needed.
+Version 2.3.0. Two skills for the language of a paper: academic translation and language polishing. They run on your machine, use your agent's own model, and work on the files you give them; no account is needed.
 
 | User goal | Skill | Result |
 |---|---|---|

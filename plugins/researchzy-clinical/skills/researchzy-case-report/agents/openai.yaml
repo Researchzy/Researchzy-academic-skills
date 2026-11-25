@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Case Report"
+  short_description: "Write a case report with the patient's identifiers kept out"
+  default_prompt: "Use $researchzy-case-report to write a case report from my notes on this patient."

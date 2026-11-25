@@ -21,14 +21,18 @@
   text       (--text) every number is looked up at the rounding it is printed with: matched,
              mismatch or not_found. A labelled number (p, n, df, a test statistic, a package
              version) is compared with values of that kind; "p < 0.001" matches any smaller p;
-             "p = 0.000" is a mismatch. A printed minus sign must match the recorded sign; a number
-             without one may carry its direction in words ("shorter by 9.1 min"). An unlabelled
-             number that matches nothing is a mismatch when it has decimals and either its
-             sentence reports a result (two or more of its other numbers match one result) or the
-             recorded value has the opposite sign, else not_found. Ignored by rule: years, dates,
-             headings, list markers, code, links, citations, numbers after Figure, Table, Section
-             and the like, numbers inside names (IL-6, CO2), table sizes. statistics/power*.json
-             from power.py, when present, also supply values.
+             "p = 0.000" is a mismatch; ".91" is read as 0.91. A printed minus sign must match the
+             recorded sign; a number without one may carry its direction in words ("shorter by
+             9.1 min"). An unlabelled number that matches nothing is a mismatch when it has
+             decimals and either its sentence reports a result (two or more of its other numbers
+             match one result) or the recorded value has the opposite sign, else not_found.
+             Ignored by rule: years, dates, headings, list markers, code, links, citations,
+             numbers after Figure, Table, Section and the like, numbers inside names (IL-6, CO2),
+             table sizes. statistics/power*.json from power.py, when present, also supply values.
+             Chinese text: a Han character next to a number or a label is a boundary
+             ("回归系数为0.42", "样本量312人"); 。！？； end a sentence; full-width digits and
+             ＝＜＞（）％ count as ASCII; p值, 为, 等于, 小于 and 大于 label a number as =, < and >
+             do; numbers after 图, 表, 第 and the like, and dates written with 月, are ignored.
 
 Writes check.md in --dir and prints a JSON summary. Exit code 1 on a mismatch, a failed check
 (a missing field, a family without correction, a ledger or script finding) or drift; with
@@ -70,20 +74,27 @@ READERS = frozenset("read_csv read_table read_excel read_parquet read_feather re
 WRITERS = frozenset("to_csv to_excel to_parquet to_feather to_json to_stata to_pickle savetxt write_text write_bytes "
                     "unlink remove".split())
 
-NUMBER = re.compile(r"(?<![\w.^])(-)?((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?)"
+HAN = "\u3400-\u9fff"           # \w matches Han characters, but Chinese text has no spaces between words
+START = rf"(?<![^\W{HAN}])"     # \b before a word, where a Han character before it also counts as a boundary
+NUMBER = re.compile(rf"(?<![^\W{HAN}]|[.^])(-)?((?:\d{{1,3}}(?:,\d{{3}})+|\d+|(?=\.\d))(?:\.(\d+))?)"
                     r"(?:\s*[×x]\s*10\s*\^\s*\{?(-?\d+)\}?|[eE]([-+]?\d+))?(\s?%)?")
-STAT = r"(?:\b[tFzZUWHQ]|χ\^?2|\bchi2|\bchi-squared?)"
-LABELS = (("p", re.compile(r"(?:\b[pPq]|\b[pP][- ]?values?)\s*(?:[-_ ]?\(?(?:adj(?:usted)?|corr(?:ected)?|Holm|BH|BY|FDR|"
-                           r"Bonferroni)\)?)?\s*([=<>≤≥])\s*$")),
-          ("n", re.compile(r"\b[nN]\s*=\s*$")),
-          ("df", re.compile(r"(?:\bdf\s*=\s*|" + STAT + r"\s*\(\s*(?:[\d.]+\s*,\s*)?)$")),
-          ("statistic", re.compile(STAT + r"\s*(?:\([^()]*\))?\s*=\s*$")))
-REFERENCE = re.compile(r"\b(?:sections?|sec\.|figures?|figs?\.|tables?|equations?|eqs?\.|appendix|chapter|steps?|aims?|"
-                       r"hypothes[ie]s|models?|stud(?:y|ies)|experiments?|panels?|supplementary\s+\w+|refs?\.|"
-                       r"references?|versions?|v\.?)\s*S?$", re.I)
+EQUALS = r"(?:=|为|等于)"
+STAT = rf"(?:{START}[tFzZUWHQ]|χ\^?2|{START}chi2|{START}chi-squared?)"
+LABELS = (("p", re.compile(rf"(?:{START}[pPq]|{START}[pP](?:[- ]?values?|\s*值))\s*(?:[-_ ]?\(?(?:adj(?:usted)?|"
+                           r"corr(?:ected)?|Holm|BH|BY|FDR|Bonferroni)\)?)?\s*([=<>≤≥]|小于|大于|等于|为)\s*$")),
+          ("n", re.compile(rf"{START}[nN]\s*{EQUALS}\s*$")),
+          ("df", re.compile(rf"(?:{START}df\s*{EQUALS}\s*|" + STAT + r"\s*\(\s*(?:[\d.]+\s*[,，]\s*)?)$")),
+          ("statistic", re.compile(STAT + rf"\s*值?\s*(?:\([^()]*\))?\s*{EQUALS}\s*$")))
+OPERATORS = {"小于": "<", "大于": ">", "等于": "=", "为": "="}
+FULL_WIDTH = str.maketrans("０１２３４５６７８９．％＝＜＞（）－", "0123456789.%=<>()-")
+REFERENCE = re.compile(rf"(?:{START}(?:sections?|sec\.|figures?|figs?\.|tables?|equations?|eqs?\.|appendix|chapter|steps?|"
+                       r"aims?|hypothes[ie]s|models?|stud(?:y|ies)|experiments?|panels?|supplementary\s+\w+|refs?\.|"
+                       r"references?|versions?|v\.?)|(?<![试意地企代发列量])[图表]|第|附录|公式|模型|研究|实验|假设|步骤|版本)\s*S?$",
+                       re.I)
 BLANKED = (r"```.*?```", r"`[^`\n]*`", r"<!--.*?-->", r"https?://\S+", r"\b10\.\d{4,9}/\S+", r"\b\d{4}-\d{2}-\d{2}\b",
+           r"(?<![\d.])(?:\d{4}\s*年\s*)?\d{1,2}\s*月(?:\s*\d{1,2}\s*[日号])?",
            r"(?m)^\s*#.*$", r"(?m)^\s*\d+[.)]\s", r"\[\s*\d+(?:\s*[,;–-]\s*\d+)*\s*\]", r"\[@[^\]]*\]")
-SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-Z(\[])|\n\s*\n|\n(?=\s*[|*-])")
+SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-Z(\[])|(?<=[。！？；])|\n\s*\n|\n(?=\s*[|*-])")
 
 
 def sha256(path: Path) -> str:
@@ -330,7 +341,7 @@ def candidates(content: dict, power) -> list:
 
 def scan_text(path: Path, found: list, versions: dict, labels=LABELS) -> tuple:
     """Rows (where, printed, status, recorded) for every number in the text, and the ignored counts."""
-    text = path.read_text(encoding="utf-8").replace("−", "-")
+    text = path.read_text(encoding="utf-8").replace("−", "-").translate(FULL_WIDTH)
     text = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+", lambda m: "^" + m.group(0).translate(str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")), text)
     for pattern in BLANKED:
         text = re.sub(pattern, lambda m: re.sub(r"[^\n]", " ", m.group(0)), text, flags=re.S if pattern[0] in "`<" else 0)
@@ -340,7 +351,7 @@ def scan_text(path: Path, found: list, versions: dict, labels=LABELS) -> tuple:
         return f"{path.name}:{text.count(chr(10), 0, offset) + 1}"
 
     for name, version in versions.items():
-        for m in re.finditer(rf"(?i)\b{re.escape(name)}\b\s*\(?(?:version\s*|v\.?\s*)?(\d+(?:\.\d+)+)", text):
+        for m in re.finditer(rf"(?i){START}{re.escape(name)}\b\s*\(?(?:version\s*|v\.?\s*)?(\d+(?:\.\d+)+)", text):
             same = version == m.group(1) or str(version).startswith(m.group(1) + ".")
             rows.append((where(m.start()), f"{name} {m.group(1)}", "matched" if same else "mismatch", f"record: {name} {version}"))
             text = text[:m.start(1)] + " " * len(m.group(1)) + text[m.end(1):]
@@ -365,7 +376,8 @@ def scan_text(path: Path, found: list, versions: dict, labels=LABELS) -> tuple:
             whole = m.group(3) is None and not m.group(4) and not m.group(5)
             if text[m.end():m.end() + 1] == "." and text[m.end() + 1:m.end() + 2].isdigit():
                 ignored["version-like number"] += 1
-            elif after[:1].isalpha() or (before[-1:] == "-" and before[-2:-1].isalpha()):
+            elif (after[:1].isalpha() and not re.match(f"[{HAN}]", after)) or \
+                    (before[-1:] == "-" and before[-2:-1].isalpha()):
                 ignored["part of a name"] += 1
             elif re.match(r"\s*[×x]\s*\d", after) or re.search(r"\d\s*[×x]\s*$", before):
                 ignored["table size"] += 1
@@ -376,7 +388,8 @@ def scan_text(path: Path, found: list, versions: dict, labels=LABELS) -> tuple:
             else:
                 exponent = int(m.group(4) or m.group(5) or 0)
                 tokens.append({"where": where(m.start()), "printed": m.group(0).strip(), "kind": label[0],
-                               "op": label[1].group(1) if label[0] == "p" else "=", "signed": bool(m.group(1)),
+                               "op": OPERATORS.get(label[1].group(1), label[1].group(1)) if label[0] == "p" else "=",
+                               "signed": bool(m.group(1)),
                                "value": (-1 if m.group(1) else 1) * float(digits) * 10 ** exponent,
                                "tolerance": 0.5 * 10 ** (exponent - len(m.group(3) or "")) * (1 + 1e-9),
                                "percent": bool(m.group(6)), "decimal": not whole or bool(m.group(6))})
@@ -399,7 +412,8 @@ def scan_text(path: Path, found: list, versions: dict, labels=LABELS) -> tuple:
             elif token.get("flipped"):
                 token["note"] = "the recorded value has the opposite sign"
             token.update(hits=hits, pool=pool)
-        owners = Counter(owner for token in tokens for owner in {c[2] for c in token["hits"]})
+        # sorted, so that a tie between two results picks the same anchor on every run
+        owners = Counter(owner for token in tokens for owner in sorted({c[2] for c in token["hits"]}))
         anchor = owners.most_common(1)[0][0] if owners and owners.most_common(1)[0][1] >= 2 else None
         for token in tokens:
             note = f" ({token['note']})" if token.get("note") else ""

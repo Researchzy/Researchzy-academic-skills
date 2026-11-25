@@ -1,0 +1,36 @@
+name: researchzy-survival
+version: 1.0.0
+description: >
+  Analyse time-to-event data on statsmodels with its defaults made explicit:
+  a probe of event codes, times, repeated ids, events per group and per
+  parameter, follow-up and time zero; Kaplan-Meier curves with the number at
+  risk and medians or not reached; log-rank tests; Cox models with Efron ties
+  and named reference levels; a proportional-hazards test and plot beside a
+  planned alternative; RMST; competing risks; event counts; and a check of the
+  text against the results.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: data shapes, event codes and their mapping, impossible times, repeated ids, missing values, immortal time, landmark analyses or start-stop rows
+      path: references/input-and-probe.md
+    - condition: writing the analysis script, statsmodels' defaults, Kaplan-Meier estimates, medians not reached, log-rank tests, Cox models, recording results, or writing the text
+      path: references/km-logrank-cox.md
+    - condition: testing or plotting proportional hazards, or reporting an alternative when hazards are not proportional
+      path: references/proportional-hazards.md
+    - condition: competing events, cumulative incidence, cause-specific Cox models, or the events and patients a study needs
+      path: references/competing-events-and-events.md
+    - condition: probing a time-to-event table before any model
+      path: scripts/probe_survival.py
+    - condition: survival estimates, tests, models, figures and record fields from the analysis script
+      path: scripts/rz_survival.py
+    - condition: checking results.json, the survival fields, and the numbers and wording of the text
+      path: scripts/check_survival.py
+    - condition: the result file, the ledger and the hashes written by the analysis script (copied from researchzy-statistics)
+      path: scripts/rz_results.py
+    - condition: the number check that check_survival.py extends (copied from researchzy-statistics)
+      path: scripts/check_results.py
+    - condition: the figure style, size and record behind the survival figures (copied from researchzy-figures)
+      path: scripts/rz_figure.py

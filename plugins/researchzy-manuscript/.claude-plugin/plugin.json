@@ -1,6 +1,6 @@
 {
   "name": "researchzy-manuscript",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Analyse, write, check, submit and present a paper with your agent: analyse your data, estimate causal effects from quasi-experimental designs, plan and draft from your own results, make and check figures, review the paper as its reviewers will, check references, statistics and availability statements, build LaTeX cleanly, prepare and check the submission package, make slides, write grant proposals, and answer reviewers. No account needed.",
   "author": {
     "name": "Researchzy",

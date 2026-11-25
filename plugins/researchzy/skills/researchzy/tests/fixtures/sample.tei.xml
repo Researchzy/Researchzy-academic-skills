@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A made-up paper in the shape GROBID 0.9 writes, with coordinates on paragraphs and references. -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:space="preserve">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Night Shifts and Recall in Hospital Nurses</title>
+				<funder ref="#_g1 #_g2">
+					<orgName type="full">National Science Foundation</orgName>
+					<orgName type="abbreviated">NSF</orgName>
+				</funder>
+			</titleStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName coords="1,72.0,120.0,60.0,9.0"><forename type="first">Ada</forename><surname>Okoro</surname></persName>
+							<email>ada@example.test</email>
+							<affiliation key="aff0"><orgName type="department">Nursing</orgName><orgName type="institution">Example University</orgName></affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ben</forename><forename type="middle">J</forename><surname>Lee</surname></persName>
+						</author>
+						<title level="a" type="main">Night Shifts and Recall in Hospital Nurses</title>
+					</analytic>
+					<monogr><imprint><date/></imprint></monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<profileDesc>
+			<textClass><keywords><term>sleep</term><term>memory</term></keywords></textClass>
+			<abstract>
+				<div><p coords="1,72.0,300.0,450.0,40.0">We followed 80 nurses for a year and found that night shifts reduce recall.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+			<div>
+				<head n="1" coords="1,72.0,400.0,100.0,10.0">Introduction</head>
+				<p coords="1,72.0,420.0,450.0,60.0">Sleep loss impairs attention <ref type="bibr" target="#b0" coords="1,300.0,420.0,20.0,9.0">[1]</ref> and memory <ref type="bibr" target="#b1" coords="1,350.0,420.0,20.0,9.0">[2,</ref><ref type="bibr" target="#b0" coords="1,370.0,420.0,20.0,9.0">1]</ref>. Rotating rosters are common <ref type="bibr">[9]</ref>.<note place="foot" n="1" coords="1,72.0,700.0,450.0,8.0">Rosters as of 2024.</note></p>
+			</div>
+			<div>
+				<head n="2.1" coords="2,72.0,72.0,100.0,10.0">Cohort</head>
+				<p coords="2,72.0,90.0,450.0,60.0">Recall fell by 12% after three consecutive night shifts (<ref type="bibr" target="#b1" coords="2,72.0,90.0,60.0,9.0">Lee et al. 2019</ref>).</p>
+				<formula xml:id="formula_0" coords="2,72.0,160.0,300.0,12.0">r = a + b n<label>(1)</label></formula>
+			</div>
+			<figure type="table" xml:id="tab_0" coords="3,72.0,72.0,450.0,100.0">
+				<head>Table 1 :</head>
+				<label>1</label>
+				<figDesc>Table 1: Recall by shift pattern.</figDesc>
+				<table><row><cell>Pattern</cell><cell>Recall</cell></row><row><cell>Day</cell><cell>0.81</cell></row></table>
+			</figure>
+		</body>
+		<back>
+			<div type="acknowledgement">
+				<div><head>Acknowledgements</head><p coords="3,72.0,300.0,450.0,20.0">We thank the ward staff.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_g1"><idno type="grant-number">AST-1</idno></org>
+				<org type="funding" xml:id="_g2"><idno type="grant-number">&amp; AST-2</idno></org>
+			</listOrg>
+			<div type="references">
+				<listBibl>
+					<biblStruct xml:id="b0" coords="3,72.0,400.0,450.0,20.0">
+						<analytic>
+							<title level="a" type="main">Sleep deprivation and attention</title>
+							<author><persName><forename type="first">C</forename><surname>Diaz</surname></persName></author>
+						</analytic>
+						<monogr>
+							<title level="j">Sleep</title>
+							<idno type="DOI">10.1000/sleep.1</idno>
+							<imprint><biblScope unit="volume">12</biblScope><biblScope unit="page" from="1" to="9"/><date type="published" when="2018-03"/></imprint>
+						</monogr>
+					</biblStruct>
+					<biblStruct xml:id="b1" coords="3,72.0,430.0,450.0,20.0">
+						<monogr>
+							<title level="m">Memory at work</title>
+							<author><persName><forename type="first">Ben</forename><surname>Lee</surname></persName></author>
+							<idno type="arXiv">arXiv:1901.00001</idno>
+							<imprint><date type="published" when="2019"/></imprint>
+						</monogr>
+					</biblStruct>
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

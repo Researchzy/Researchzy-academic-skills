@@ -101,7 +101,7 @@ Researchzy modifications (2026-11-10, version 2.0.0):
 - Entries with the same title and first author are reported as duplicates.
 - Comments that referred to upstream's project conventions are reworded.
 
-`quote_match.py`: the module's introductory comment is rewritten; the code is unchanged.
+`quote_match.py`: the module's introductory comment is rewritten. Researchzy modifications (version 2.3.0): Chinese, Japanese and Korean characters are one token each and letters of other scripts form words, so a quote in those scripts is no longer graded absent; a space between two CJK characters, left by a line break, does not prevent an exact match.
 
 `check_claims.py`, `SKILL.md`, the reference files and the tests are Researchzy's own.
 

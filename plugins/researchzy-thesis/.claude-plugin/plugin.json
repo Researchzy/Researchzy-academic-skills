@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-thesis",
+  "version": "2.3.0",
+  "description": "Degree theses with your agent: a proposal written to your school's own template from real papers, a thesis assembled from your published papers into the school's template and measured against its format rules, a consistency audit of the whole thesis and its blind-review copy, and defence questions with answer outlines checked against the thesis. The proposal's literature search needs the researchzy plugin and a Researchzy account; the rest works on your own files.",
+  "author": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic",
+    "thesis",
+    "dissertation",
+    "thesis-proposal",
+    "thesis-defense",
+    "formatting"
+  ]
+}

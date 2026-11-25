@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Path Models"
+  short_description: "Mediation, moderation and SEM paths from a registered model, checked against the text"
+  default_prompt: "Use $researchzy-path-models to test whether meaning mediates the link between autonomy and engagement in my survey data."

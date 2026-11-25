@@ -1,0 +1,33 @@
+name: researchzy-survey
+version: 1.0.0
+description: >
+  Design a questionnaire study and audit its data before analysis: an item
+  table with each item's source and permission status, a recorded wording
+  review, attention items, a marker variable and procedural remedies for common
+  method variance, a pretest plan and exclusion rules dated before fielding;
+  then a read-only audit of the returned data per respondent from declared
+  columns, exclusions counted only under those rules, and a data-quality report.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: writing items.csv or a licence card, finding the paper a scale comes from, reviewing wording, or wording-review.csv
+      path: references/items-and-wording.md
+    - condition: the flow, attention items, the marker variable, procedural remedies for common method variance, or the pretest plan
+      path: references/design-and-cmv.md
+    - condition: writing exclusion-rules.json, choosing or changing a threshold, combining signals, or a rule reported as post hoc
+      path: references/exclusion-rules.md
+    - condition: writing audit-settings.json from an export, header rows, missing codes, answer labels, or columns not found
+      path: references/audit-settings.md
+    - condition: reading flags.csv or data-quality.md, writing the methods or appendix paragraph, or handing on to other skills
+      path: references/reading-the-audit.md
+    - condition: screening the item table for wording and design candidates
+      path: scripts/item_screen.py
+    - condition: listing the columns of an export, or auditing returned survey data
+      path: scripts/survey_audit.py
+interface:
+  display_name: "Researchzy Survey"
+  short_description: "Design a questionnaire and audit its responses before analysis"
+  default_prompt: "Use $researchzy-survey to review my questionnaire and plan the data checks before I field it."

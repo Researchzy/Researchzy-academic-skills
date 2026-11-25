@@ -75,7 +75,7 @@ How far a work was read limits what may be written about it:
 
 Running `closest` again with the same `corpusId` updates the record, so `read` can be raised after reading.
 
-**The decisive work** is the one with the largest overlap: if its difference turned out to be nothing, the idea would be a repeat. Mark it `"decisive": true` and read it in full before any recommendation; the ledger does not accept another work read in full in its place. Get the PDF with `get_pdf_download` and its `corpusId`; when Researchzy holds no PDF, use `researchzy-download` (plugin `researchzy-reading`, when installed) or ask the user for the file. Hand the reading to `researchzy-deep-read` (plugin `researchzy-reading`, when installed), or read it yourself. Record `full_text` only when the methods and the results were read. When no full text can be had, the idea stays open: tell the user which paper to supply.
+**The decisive work** is the one with the largest overlap: if its difference turned out to be nothing, the idea would be a repeat. Mark it `"decisive": true` and read it in full before any recommendation; the ledger does not accept another work read in full in its place. Get the PDF with `get_paper_files` and its `corpusId`; when Researchzy holds no PDF, use `researchzy-download` (plugin `researchzy-reading`, when installed) or ask the user for the file. Hand the reading to `researchzy-deep-read` (plugin `researchzy-reading`, when installed), or read it yourself. Record `full_text` only when the methods and the results were read. When no full text can be had, the idea stays open: tell the user which paper to supply.
 
 ## Status
 

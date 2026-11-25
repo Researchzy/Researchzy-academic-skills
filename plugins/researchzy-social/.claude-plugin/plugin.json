@@ -1,0 +1,21 @@
+{
+  "name": "researchzy-social",
+  "version": "2.3.0",
+  "description": "Social-science methods with your agent: questionnaires with a recorded wording review and a response-quality audit, scale reliability and validity, mediation and moderation with bootstrap intervals, qualitative coding with quotes checked against the transcripts, and text turned into validated variables. No account needed.",
+  "author": {
+    "name": "Researchzy",
+    "url": "https://github.com/Researchzy"
+  },
+  "homepage": "https://github.com/Researchzy/Researchzy-academic-skills#readme",
+  "repository": "https://github.com/Researchzy/Researchzy-academic-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research",
+    "academic",
+    "survey",
+    "psychometrics",
+    "mediation",
+    "qualitative",
+    "text-as-data"
+  ]
+}

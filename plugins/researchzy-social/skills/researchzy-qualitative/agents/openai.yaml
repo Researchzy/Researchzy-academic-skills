@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researchzy Qualitative"
+  short_description: "Code interviews with checked quotes, calibration and support counts"
+  default_prompt: "Use $researchzy-qualitative to code these interview transcripts."

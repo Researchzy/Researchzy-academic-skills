@@ -1,6 +1,6 @@
 # Researchzy Evidence plugin
 
-Version 2.2.0. Three skills for evidence synthesis: a systematic review from protocol to PRISMA 2020 flow, risk of bias and certainty of evidence, and meta-analysis. They run on your machine; risk of bias and meta-analysis work on the files you give them, and searching Researchzy's index needs the [`researchzy`](../researchzy) plugin and a Researchzy account.
+Version 2.3.0. Three skills for evidence synthesis: a systematic review from protocol to PRISMA 2020 flow, risk of bias and certainty of evidence, and meta-analysis. They run on your machine; risk of bias and meta-analysis work on the files you give them, and searching Researchzy's index needs the [`researchzy`](../researchzy) plugin and a Researchzy account.
 
 | User goal | Skill | Result |
 |---|---|---|

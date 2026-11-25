@@ -11,7 +11,7 @@ It does not check references the manuscript already cites (`researchzy-reference
 
 ## Requirements
 
-- The Researchzy tools `search_papers`, `get_paper`, `list_library_papers` and `get_pdf_download`, which come with this plugin and need a Researchzy account. **If they are not connected, say that this skill needs them and stop.** Do not suggest papers from memory or from web search. Step 1 needs no tools: if the user only wants the list of sentences that need a citation, run it and stop there.
+- The Researchzy tools `search_papers`, `get_paper`, `list_library_papers` and `get_paper_files`, which come with this plugin and need a Researchzy account. **If they are not connected, say that this skill needs them and stop.** Do not suggest papers from memory or from web search. Step 1 needs no tools: if the user only wants the list of sentences that need a citation, run it and stop there.
 - Python 3.10 or newer for the ledger script. Turning a PDF into text needs PyMuPDF or the `pdftotext` program; without either, the script says so, and the grade can be `abstract` at most. Ask before installing anything.
 - Resolve `SKILL_DIR` to the directory containing this `SKILL.md`. Run every command from the user's working directory.
 
@@ -46,7 +46,7 @@ python3 "$SKILL_DIR/scripts/citation_ledger.py" <command> …
 
    A failed call is logged with `--failed "CODE: userMessage"`. Record each paper worth reading from the saved file, by identifier: `candidate t1 citations/results/t1-1.json --doi 10.5555/jss.2019.12` (or `--arxiv`, `--corpus-id`). It starts at grade `metadata`.
 
-5. **Read.** Read [Reading](references/reading.md). Judge a candidate from its abstract when the abstract settles the claim. When the sentence carries a number, a comparison or a causal verb, get the full text: `get_pdf_download` with the `corpusId`, download and verify the file into `citations/pdf/` as the `researchzy` skill describes, then `text citations/pdf/<name>.pdf`, then find the passage. When Researchzy has no PDF, `researchzy-download` (plugin `researchzy-reading`, when installed) can find a lawful copy; otherwise the grade stays `abstract`. Rule out each wrong attachment in Reading's list before calling a paper support.
+5. **Read.** Read [Reading](references/reading.md). Judge a candidate from its abstract when the abstract settles the claim. When the sentence carries a number, a comparison or a causal verb, get the full text: `get_paper_files` with the `corpusId`. When it returns `grobidTeiXml`, convert it with the `researchzy` skill's `tei_text.py` and save its `paper.md` as `citations/texts/<name>.txt`: it already has the `[[page N]]` marks. Otherwise download and verify the PDF into `citations/pdf/` as the `researchzy` skill describes, then `text citations/pdf/<name>.pdf`. Then find the passage. When Researchzy has no PDF, `researchzy-download` (plugin `researchzy-reading`, when installed) can find a lawful copy; otherwise the grade stays `abstract`. Rule out each wrong attachment in Reading's list before calling a paper support.
 
 6. **Verdict.** One per target:
 

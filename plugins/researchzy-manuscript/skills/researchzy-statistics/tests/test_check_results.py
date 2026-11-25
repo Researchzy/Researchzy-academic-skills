@@ -257,6 +257,59 @@ class CheckTests(unittest.TestCase):
         self.assertIn(f"| results.md:7 | -0.61 | mismatch | nearest: ab.interval.low = 0.61 {flipped}", report)
         self.assertEqual(summary["text"], {"matched": 9, "mismatch": 4})
 
+    def test_numbers_without_a_leading_zero(self):
+        self.build()
+        Path("results.md").write_text("Group A differed from group B by 2.31 points (95% CI .61 to 3.98; p = .012, "
+                                      "adjusted p = .036); d = .45.\n", encoding="utf-8")
+        code, summary = self.check("--text", "results.md")
+        report = Path("statistics/check.md").read_text()
+        self.assertIn("| results.md:1 | .61 | matched | ab.interval.low = 0.61 |", report)
+        self.assertIn("| results.md:1 | .012 | matched | ab.p = 0.012 |", report)
+        self.assertIn("| results.md:1 | .45 | mismatch |", report)        # the sentence reports ab: a wrong value
+        self.assertEqual((code, summary["text"]), (1, {"matched": 6, "mismatch": 1}))
+
+    def test_numbers_touching_han_characters_and_chinese_sentence_ends(self):
+        self.build()
+        Path("results.md").write_text("回归系数为0.42，样本量312人。A组20人，B组21人；两组相差2.31分（95% CI为0.61至3.98）。"
+                                      "平均年龄为54.3岁！A组与C组相差1.07分（95% CI为-0.01至2.11）。\n", encoding="utf-8")
+        code, summary = self.check("--text", "results.md")
+        self.assertEqual(code, 1)
+        report = Path("statistics/check.md").read_text()
+        for printed in ("0.42", "312", "54.3"):          # found, though nothing recorded matches them
+            self.assertIn(f"| results.md:1 | {printed} | not_found |", report)
+        self.assertRegex(report, r"\| results.md:1 \| 21 \| matched \| a[bc]\.n\.B = 21 \|")   # ab and ac share n
+        self.assertIn("| results.md:1 | 2.31 | matched | ab.estimate.value = 2.3124 |", report)
+        self.assertIn("| results.md:1 | -0.01 | matched | ac.interval.low = -0.012 |", report)
+        # 。 and ！ end sentences: 54.3 stands alone, while 1.07 shares its sentence with the interval of ac
+        self.assertIn("| results.md:1 | 1.07 | mismatch | nearest: ac.estimate.value = 1.0517 |", report)
+        self.assertEqual(summary["text"], {"not_found": 3, "matched": 9, "mismatch": 1})
+
+    def test_labels_in_chinese_typography(self):
+        self.build()
+        Path("results.md").write_text(
+            "服药组更短（平均差值为-9.1分钟；t（10）＝-11.6，p＜0.001，n＝11对）。\n\n"
+            "A组与B组：p值为0.012，Holm校正后p＝0.036；A组与C组：p值小于0.05，校正后p值＝0.094。\n\n"
+            "另一结果：t（10）＝-11.9，p值＝0.000，N＝12。\n", encoding="utf-8")
+        code, summary = self.check("--text", "results.md")
+        self.assertEqual(code, 1)
+        report = Path("statistics/check.md").read_text()
+        self.assertIn("| results.md:1 | 10 | matched | latency.df = 10 |", report)
+        self.assertIn("| results.md:1 | -11.6 | matched | latency.statistic = -11.632 |", report)
+        self.assertIn("| results.md:1 | 0.001 | matched | latency.p = 4.1e-07 |", report)
+        self.assertIn("| results.md:3 | 0.012 | matched | ab.p = 0.012 |", report)
+        self.assertRegex(report, r"\| results.md:3 \| 0.05 \| matched \| [^|]+ \(print the exact p-value\) \|")
+        self.assertIn("| results.md:5 | -11.9 | mismatch | nearest: latency.statistic = -11.632 |", report)
+        self.assertIn("| results.md:5 | 0.000 | mismatch |", report)
+        self.assertIn("| results.md:5 | 12 | mismatch | nearest: latency.n.pairs = 11 |", report)
+        self.assertEqual(summary["text"], {"matched": 10, "mismatch": 3})
+
+    def test_chinese_figure_numbers_ordinals_and_dates_are_ignored(self):
+        self.build()
+        Path("results.md").write_text("2024年3月5日起招募被试（见图2、表1和第3节），此前发表6篇论文。\n", encoding="utf-8")
+        code, summary = self.check("--text", "results.md")
+        self.assertEqual((code, summary["text"]), (0, {"not_found": 1}))       # 发表 is not a table
+        self.assertIn("Ignored by rule: 3 figure, table or section number.", Path("statistics/check.md").read_text())
+
     def test_extend_adds_a_title_checks_numbers_and_labels(self):
         rz = load("rz_results", "rz_results_extra")
         rz.record(id="pool", question="Does the drug shorten latency?", family="primary", role="primary",

@@ -26,7 +26,7 @@ Set `checks.novelty` to `{"status": "skipped", "note": "Researchzy is not connec
 
    Log each query when it is run, with the `total` the tool reported, under `checks.novelty.searches`. For the user's own draft, also search their library (`list_library_papers` with `query`): authors often hold a paper they forgot to cite. In referee mode, queries use general terms only: see [Referee mode](referee-mode.md).
 
-3. **Choose the three to five closest works.** A work is close when a reviewer who knows it would ask how the manuscript differs from it. Read each abstract (`get_paper` with `detail: full` when the search result was brief). When the comparison turns on a detail the abstract does not give, read the full text: `get_pdf_download`, or `researchzy-deep-read` (plugin `researchzy-reading`, when installed).
+3. **Choose the three to five closest works.** A work is close when a reviewer who knows it would ask how the manuscript differs from it. Read each abstract (`get_paper` with `detail: full` when the search result was brief). When the comparison turns on a detail the abstract does not give, read the full text: `get_paper_files`, or `researchzy-deep-read` (plugin `researchzy-reading`, when installed).
 
 4. **Compare.** For each closest work record, under `checks.novelty.closest_works`:
 

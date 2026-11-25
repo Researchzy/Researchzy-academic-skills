@@ -1,0 +1,27 @@
+name: researchzy-thesis-audit
+version: 1.0.0
+description: >
+  Audit a whole thesis (LaTeX with its \input and \include files, Markdown or
+  Word) against a declaration file the user confirms: one long form per
+  abbreviation and the list of abbreviations, key numbers in every declared
+  place, table N, figure and table callouts, citations against the reference
+  list, hypotheses in the results and the conclusion, the numbers of the two
+  abstracts, and the identity words and changed numbers of the blind copy.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: drafting or correcting audit.json, its places, roles, key numbers, table N, hypotheses or convention
+      path: references/audit-file.md
+    - condition: running the checks, or a row whose result needs explaining
+      path: references/checks.md
+    - condition: the user has a blind copy, writing authors.json, or reading anonymity.md and blind.md
+      path: references/blind-review.md
+    - condition: presenting failures, leads, manual items and rows not checked to the user
+      path: references/reading-the-report.md
+    - condition: checking the thesis, comparing the abstracts, comparing the full and the blind copy
+      path: scripts/thesis_audit.py
+    - condition: finding identity words in the blind copy
+      path: scripts/check_anonymity.py

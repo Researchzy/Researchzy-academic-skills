@@ -1,0 +1,27 @@
+name: researchzy-thesis-build
+version: 1.0.0
+description: >
+  Assemble a thesis from the user's published papers and chapters inside the
+  school's own Word template or LaTeX class: a record of the school's format
+  rules with quotes checked against its text, a chapter plan, a reuse table,
+  text snapshots that show any change to published chapters, checks of the
+  merged bibliography and the abbreviations, and scripts that measure the
+  .docx and the exported PDF against the recorded rules.
+
+always_load:
+  - SKILL.md
+
+references:
+  on_demand:
+    - condition: turning the school's rules into text, writing rules.json, source categories, conflicts or scanned pages
+      path: references/rules-record.md
+    - condition: the chapter plan, filling a copy of the Word template, keeping citation fields, a school's LaTeX class, the content check
+      path: references/assembling.md
+    - condition: the reuse table and statements, licences and permissions, bridging chapters, front matter, abbreviations, the merged bibliography, the citation style
+      path: references/reuse-and-front-matter.md
+    - condition: reading a row of any check, or deciding what a fail, manual, not_checked or not_stated row asks for
+      path: references/reading-the-checks.md
+    - condition: checking the record's quotes, measuring a .docx or a PDF against the rules, comparing with the template
+      path: scripts/format_check.py
+    - condition: text snapshots before and after assembly, the comparison of published text, duplicate references, abbreviations, a citation style sample
+      path: scripts/thesis_parts.py
