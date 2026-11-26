@@ -1,6 +1,6 @@
 # Connect Researchzy
 
-The `researchzy` skill uses Researchzy through a remote MCP server at `https://app.researchzy.com/mcp`. The other six skills work on files and text you give them, with or without a connection.
+The `researchzy` plugin uses Researchzy through a remote MCP server at `https://app.researchzy.com/mcp`. The other seven plugins work on files and text you give them, with or without a connection. With the plugin installed in Claude Code or Codex, sign in as in [Getting Started](../README.md#2-sign-in-to-researchzy).
 
 Every tool requires sign-in and the scopes it declares: `library.read` for search, paper details, the library and the profile; `library.write` for saving papers, creating collections and adding PDFs to library papers; `pdf.read` for a paper's files (`get_paper_files`: the PDF and its TEI XML). Never put passwords, cookies, access tokens or signing keys in plugin files. OAuth client IDs are public configuration.
 

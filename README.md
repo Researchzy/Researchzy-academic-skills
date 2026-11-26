@@ -32,6 +32,86 @@ Researchzy Academic Skills is **forty-one agent skills for the whole life of a p
 
 > ⭐ **If these skills save you an afternoon, please [star the repository](https://github.com/Researchzy/Researchzy-academic-skills).** Stars help other researchers find it and tell us which skills to build next.
 
+## 🚀 Getting Started
+
+Two steps: install the plugins you want, then sign in to Researchzy if you installed `researchzy`. The other seven plugins need no account and work as soon as they are installed.
+
+### 1. Install
+
+#### Claude Code
+
+In a Claude Code session:
+
+```text
+/plugin marketplace add Researchzy/Researchzy-academic-skills
+/plugin install researchzy-reading@researchzy      # read papers, no account
+/plugin install researchzy-manuscript@researchzy   # check and revise a manuscript, no account
+/plugin install researchzy-evidence@researchzy     # systematic reviews and meta-analysis
+/plugin install researchzy-language@researchzy     # translate and polish, no account
+/plugin install researchzy-thesis@researchzy       # a thesis from proposal to defence
+/plugin install researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
+/plugin install researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
+/plugin install researchzy@researchzy              # search and literature reviews, needs an account
+```
+
+Install the ones you want, then run `/reload-plugins` or start a new session. From a terminal, the same commands are `claude plugin marketplace add Researchzy/Researchzy-academic-skills` and `claude plugin install <plugin>@researchzy`. Ask in plain words, or start a skill by name, for example `/researchzy-manuscript:researchzy-reference-check`.
+
+#### Codex
+
+```sh
+codex plugin marketplace add Researchzy/Researchzy-academic-skills
+codex plugin add researchzy-reading@researchzy      # read papers, no account
+codex plugin add researchzy-manuscript@researchzy   # check and revise a manuscript, no account
+codex plugin add researchzy-evidence@researchzy     # systematic reviews and meta-analysis
+codex plugin add researchzy-language@researchzy     # translate and polish, no account
+codex plugin add researchzy-thesis@researchzy       # a thesis from proposal to defence
+codex plugin add researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
+codex plugin add researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
+codex plugin add researchzy@researchzy              # search and literature reviews, needs an account
+```
+
+Start a new task so Codex loads the skills. Ask in plain words, or start a skill by name, for example `$researchzy-reference-check`.
+
+#### Cursor, Gemini CLI, GitHub Copilot, Antigravity and other Agent Skills hosts
+
+```sh
+npx skills add Researchzy/Researchzy-academic-skills
+```
+
+or, with the [GitHub CLI](https://cli.github.com/) 2.90+:
+
+```sh
+gh skill install Researchzy/Researchzy-academic-skills --all
+gh skill install Researchzy/Researchzy-academic-skills researchzy-rebuttal   # just one skill
+```
+
+These commands install the skills only, not the MCP server. For the `researchzy` skill's search and library, also add the MCP server `https://app.researchzy.com/mcp` to your host and sign in, as in step 2.
+
+### 2. Sign in to Researchzy
+
+Only the `researchzy` plugin needs this. Installing it does not sign you in, and neither Claude Code nor Codex asks you to: the server shows as connected, because it lists its tools without an account, but every tool needs a signed-in account. Sign in once:
+
+| Host | Sign in |
+|---|---|
+| Claude Code | In a session, run `/mcp`, choose `plugin:researchzy:researchzy` (it shows **Auth: not signed in**), then **Authenticate**. Or, from a terminal: `claude mcp login plugin:researchzy:researchzy` |
+| Codex | From a terminal: `codex mcp login researchzy`, then start a new task |
+| Claude, VS Code | Add `https://app.researchzy.com/mcp` as a remote MCP server and sign in when the host asks. [Connection setup](docs/connection.md) has the steps |
+
+A browser page on app.researchzy.com opens. Sign in to your Researchzy account, or choose **Create account** there, approve the access the page lists, and go back to your agent.
+
+- **No browser on that machine** (for example over SSH): add `--no-browser` to the login command, open the link it prints on any device, approve, and paste the address your browser ends up on back into the terminal.
+- **Check the connection:** ask *Show my Researchzy profile.*
+- **Disconnect:** **Connected apps** on your Researchzy **Account** page ends the connection at once.
+- **Other hosts:** sign-in works in Claude Code, Codex, Claude and VS Code. To use another host, [open an issue](https://github.com/Researchzy/Researchzy-academic-skills/issues).
+
+### Requirements
+
+- **Python 3.10+** for the bundled scripts; `pip install -r plugins/researchzy-reading/requirements.txt` adds PyMuPDF for reading PDFs.
+- **Node.js 22+** for `researchzy-download`, plus `pdfplumber` or `pypdf` to verify PDFs.
+- **scipy** (and **statsmodels** for models) for `researchzy-statistics`; **numpy** and **scipy** (and **matplotlib** for plots) for `researchzy-meta-analysis`; **numpy**, **pandas** and **statsmodels** for `researchzy-causal-inference`; a **TeX distribution** with `latexmk` for `researchzy-latex` and `researchzy-slides`; **python-pptx** for PowerPoint slides; Poppler's `pdfinfo` and `pdffonts` for PDF checks. Each skill says what is missing and what it could not check without it.
+- **numpy**, **pandas**, **scipy**, **statsmodels** and **scikit-learn** for `researchzy-psychometrics`, `researchzy-path-models`, `researchzy-text-as-data`, `researchzy-survival` and `researchzy-diagnostic-accuracy`; **semopy** or R with **lavaan** for confirmatory factor analysis (lavaan for invariance); **python-docx** to fill Word forms; **pandoc** for citation samples. A step whose package is missing is reported as not run.
+- A **Researchzy account** for the `researchzy` plugin only; the systematic review and the thesis proposal use it to search Researchzy's index.
+
 ## ✨ Why Researchzy
 
 - 📚 **Real papers, not invented citations.** Search returns real bibliographic records from about 250 million scholarly papers across arXiv, PubMed and open-access literature. The reading skills never turn metadata into full-text claims or page numbers.
@@ -161,63 +241,6 @@ flowchart LR
 ```
 
 Use the whole chain or any single step. With `researchzy` installed, start there and it picks the next skill for you.
-
-## 🚀 Getting Started
-
-### Claude Code
-
-```text
-/plugin marketplace add Researchzy/Researchzy-academic-skills
-/plugin install researchzy-reading@researchzy      # read papers, no account
-/plugin install researchzy-manuscript@researchzy   # check and revise a manuscript, no account
-/plugin install researchzy-evidence@researchzy     # systematic reviews and meta-analysis
-/plugin install researchzy-language@researchzy     # translate and polish, no account
-/plugin install researchzy-thesis@researchzy       # a thesis from proposal to defence
-/plugin install researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
-/plugin install researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
-/plugin install researchzy@researchzy              # search and literature reviews, needs an account
-```
-
-Install the ones you want. After installing `researchzy`, run `/mcp`, choose **researchzy** and sign in to your Researchzy account. Ask in plain words, or start a skill by name, for example `/researchzy-manuscript:researchzy-reference-check`.
-
-### Codex
-
-```sh
-codex plugin marketplace add Researchzy/Researchzy-academic-skills
-codex plugin add researchzy-reading@researchzy      # read papers, no account
-codex plugin add researchzy-manuscript@researchzy   # check and revise a manuscript, no account
-codex plugin add researchzy-evidence@researchzy     # systematic reviews and meta-analysis
-codex plugin add researchzy-language@researchzy     # translate and polish, no account
-codex plugin add researchzy-thesis@researchzy       # a thesis from proposal to defence
-codex plugin add researchzy-social@researchzy       # surveys, scales, path models, interviews, text; no account
-codex plugin add researchzy-clinical@researchzy     # protocols, registries, checklists, survival, diagnostics; no account
-codex plugin add researchzy@researchzy              # search and literature reviews, needs an account
-```
-
-Only `researchzy` asks you to sign in (or run `codex mcp login researchzy`). Start a new task so Codex loads the skills. Ask in plain words, or start a skill by name, for example `$researchzy-reference-check`.
-
-### Cursor, Gemini CLI, GitHub Copilot, Antigravity and other Agent Skills hosts
-
-```sh
-npx skills add Researchzy/Researchzy-academic-skills
-```
-
-or, with the [GitHub CLI](https://cli.github.com/) 2.90+:
-
-```sh
-gh skill install Researchzy/Researchzy-academic-skills --all
-gh skill install Researchzy/Researchzy-academic-skills researchzy-rebuttal   # just one skill
-```
-
-To use the `researchzy` skill's search and library, also add the MCP server `https://app.researchzy.com/mcp` to your host. [Connection setup](docs/connection.md) has the steps for Claude, Claude Code, VS Code and Codex.
-
-### Requirements
-
-- **Python 3.10+** for the bundled scripts; `pip install -r plugins/researchzy-reading/requirements.txt` adds PyMuPDF for reading PDFs.
-- **Node.js 22+** for `researchzy-download`, plus `pdfplumber` or `pypdf` to verify PDFs.
-- **scipy** (and **statsmodels** for models) for `researchzy-statistics`; **numpy** and **scipy** (and **matplotlib** for plots) for `researchzy-meta-analysis`; **numpy**, **pandas** and **statsmodels** for `researchzy-causal-inference`; a **TeX distribution** with `latexmk` for `researchzy-latex` and `researchzy-slides`; **python-pptx** for PowerPoint slides; Poppler's `pdfinfo` and `pdffonts` for PDF checks. Each skill says what is missing and what it could not check without it.
-- **numpy**, **pandas**, **scipy**, **statsmodels** and **scikit-learn** for `researchzy-psychometrics`, `researchzy-path-models`, `researchzy-text-as-data`, `researchzy-survival` and `researchzy-diagnostic-accuracy`; **semopy** or R with **lavaan** for confirmatory factor analysis (lavaan for invariance); **python-docx** to fill Word forms; **pandoc** for citation samples. A step whose package is missing is reported as not run.
-- A **Researchzy account** for the `researchzy` plugin only; the systematic review and the thesis proposal use it to search Researchzy's index.
 
 ## 💡 Example Prompts
 
